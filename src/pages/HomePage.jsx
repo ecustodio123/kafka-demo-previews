@@ -9,7 +9,7 @@ const publishedProjects = [
     image: '/client-work/surevia.png',
     description:
       'Sitio corporativo para comunicar gestion de riesgos de carga, coberturas y respaldo operativo con una presencia seria y clara.',
-    result: 'Proyecto publicado para presentar una propuesta especializada y facilitar contacto comercial.',
+    result: 'Proyecto publicado para explicar el servicio y facilitar contacto comercial.',
   },
   {
     name: 'Cafe Siniestro',
@@ -40,9 +40,9 @@ export function HomePage() {
             <Badge>Kafka Studio</Badge>
             <h1>Disenamos sitios web que ayudan a negocios reales a verse mejor y vender con mas confianza.</h1>
             <p>
-              Creamos landing pages, sitios corporativos e interfaces web con foco en diseno,
-              estructura, responsive, WhatsApp, SEO base y publicacion. Aqui puedes ver algunos
-              proyectos ya publicados para clientes de Kafka.
+              Creamos landing pages, sitios corporativos e interfaces web con diseno claro,
+              responsive, WhatsApp, SEO base y publicacion. Aqui puedes ver algunos proyectos ya
+              publicados para clientes de Kafka.
             </p>
             <div className="home-hero__actions">
               <a className="button button--primary" href="#clientes">
@@ -98,7 +98,7 @@ export function HomePage() {
             <span>Clientes publicados</span>
             <h2>Proyectos reales que ya estan online</h2>
             <p>
-              Estos trabajos muestran cómo convertimos una idea comercial en una web clara,
+              Estos trabajos muestran como convertimos una idea comercial en una web clara,
               responsive y lista para compartir con clientes.
             </p>
           </div>

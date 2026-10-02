@@ -5,11 +5,10 @@ export function TestimonialsSection({ clientName }) {
     <section className="section section--quote">
       <Container>
         <blockquote>
-          “Hola, sabemos que estuviste interesado. Te preparamos un pequeno adelanto visual de
-          como podria verse tu web con Kafka. No es una version final, sino una muestra rapida de
-          estilo, estructura y direccion visual.”
+          “Preparamos esta vista para mostrar una posible direccion de contenido, estilo y
+          experiencia. Si el enfoque encaja, el siguiente paso es definir alcance, tiempos y precio.”
         </blockquote>
-        <p>Mensaje comercial para {clientName}</p>
+        <p>Nota preparada para {clientName}</p>
       </Container>
     </section>
   )

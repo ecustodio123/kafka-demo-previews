@@ -11,10 +11,10 @@ export function ServicesSection({ services, heading }) {
       <Container>
         <SectionHeading
           eyebrow={heading?.eyebrow ?? 'Servicios principales'}
-          title={heading?.title ?? 'Una estructura pensada para explicar y convertir'}
+          title={heading?.title ?? 'Servicios claros para elegir sin vueltas'}
           description={
             heading?.description ??
-            'Cada bloque puede adaptarse al lenguaje real del negocio cuando avancemos a la propuesta final.'
+            'Informacion breve, fotos utiles y llamados a la accion para que el visitante pueda consultar rapido.'
           }
         />
         <div className={isCarousel ? 'services-carousel' : 'services-grid'}>

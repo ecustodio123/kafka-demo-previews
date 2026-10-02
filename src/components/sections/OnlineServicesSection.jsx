@@ -18,7 +18,7 @@ export function OnlineServicesSection({ onlineServices }) {
           {onlineServices.items.map((item) => (
             <article className="online-card" key={item}>
               <span>{item}</span>
-              <p>Espacio visual preparado para una futura etapa, sin prometer backend activo.</p>
+              <p>Una opcion pensada para orientar al cliente antes de conversar con el equipo.</p>
             </article>
           ))}
         </div>

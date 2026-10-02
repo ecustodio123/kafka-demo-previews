@@ -10,6 +10,7 @@ import { OnlineServicesSection } from '../components/sections/OnlineServicesSect
 import { OccasionsSection } from '../components/sections/OccasionsSection'
 import { PhotoCarouselSection } from '../components/sections/PhotoCarouselSection'
 import { ProcessSection } from '../components/sections/ProcessSection'
+import { PromoModal } from '../components/sections/PromoModal'
 import { ServicesSection } from '../components/sections/ServicesSection'
 import { TeamSection } from '../components/sections/TeamSection'
 import { TestimonialsSection } from '../components/sections/TestimonialsSection'
@@ -19,6 +20,7 @@ import { WhatsAppSection } from '../components/sections/WhatsAppSection'
 export function MockupPage({ mockup }) {
   return (
     <MockupShell mockup={mockup}>
+      <PromoModal promo={mockup.optionalSections?.promo} slug={mockup.slug} />
       <HeroSection preview={mockup} />
       <AboutSection about={mockup.about} />
       <PhotoCarouselSection gallery={mockup.gallery} />

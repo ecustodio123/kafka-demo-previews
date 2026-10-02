@@ -5,9 +5,9 @@ export function MockupFooter({ mockup }) {
     <footer className="preview-footer">
       <Container className="preview-footer__inner">
         <p>
-          Mockup preparado para <strong>{mockup.clientName}</strong> por Kafka.
+          Vista preparada para <strong>{mockup.clientName}</strong> por Kafka.
         </p>
-        <a href="/">Volver al showroom</a>
+        <a href="/">Volver a Kafka Pages</a>
       </Container>
     </footer>
   )

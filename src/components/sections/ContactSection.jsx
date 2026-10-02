@@ -12,13 +12,13 @@ export function ContactSection({ contact }) {
           description={contact.description}
         />
         <aside className="contact-card">
-          <span>Canales sugeridos</span>
+          <span>Canales de contacto</span>
           <ul>
             {contact.channels.map((channel) => (
               <li key={channel}>{channel}</li>
             ))}
           </ul>
-          <div className="visual-form" aria-label="Formulario visual de contacto">
+          <div className="visual-form" aria-label="Formulario de contacto">
             <div>Nombre</div>
             <div>Servicio de interes</div>
             <div>Mensaje breve</div>

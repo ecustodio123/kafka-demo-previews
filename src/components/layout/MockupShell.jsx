@@ -13,8 +13,7 @@ export function MockupShell({ mockup, children }) {
   return (
     <div className="preview-shell" style={themeStyle}>
       <div className="mockup-banner">
-        Mockup inicial preparado por Kafka. Esta vista es una propuesta visual, no una version
-        final.
+        Vista preparada por Kafka. Contenido, precios e imagenes pueden ajustarse antes de publicar.
       </div>
       <MockupHeader mockup={mockup} />
       <main>{children}</main>

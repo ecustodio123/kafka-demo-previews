@@ -15,7 +15,7 @@ export function WhatsAppSection({ whatsapp }) {
           title={whatsapp.title}
           description={whatsapp.description}
         />
-        <div className="chat-card" aria-label="Conversacion visual de WhatsApp">
+        <div className="chat-card" aria-label="Conversacion de WhatsApp">
           <div className="chat-card__top">
             <span />
             <strong>WhatsApp</strong>
