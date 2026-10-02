@@ -216,6 +216,265 @@ export const mockups = [
     },
   },
   {
+    slug: 'spa-masajes-in-roses',
+    clientName: "Spa masajes in rose's",
+    industry: 'Spa, masajes y bienestar',
+    summary:
+      'Una web visual y relajante para presentar tratamientos, paquetes y reservas rapidas por WhatsApp.',
+    theme: {
+      primary: '#5b3f45',
+      accent: '#d99aa5',
+      background: '#fff7f5',
+      surface: '#ffffff',
+      muted: '#746167',
+    },
+    hero: {
+      eyebrow: 'Demo para spa y masajes',
+      title: 'Un momento de calma, cuidado y bienestar pensado para ti',
+      description:
+        'Una propuesta visual suave y atractiva para mostrar masajes, tratamientos relajantes, paquetes para parejas y reservas directas por WhatsApp.',
+      cta: 'Reservar por WhatsApp',
+      secondaryCta: 'Ver tratamientos',
+      image:
+        'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1400&q=82',
+    },
+    about: {
+      eyebrow: 'Quienes somos',
+      title: 'Un espacio para desconectar, relajarte y renovar energia',
+      description:
+        'Esta base esta pensada para spas pequenos que necesitan verse profesionales desde el celular: fotos calidas, servicios claros y un camino corto hacia la reserva.',
+      stats: [
+        { value: '6', label: 'Tratamientos visibles' },
+        { value: '3', label: 'Pasos para reservar' },
+        { value: 'WA', label: 'Agenda directa' },
+      ],
+      card: {
+        image:
+          'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=82',
+        title: 'Bienestar con una experiencia visual cuidada',
+        description:
+          'Un bloque pensado para transmitir confianza, limpieza y calidez antes de que la persona escriba para reservar.',
+        highlights: ['Ambiente relajante', 'Atencion personalizada', 'Reserva simple'],
+      },
+    },
+    services: [
+      {
+        title: 'Masaje relajante',
+        description:
+          'Ideal para personas que buscan soltar tension, descansar mejor y regalarse una pausa durante la semana.',
+        image:
+          'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80',
+      },
+      {
+        title: 'Masaje descontracturante',
+        description:
+          'Una seccion para explicar alivio muscular, zonas de tension y recomendaciones de duracion.',
+        image:
+          'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80',
+      },
+      {
+        title: 'Spa facial',
+        description:
+          'Bloque visual para limpiezas, hidratacion y cuidado de piel con una presentacion suave y confiable.',
+        image:
+          'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
+      },
+      {
+        title: 'Masaje para parejas',
+        description:
+          'Pensado para vender experiencias de regalo, aniversarios o planes especiales con reserva anticipada.',
+        image:
+          'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=80',
+      },
+      {
+        title: 'Rituales de aromaterapia',
+        description:
+          'Una opcion mas sensorial para diferenciar el spa con aceites, aromas y una experiencia mas memorable.',
+        image:
+          'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80',
+      },
+      {
+        title: 'Gift cards de bienestar',
+        description:
+          'Un bloque comercial para regalos rapidos por cumpleanos, aniversario, agradecimiento o autocuidado.',
+        image:
+          'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80',
+      },
+    ],
+    gallery: {
+      eyebrow: 'Experiencia visual',
+      title: 'Fotos suaves para que el cliente imagine el momento antes de reservar',
+      description:
+        'El carrusel ayuda a vender sensaciones: calma, privacidad, limpieza, detalle y una experiencia que se ve bonita desde el primer scroll.',
+      images: [
+        {
+          src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=82',
+          alt: 'Masaje relajante en sala de spa',
+          label: 'Masajes relajantes',
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1000&q=82',
+          alt: 'Toallas y ambiente de spa',
+          label: 'Ambiente cuidado',
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1000&q=82',
+          alt: 'Tratamiento facial en cabina',
+          label: 'Cuidado facial',
+        },
+        {
+          src: 'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=1000&q=82',
+          alt: 'Tratamiento corporal con piedras calientes',
+          label: 'Rituales corporales',
+        },
+      ],
+    },
+    optionalSections: {
+      occasions: {
+        eyebrow: 'Elige tu momento',
+        title: 'La decision es mas facil cuando se ordena por experiencia',
+        description:
+          'Este bloque ayuda a que el visitante encuentre rapido el motivo de su visita: descanso, regalo, pareja o recuperacion.',
+        items: [
+          {
+            title: 'Para relajarte',
+            description: 'Masajes suaves, aromaterapia y pausas pensadas para bajar el ritmo.',
+            image:
+              'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=82',
+          },
+          {
+            title: 'Para regalar',
+            description: 'Gift cards y paquetes bonitos para sorprender sin complicarse.',
+            image:
+              'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=82',
+          },
+          {
+            title: 'Para parejas',
+            description: 'Experiencias coordinadas para aniversarios, fechas especiales o descanso juntos.',
+            image:
+              'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=82',
+          },
+          {
+            title: 'Para renovar piel',
+            description: 'Faciales, hidratacion y cuidado visible para una experiencia mas completa.',
+            image:
+              'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=82',
+          },
+        ],
+      },
+      featured: {
+        eyebrow: 'Paquetes destacados',
+        title: 'Opciones simples para que reservar se sienta facil',
+        description:
+          'No hace falta ecommerce. Los paquetes orientan la conversacion y hacen que el cliente llegue a WhatsApp con una idea clara.',
+        items: [
+          {
+            title: 'Pausa Rose',
+            price: 'Desde S/ 90',
+            description: 'Masaje relajante de 45 minutos con aromaterapia suave y ambiente privado.',
+            cta: 'Reservar paquete',
+            image:
+              'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=82',
+          },
+          {
+            title: 'Ritual Renovacion',
+            price: 'Desde S/ 140',
+            description: 'Masaje corporal y facial express para una experiencia mas completa.',
+            cta: 'Consultar horarios',
+            image:
+              'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=82',
+          },
+          {
+            title: 'Experiencia en Pareja',
+            price: 'Desde S/ 220',
+            description: 'Una opcion comercial para aniversarios, regalos y fechas especiales.',
+            cta: 'Cotizar experiencia',
+            image:
+              'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=900&q=82',
+          },
+        ],
+      },
+      offer: {
+        eyebrow: 'Tratamientos',
+        title: 'Servicios claros, visuales y faciles de reservar',
+        description:
+          'La seccion puede crecer con precios, duraciones y promociones sin cambiar la estructura general del sitio.',
+      },
+      process: {
+        eyebrow: 'Como reservar',
+        title: 'Agenda tu momento de bienestar en 3 pasos',
+        description:
+          'La web debe hacer que reservar se sienta simple: elegir tratamiento, consultar horario y confirmar por WhatsApp.',
+        steps: [
+          {
+            title: 'Elige tu tratamiento',
+            description: 'Revisa masajes, faciales, paquetes o experiencias para regalo.',
+            image:
+              'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=700&q=82',
+          },
+          {
+            title: 'Consulta disponibilidad',
+            description: 'Escribe por WhatsApp con fecha, horario y cantidad de personas.',
+            image:
+              'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=700&q=82',
+          },
+          {
+            title: 'Confirma tu reserva',
+            description: 'El spa confirma indicaciones, ubicacion, duracion y recomendaciones previas.',
+            image:
+              'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=700&q=82',
+          },
+        ],
+      },
+      whatsapp: {
+        eyebrow: 'Reserva directa',
+        title: 'Un bloque fuerte para convertir visitas en mensajes',
+        description:
+          'Para un spa pequeno, WhatsApp es el canal principal. Este bloque muestra que la reserva puede empezar con una consulta simple.',
+        messages: [
+          { from: 'client', text: 'Hola, quiero reservar un masaje relajante para esta semana.' },
+          { from: 'brand', text: 'Claro. Tenemos horarios por la tarde. Deseas 45 o 60 minutos?' },
+          { from: 'client', text: '60 minutos, de preferencia viernes.' },
+          { from: 'brand', text: 'Perfecto. Te paso horarios disponibles y recomendaciones previas.' },
+        ],
+      },
+      feature: {
+        eyebrow: 'Detalle que vende',
+        title: 'Promociones por temporada, gift cards y paquetes para parejas',
+        description:
+          'La misma base puede adaptarse a campanas como Dia de la Madre, San Valentin, cumpleanos o promociones de mitad de semana.',
+      },
+      faq: [
+        {
+          question: 'Necesito reservar con anticipacion?',
+          answer:
+            'Lo ideal es reservar con anticipacion para asegurar horario, pero la web tambien puede impulsar consultas para disponibilidad del mismo dia.',
+        },
+        {
+          question: 'Puedo regalar un masaje?',
+          answer:
+            'Si. El mockup contempla gift cards o paquetes para regalo, una opcion muy vendible para spas pequenos.',
+        },
+        {
+          question: 'Cuanto dura cada sesion?',
+          answer:
+            'La estructura permite mostrar duraciones referenciales como 30, 45, 60 o 90 minutos segun el tratamiento real.',
+        },
+        {
+          question: 'Atienden parejas?',
+          answer:
+            'Se puede comunicar disponibilidad para experiencias en pareja, previa coordinacion de horarios y capacidad.',
+        },
+      ],
+    },
+    contact: {
+      title: 'Convierte visitas en reservas por WhatsApp',
+      description:
+        'La prioridad es que la persona vea una experiencia bonita, entienda las opciones y escriba para consultar horarios.',
+      channels: ['WhatsApp de reservas', 'Gift cards', 'Ubicacion y horarios'],
+    },
+  },
+  {
     slug: 'lex-vial',
     clientName: 'Lex Vial',
     industry: 'Transito, seguridad vial y transporte terrestre',

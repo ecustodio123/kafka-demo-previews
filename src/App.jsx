@@ -10,7 +10,9 @@ function App() {
     return <HomePage />
   }
 
-  const slug = path.replace('/', '')
+  const slug = path.startsWith('/previews/')
+    ? path.replace('/previews/', '')
+    : path.replace('/', '')
   const mockup = getMockupBySlug(slug)
 
   return mockup ? <MockupPage mockup={mockup} /> : <NotFoundPage />
