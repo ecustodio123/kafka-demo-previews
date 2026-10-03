@@ -207,6 +207,10 @@ p,
   display: grid;
   place-items: center;
   padding: 1rem;
+  --promo-primary: var(--theme-primary, #243a31);
+  --promo-accent: var(--theme-accent, #9b5264);
+  --promo-background: var(--theme-background, #fff8f4);
+  --promo-muted: var(--theme-muted, #715f5b);
 }
 
 .promo-modal__backdrop {
@@ -238,10 +242,10 @@ p,
   width: 36px;
   height: 36px;
   place-items: center;
-  border: 2px solid var(--theme-primary);
+  border: 2px solid var(--promo-primary);
   border-radius: 999px;
   background: white;
-  color: var(--theme-primary);
+  color: var(--promo-primary);
   cursor: pointer;
   font-size: 1.45rem;
   font-weight: 600;
@@ -253,8 +257,8 @@ p,
   min-height: 240px;
   overflow: hidden;
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--theme-accent) 18%, white), white),
-    var(--theme-background);
+    linear-gradient(135deg, color-mix(in srgb, var(--promo-accent) 18%, white), white),
+    var(--promo-background);
 }
 
 .promo-modal__media img {
@@ -271,7 +275,7 @@ p,
   bottom: 1rem;
   border-radius: 999px;
   background: rgb(255 255 255 / 88%);
-  color: var(--theme-primary);
+  color: var(--promo-primary);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -289,7 +293,7 @@ p,
 }
 
 .promo-modal__content > span {
-  color: var(--theme-accent);
+  color: var(--promo-accent);
   font-size: 0.78rem;
   font-weight: 900;
   letter-spacing: 0.08em;
@@ -297,50 +301,74 @@ p,
 }
 
 .promo-modal h2 {
-  color: var(--theme-primary);
+  color: var(--promo-primary);
   font-size: 2.4rem;
   line-height: 0.98;
   text-transform: uppercase;
 }
 
 .promo-modal p {
-  color: var(--theme-muted);
+  color: var(--promo-muted);
   font-size: 1.02rem;
   line-height: 1.55;
 }
 
 .promo-modal label {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
   text-align: left;
 }
 
 .promo-modal label span {
-  color: var(--theme-muted);
+  color: var(--promo-primary);
   font-size: 0.84rem;
   font-weight: 800;
 }
 
 .promo-modal input {
+  display: block;
   width: 100%;
-  min-height: 48px;
-  border: 1.5px solid var(--theme-primary);
+  min-height: 54px;
+  border: 1.5px solid color-mix(in srgb, var(--promo-accent) 42%, var(--promo-primary));
   border-radius: 999px;
-  color: var(--theme-primary);
-  padding: 0.8rem 1rem;
+  background: color-mix(in srgb, var(--promo-background) 56%, white);
+  color: var(--promo-primary);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 88%),
+    0 10px 28px color-mix(in srgb, var(--promo-primary) 8%, transparent);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
   outline: none;
+  padding: 0.95rem 1.15rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.promo-modal input::placeholder {
+  color: color-mix(in srgb, var(--promo-muted) 64%, white);
+  font-weight: 600;
+}
+
+.promo-modal input:hover {
+  border-color: color-mix(in srgb, var(--promo-accent) 65%, var(--promo-primary));
+  background: white;
 }
 
 .promo-modal input:focus {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--theme-accent) 24%, transparent);
+  border-color: var(--promo-accent);
+  background: white;
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--promo-accent) 22%, transparent),
+    0 16px 34px color-mix(in srgb, var(--promo-primary) 10%, transparent);
 }
 
 .promo-modal__cta {
   min-height: 52px;
   border: 0;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--theme-accent) 72%, white);
-  color: var(--theme-primary);
+  background: color-mix(in srgb, var(--promo-accent) 72%, white);
+  color: var(--promo-primary);
   cursor: pointer;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -348,7 +376,7 @@ p,
 }
 
 .promo-modal small {
-  color: var(--theme-muted);
+  color: var(--promo-muted);
   font-size: 0.78rem;
   line-height: 1.45;
 }
