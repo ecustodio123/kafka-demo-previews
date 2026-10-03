@@ -35,7 +35,7 @@ export function PromoModal({ promo, slug }) {
       <div className="promo-modal__backdrop" onClick={closeModal} />
       <form className="promo-modal__card" onSubmit={handleSubmit}>
         <button
-          aria-label="Cerrar promocion"
+          aria-label="Cerrar promoción"
           className="promo-modal__close"
           onClick={closeModal}
           type="button"
@@ -51,7 +51,7 @@ export function PromoModal({ promo, slug }) {
           <h2 id="promo-title">{promo.title}</h2>
           <p>{promo.description}</p>
           <label>
-            <span>Correo electronico</span>
+            <span>Correo electrónico</span>
             <input
               onChange={(event) => setEmail(event.target.value)}
               placeholder={promo.placeholder}

@@ -8,7 +8,7 @@ export function CtaSection({ preview }) {
         <span>Kafka Pages</span>
         <h2>Listo para convertir esta vista en una web publicada?</h2>
         <p>
-          Podemos cerrar el alcance, ordenar el contenido final y preparar una cotizacion con tiempos,
+          Podemos cerrar el alcance, ordenar el contenido final y preparar una cotización con tiempos,
           entregables y precio.
         </p>
         <Button>{preview.hero.cta}</Button>

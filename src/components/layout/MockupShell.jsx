@@ -13,7 +13,7 @@ export function MockupShell({ mockup, children }) {
   return (
     <div className="preview-shell" style={themeStyle}>
       <div className="mockup-banner">
-        Vista preparada por Kafka. Contenido, precios e imagenes pueden ajustarse antes de publicar.
+        Vista preparada por Kafka. Contenido, precios e imágenes pueden ajustarse antes de publicar.
       </div>
       <MockupHeader mockup={mockup} />
       <main>{children}</main>

@@ -1,10 +1,10 @@
 export const mockups = [
   {
-    slug: 'floreria-paulina',
-    clientName: 'Floreria Paulina',
-    industry: 'Floreria, regalos y eventos',
+    slug: 'floreria-kafka',
+    clientName: 'Florería Kafka',
+    industry: 'Florería, regalos y eventos',
     summary:
-      'Flores frescas, regalos memorables y pedidos rapidos por WhatsApp.',
+      'Flores frescas, regalos memorables y pedidos rápidos por WhatsApp.',
     theme: {
       primary: '#273f34',
       accent: '#ee8fa5',
@@ -17,21 +17,21 @@ export const mockups = [
       eyebrow: 'Flores a domicilio en Lima',
       title: 'El regalo perfecto',
       description:
-        'Ramos, cajas de rosas y detalles listos para enviar. Elige por ocasion, agrega una dedicatoria y coordina la entrega por WhatsApp sin vueltas.',
+        'Ramos, cajas de rosas y detalles listos para enviar. Elige por ocasión, agrega una dedicatoria y coordina la entrega por WhatsApp sin vueltas.',
       cta: 'Pedir flores hoy',
-      secondaryCta: 'Ver mas vendidos',
+      secondaryCta: 'Ver más vendidos',
       image:
         'https://images.unsplash.com/photo-1690315478701-33744ce23a61?auto=format&fit=crop&w=1400&q=84',
       quickLinks: ['Cumpleaños', 'Aniversarios', 'Rosas', 'Entrega hoy'],
       trust: [
         { value: 'Hoy', label: 'Entrega disponible' },
         { value: '40+', label: 'Distritos de Lima' },
-        { value: 'Foto', label: 'Confirmacion al entregar' },
+        { value: 'Foto', label: 'Confirmación al entregar' },
       ],
       showcase: {
-        eyebrow: 'Mas pedido hoy',
+        eyebrow: 'Más pedido hoy',
         title: 'Caja Rose',
-        description: 'Rosas frescas, empaque elegante, dedicatoria y coordinacion por WhatsApp.',
+        description: 'Rosas frescas, empaque elegante, dedicatoria y coordinación por WhatsApp.',
         price: 'Desde S/ 135',
         image:
           'https://images.unsplash.com/photo-1690315478701-33744ce23a61?auto=format&fit=crop&w=1200&q=84',
@@ -47,7 +47,7 @@ export const mockups = [
           alt: 'Caja de flores rosadas en tonos suaves',
         },
         {
-          label: 'Linea premium',
+          label: 'Línea premium',
           title: 'Tulipanes',
           price: 'Desde S/ 195',
           image:
@@ -64,28 +64,28 @@ export const mockups = [
         },
       ],
       delivery: {
-        eyebrow: 'Compra facil',
+        eyebrow: 'Compra fácil',
         title: 'Te ayudamos a elegir',
         description:
-          'Si no sabes que enviar, escribenos la ocasion y el distrito. Te sugerimos una opcion bonita y viable para hoy.',
+          'Si no sabes qué enviar, escríbenos la ocasión y el distrito. Te sugerimos una opción bonita y viable para hoy.',
       },
     },
     about: {
-      eyebrow: 'Por que comprar aqui',
+      eyebrow: 'Por qué comprar aquí',
       title: 'Una experiencia pensada para sorprender, no solo para enviar flores',
       description:
         'Cuidamos cada pedido para que el arreglo se vea lindo, llegue a tiempo y lleve el mensaje correcto.',
       stats: [
         { value: 'Hoy', label: 'Entrega disponible' },
         { value: '40+', label: 'Distritos de Lima' },
-        { value: 'WA', label: 'Asesoria rapida' },
+        { value: 'WA', label: 'Asesoría rápida' },
       ],
       card: {
         image:
           'https://images.unsplash.com/photo-1560583035-79c3e11ae176?auto=format&fit=crop&w=900&q=82',
         title: 'Detalles que se sienten personales desde que llegan',
         description:
-          'Flores seleccionadas, presentacion cuidada, tarjeta de dedicatoria y coordinacion clara desde el primer mensaje.',
+          'Flores seleccionadas, presentación cuidada, tarjeta de dedicatoria y coordinación clara desde el primer mensaje.',
         highlights: ['Flores frescas', 'Dedicatoria incluida', 'Foto de entrega'],
       },
     },
@@ -93,51 +93,51 @@ export const mockups = [
       {
         title: 'Ramos personalizados',
         description:
-          'Opciones por color, estilo y presupuesto para regalos de ultimo minuto o pedidos mas cuidados.',
+          'Opciones por color, estilo y presupuesto para regalos de último minuto o pedidos más cuidados.',
         image:
           'https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&fit=crop&w=900&q=80',
       },
       {
         title: 'Cajas de rosas',
         description:
-          'Una presentacion elegante para aniversarios, primeras compras y fechas donde el detalle importa.',
+          'Una presentación elegante para aniversarios, primeras compras y fechas donde el detalle importa.',
         image:
           'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=900&q=80',
       },
       {
         title: 'Flores y regalos',
         description:
-          'Combinaciones con chocolates, globos, peluches o detalles pequenos para aumentar el ticket promedio.',
+          'Combinaciones con chocolates, globos, peluches o detalles pequeños para armar un regalo más completo.',
         image:
           'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=80',
       },
       {
         title: 'Tulipanes y premium',
         description:
-          'Una linea mas aspiracional para que el negocio se vea moderno, elegante y listo para regalos especiales.',
+          'Una línea más elegante para aniversarios, disculpas o regalos que necesitan sentirse especiales.',
         image:
           'https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=80',
       },
       {
-        title: 'Decoracion floral',
+        title: 'Decoración floral',
         description:
-          'Flores para mesas, locales, bodas pequenas, activaciones y pedidos corporativos.',
+          'Flores para mesas, locales, bodas pequeñas, activaciones y pedidos corporativos.',
         image:
           'https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=900&q=80',
       },
       {
-        title: 'Delivery programado',
+        title: 'Envío programado',
         description:
-          'Coordinacion de zonas, horarios, pedidos del mismo dia y confirmacion al finalizar la entrega.',
+          'Coordinación de zonas, horarios, pedidos del mismo día y confirmación al finalizar la entrega.',
         image:
           'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=80',
       },
     ],
     gallery: {
-      eyebrow: 'Inspiracion para regalar',
+      eyebrow: 'Inspiración para regalar',
       title: 'Ideas bonitas para elegir el detalle perfecto',
       description:
-        'Ramos delicados, cajas de rosas, flores de temporada y estilos pensados para cada ocasion.',
+        'Ramos delicados, cajas de rosas, flores de temporada y estilos pensados para cada ocasión.',
       images: [
         {
           src: 'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=1000&q=82',
@@ -157,32 +157,32 @@ export const mockups = [
         {
           src: 'https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1000&q=82',
           alt: 'Tulipanes en tonos rosados',
-          label: 'Linea premium',
+          label: 'Línea premium',
         },
       ],
     },
     optionalSections: {
       promo: {
         eyebrow: 'Bienvenida floral',
-        title: '10% off en tu primer gesto',
+        title: '10% de descuento en tu primer gesto',
         description:
-          'Las flores hablan mejor cuando llegan a tiempo. Dejanos tu correo y recibe un descuento para tu primer pedido.',
-        placeholder: 'Correo electronico',
-        cta: 'Quiero mi 10% off',
-        terms: 'Valido para primera compra. Un uso por cliente.',
-        ribbon: 'Edicion bienvenida',
+          'Las flores hablan mejor cuando llegan a tiempo. Déjanos tu correo y recibe un descuento para tu primer pedido.',
+        placeholder: 'Correo electrónico',
+        cta: 'Quiero mi 10%',
+        terms: 'Válido para primera compra. Un uso por cliente.',
+        ribbon: 'Edición bienvenida',
         image:
           'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=900&q=82',
         imageAlt: 'Caja floral rosada con flores frescas',
       },
       process: {
-        eyebrow: 'Como pedir en 3 pasos',
+        eyebrow: 'Cómo pedir en 3 pasos',
         title: 'De elegir el detalle a confirmar la entrega sin enredos',
         description:
-          'Comprar flores deberia ser rapido, claro y facil de resolver desde el celular.',
+          'Comprar flores debería ser rápido, claro y fácil de resolver desde el celular.',
         steps: [
           {
-            title: 'Elige la ocasion',
+            title: 'Elige la ocasión',
             description: 'Cumpleaños, aniversario, disculpa, sorpresa, condolencias o evento.',
             image:
               'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=700&q=82',
@@ -195,49 +195,49 @@ export const mockups = [
           },
           {
             title: 'Confirma por WhatsApp',
-            description: 'La floreria confirma disponibilidad, pago, delivery y foto de entrega.',
+            description: 'La florería confirma disponibilidad, pago, envío y foto de entrega.',
             image:
               'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=700&q=82',
           },
         ],
       },
       occasions: {
-        eyebrow: 'Elige por ocasion',
-        title: 'Elige segun la ocasion y nosotros te guiamos',
+        eyebrow: 'Elige por ocasión',
+        title: 'Elige según la ocasión y nosotros te guiamos',
         description:
-          'Ordenar por ocasion reduce dudas y convierte mejor: el visitante entra pensando en una persona, no en una categoria tecnica.',
+          'Cada momento pide un detalle distinto. Te ayudamos a elegir flores según la persona, el mensaje y el horario de entrega.',
         items: [
           {
             title: 'Cumpleaños',
             description: 'Ramos alegres, globos, chocolates y dedicatoria lista para sorprender.',
             image:
-              'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=82',
+              'https://images.pexels.com/photos/8534094/pexels-photo-8534094.jpeg',
           },
           {
             title: 'Aniversarios',
-            description: 'Rosas, tulipanes y cajas elegantes para decirlo con mas intencion.',
+            description: 'Rosas, tulipanes y cajas elegantes para decirlo con más intención.',
             image:
               'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=900&q=82',
           },
           {
             title: 'Entrega hoy',
-            description: 'Una entrada rapida para quienes necesitan resolver el regalo el mismo dia.',
+            description: 'Una entrada rápida para quienes necesitan resolver el regalo el mismo día.',
             image:
               'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=900&q=82',
           },
           {
             title: 'Condolencias',
-            description: 'Arreglos sobrios para acompanar con respeto en momentos sensibles.',
+            description: 'Arreglos sobrios para acompañar con respeto en momentos sensibles.',
             image:
               'https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&fit=crop&w=900&q=82',
           },
         ],
       },
       featured: {
-        eyebrow: 'Mas pedidos',
+        eyebrow: 'Más pedidos',
         title: 'Favoritos para enviar hoy o programar con calma',
         description:
-          'Opciones con precio de referencia para elegir rapido y consultar disponibilidad por WhatsApp.',
+          'Opciones con precio de referencia para elegir rápido y consultar disponibilidad por WhatsApp.',
         items: [
           {
             title: 'Ramo Aurora',
@@ -250,7 +250,7 @@ export const mockups = [
           {
             title: 'Caja Rose',
             price: 'Desde S/ 135',
-            description: 'Caja de rosas con presentacion premium, perfecta para una primera impresion.',
+            description: 'Caja de rosas con presentación premium, perfecta para una primera impresión.',
             cta: 'Consultar caja',
             image:
               'https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=900&q=82',
@@ -258,7 +258,7 @@ export const mockups = [
           {
             title: 'Pack Cumple',
             price: 'Desde S/ 159',
-            description: 'Flores, tarjeta y detalle dulce para regalos rapidos con mas valor percibido.',
+            description: 'Flores, tarjeta y detalle dulce para regalos rápidos con más valor percibido.',
             cta: 'Armar pack',
             image:
               'https://images.unsplash.com/photo-1468327768560-75b778cbb551?auto=format&fit=crop&w=900&q=82',
@@ -266,7 +266,7 @@ export const mockups = [
           {
             title: 'Tulipanes Premium',
             price: 'Desde S/ 195',
-            description: 'Una opcion mas elegante para aniversarios, disculpas o gestos especiales.',
+            description: 'Una opción más elegante para aniversarios, disculpas o gestos especiales.',
             cta: 'Ver disponibilidad',
             image:
               'https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=82',
@@ -274,50 +274,50 @@ export const mockups = [
         ],
       },
       whatsapp: {
-        eyebrow: 'Asesoria rapida',
-        title: 'No sabes que elegir? Te recomendamos 3 opciones por WhatsApp',
+        eyebrow: 'Asesoría rápida',
+        title: '¿No sabes qué elegir? Te recomendamos 3 opciones por WhatsApp',
         description:
-          'Cuentanos la ocasion, el distrito y tu presupuesto. Te ayudamos a elegir un detalle bonito sin complicarte.',
+          'Cuéntanos la ocasión, el distrito y tu presupuesto. Te ayudamos a elegir un detalle bonito sin complicarte.',
         messages: [
           { from: 'client', text: 'Hola, quiero enviar flores hoy por cumpleaños.' },
           { from: 'brand', text: 'Claro. Dime distrito, presupuesto y si deseas dedicatoria.' },
           { from: 'client', text: 'Miraflores, aprox S/150, algo alegre.' },
-          { from: 'brand', text: 'Te paso 3 opciones con delivery hoy y tarjeta incluida.' },
+          { from: 'brand', text: 'Te paso 3 opciones con envío hoy y tarjeta incluida.' },
         ],
       },
       feature: {
         eyebrow: 'Confianza para comprar',
-        title: 'Entrega el mismo dia, dedicatoria incluida y foto al finalizar',
+        title: 'Entrega el mismo día, dedicatoria incluida y foto al finalizar',
         description:
-          'Coordinamos el pedido con horario, distrito, mensaje personalizado y confirmacion cuando el arreglo llega a destino.',
+          'Coordinamos el pedido con horario, distrito, mensaje personalizado y confirmación cuando el arreglo llega a destino.',
       },
       faq: [
         {
-          question: 'Puedo pedir flores para hoy?',
+          question: '¿Puedo pedir flores para hoy?',
           answer:
-            'Si. La entrega el mismo dia depende de la disponibilidad, el horario y el distrito.',
+            'Sí. La entrega el mismo día depende de la disponibilidad, el horario y el distrito.',
         },
         {
-          question: 'Incluye dedicatoria?',
+          question: '¿Incluye dedicatoria?',
           answer:
-            'Si. Cada pedido puede llevar una tarjeta personalizada para que el regalo se sienta mas especial.',
+            'Sí. Cada pedido puede llevar una tarjeta personalizada para que el regalo se sienta más especial.',
         },
         {
-          question: 'Como se calcula el delivery?',
+          question: '¿Cómo se calcula el envío?',
           answer:
             'El costo depende del distrito y del horario. Lo confirmamos antes de cerrar el pedido.',
         },
         {
-          question: 'Puedo enviar una foto de referencia?',
+          question: '¿Puedo enviar una foto de referencia?',
           answer:
-            'Si. WhatsApp permite cotizar rapido segun colores, estilo, presupuesto y ocasion.',
+            'Sí. WhatsApp permite cotizar rápido según colores, estilo, presupuesto y ocasión.',
         },
       ],
     },
     contact: {
       title: 'Pide flores sin vueltas',
       description:
-        'Escribenos con la ocasion, el distrito y el horario ideal. Te ayudamos a encontrar una opcion bonita.',
+        'Escríbenos con la ocasión, el distrito y el horario ideal. Te ayudamos a encontrar una opción bonita.',
       channels: ['WhatsApp de pedidos', 'Instagram', 'Zona de entrega'],
     },
   },
@@ -326,7 +326,7 @@ export const mockups = [
     clientName: "Spa masajes in rose's",
     industry: 'Spa, masajes y bienestar',
     summary:
-      'Masajes, rituales y experiencias de bienestar con reserva rapida por WhatsApp.',
+      'Masajes, rituales y experiencias de bienestar con reserva rápida por WhatsApp.',
     theme: {
       primary: '#5b3f45',
       accent: '#d99aa5',
@@ -348,7 +348,7 @@ export const mockups = [
       eyebrow: 'Quienes somos',
       title: 'Un espacio para desconectar, relajarte y renovar energia',
       description:
-        'Creamos una experiencia tranquila desde el primer contacto: tratamientos claros, fotos calidas y reservas faciles desde el celular.',
+        'Creamos una experiencia tranquila desde el primer contacto: tratamientos claros, fotos cálidas y reservas fáciles desde el celular.',
       stats: [
         { value: '6', label: 'Tratamientos visibles' },
         { value: '3', label: 'Pasos para reservar' },
@@ -360,28 +360,28 @@ export const mockups = [
         title: 'Bienestar en un espacio cuidado',
         description:
           'Ambientes limpios, atencion amable y detalles que ayudan a que cada visita se sienta especial.',
-        highlights: ['Ambiente relajante', 'Atencion personalizada', 'Reserva simple'],
+        highlights: ['Ambiente relajante', 'Atención personalizada', 'Reserva simple'],
       },
     },
     services: [
       {
         title: 'Masaje relajante',
         description:
-          'Ideal para personas que buscan soltar tension, descansar mejor y regalarse una pausa durante la semana.',
+          'Ideal para personas que buscan soltar tensión, descansar mejor y regalarse una pausa durante la semana.',
         image:
           'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80',
       },
       {
         title: 'Masaje descontracturante',
         description:
-          'Trabajo enfocado en cuello, espalda y zonas de tension, con la duracion recomendada segun cada caso.',
+          'Trabajo enfocado en cuello, espalda y zonas de tensión, con la duración recomendada según cada caso.',
         image:
           'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=900&q=80',
       },
       {
         title: 'Spa facial',
         description:
-          'Limpieza, hidratacion y cuidado de piel en una sesion suave, ordenada y facil de reservar.',
+          'Limpieza, hidratación y cuidado de piel en una sesión suave, ordenada y fácil de reservar.',
         image:
           'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80',
       },
@@ -395,7 +395,7 @@ export const mockups = [
       {
         title: 'Rituales de aromaterapia',
         description:
-          'Una opcion mas sensorial para diferenciar el spa con aceites, aromas y una experiencia mas memorable.',
+          'Una opción más sensorial para diferenciar el spa con aceites, aromas y una experiencia más memorable.',
         image:
           'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=900&q=80',
       },
@@ -411,7 +411,7 @@ export const mockups = [
       eyebrow: 'La experiencia',
       title: 'Fotos suaves para que el cliente imagine el momento antes de reservar',
       description:
-        'Calma, privacidad, limpieza y cuidado en cada detalle, desde la bienvenida hasta el cierre de la sesion.',
+        'Calma, privacidad, limpieza y cuidado en cada detalle, desde la bienvenida hasta el cierre de la sesión.',
       images: [
         {
           src: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1000&q=82',
@@ -438,9 +438,9 @@ export const mockups = [
     optionalSections: {
       occasions: {
         eyebrow: 'Elige tu momento',
-        title: 'Encuentra la experiencia segun lo que necesitas hoy',
+        title: 'Encuentra la experiencia según lo que necesitas hoy',
         description:
-          'Descanso, regalo, plan en pareja o cuidado facial. Cada opcion lleva a una reserva simple.',
+          'Descanso, regalo, plan en pareja o cuidado facial. Cada opción lleva a una reserva simple.',
         items: [
           {
             title: 'Para relajarte',
@@ -462,7 +462,7 @@ export const mockups = [
           },
           {
             title: 'Para renovar piel',
-            description: 'Faciales, hidratacion y cuidado visible para una experiencia mas completa.',
+            description: 'Faciales, hidratación y cuidado visible para una experiencia más completa.',
             image:
               'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=82',
           },
@@ -470,7 +470,7 @@ export const mockups = [
       },
       featured: {
         eyebrow: 'Paquetes destacados',
-        title: 'Opciones simples para que reservar se sienta facil',
+        title: 'Opciones simples para que reservar se sienta fácil',
         description:
           'Paquetes con precio de referencia para consultar horarios y confirmar disponibilidad por WhatsApp.',
         items: [
@@ -485,7 +485,7 @@ export const mockups = [
           {
             title: 'Ritual Renovacion',
             price: 'Desde S/ 140',
-            description: 'Masaje corporal y facial express para una experiencia mas completa.',
+            description: 'Masaje corporal y facial express para una experiencia más completa.',
             cta: 'Consultar horarios',
             image:
               'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=82',
@@ -502,12 +502,12 @@ export const mockups = [
       },
       offer: {
         eyebrow: 'Tratamientos',
-        title: 'Tratamientos faciles de elegir y reservar',
+        title: 'Tratamientos fáciles de elegir y reservar',
         description:
-          'Elige el tratamiento, revisa la duracion sugerida y consulta el horario disponible.',
+          'Elige el tratamiento, revisa la duración sugerida y consulta el horario disponible.',
       },
       process: {
-        eyebrow: 'Como reservar',
+        eyebrow: 'Cómo reservar',
         title: 'Agenda tu momento de bienestar en 3 pasos',
         description:
           'Reserva sin formularios largos: elige, consulta disponibilidad y confirma por WhatsApp.',
@@ -526,7 +526,7 @@ export const mockups = [
           },
           {
             title: 'Confirma tu reserva',
-            description: 'El spa confirma indicaciones, ubicacion, duracion y recomendaciones previas.',
+            description: 'El spa confirma indicaciones, ubicacion, duración y recomendaciones previas.',
             image:
               'https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=700&q=82',
           },
@@ -536,7 +536,7 @@ export const mockups = [
         eyebrow: 'Reserva directa',
         title: 'Consulta horarios y recibe una respuesta clara',
         description:
-          'Cuentanos que tratamiento deseas, para que fecha y cuantas personas asistirian.',
+          'Cuéntanos que tratamiento deseas, para que fecha y cuantas personas asistirían.',
         messages: [
           { from: 'client', text: 'Hola, quiero reservar un masaje relajante para esta semana.' },
           { from: 'brand', text: 'Claro. Tenemos horarios por la tarde. Deseas 45 o 60 minutos?' },
@@ -557,14 +557,14 @@ export const mockups = [
             'Lo ideal es reservar con anticipacion para asegurar horario. Tambien puedes consultar disponibilidad para el mismo dia.',
         },
         {
-          question: 'Puedo regalar un masaje?',
+          question: '¿Puedo regalar un masaje?',
           answer:
-            'Si. Puedes elegir una gift card o un paquete especial y coordinar la entrega del detalle.',
+            'Sí. Puedes elegir una gift card o un paquete especial y coordinar la entrega del detalle.',
         },
         {
-          question: 'Cuanto dura cada sesion?',
+          question: '¿Cuánto dura cada sesión?',
           answer:
-            'Depende del tratamiento. Las sesiones suelen organizarse en formatos de 30, 45, 60 o 90 minutos.',
+            'Depende del tratamiento. Las sesiónes suelen organizarse en formatos de 30, 45, 60 o 90 minutos.',
         },
         {
           question: 'Atienden parejas?',
@@ -576,7 +576,7 @@ export const mockups = [
     contact: {
       title: 'Convierte visitas en reservas por WhatsApp',
       description:
-        'Escribenos para consultar tratamientos, horarios disponibles y paquetes para regalo.',
+        'Escríbenos para consultar tratamientos, horarios disponibles y paquetes para regalo.',
       channels: ['WhatsApp de reservas', 'Gift cards', 'Ubicacion y horarios'],
     },
   },
@@ -585,7 +585,7 @@ export const mockups = [
     clientName: 'Lex Vial',
     industry: 'Transito, seguridad vial y transporte terrestre',
     summary:
-      'Asesoria tecnico normativa, auditoria, capacitacion y defensa especializada.',
+      'Asesoría técnico normativa, auditoria, capacitación y defensa especializada.',
     theme: {
       primary: '#123f4a',
       accent: '#b68b2f',
@@ -597,7 +597,7 @@ export const mockups = [
       eyebrow: 'Asesoria especializada',
       title: 'Especialistas en transito, seguridad vial y transporte terrestre',
       description:
-        'Asesoria juridica, tecnico normativa y capacitacion especializada para empresas, operadores y profesionales vinculados al transporte terrestre y servicios complementarios.',
+        'Asesoría jurídica, técnico normativa y capacitación especializada para empresas, operadores y profesionales vinculados al transporte terrestre y servicios complementarios.',
       cta: 'Solicitar asesoria',
       secondaryCta: 'Ver servicios',
       image:
@@ -609,7 +609,7 @@ export const mockups = [
       description:
         'Lex Vial acompana a empresas y profesionales del sector transporte en el cumplimiento normativo, prevencion de contingencias y defensa especializada ante procedimientos o fiscalizaciones.',
       insight: {
-        eyebrow: 'Enfoque tecnico normativo',
+        eyebrow: 'Enfoque técnico normativo',
         title: 'Menos incertidumbre frente a obligaciones, fiscalizaciones y sanciones',
         description:
           'Lex Vial no solo atiende contingencias. Tambien ayuda a prevenirlas con criterio legal, documentario y operativo.',
@@ -620,7 +620,7 @@ export const mockups = [
         ],
       },
       stats: [
-        { value: '4', label: 'Lineas de servicio' },
+        { value: '4', label: 'Líneas de servicio' },
         { value: 'B2B', label: 'Enfoque corporativo' },
         { value: 'Legal', label: 'Precision normativa' },
       ],
@@ -659,7 +659,7 @@ export const mockups = [
       eyebrow: 'Imagen corporativa',
       title: 'Fotos que comunican seriedad sin verse pesadas',
       description:
-        'Documentos, reuniones y criterio tecnico para comunicar confianza sin perder sobriedad.',
+        'Documentos, reuniones y criterio técnico para comunicar confianza sin perder sobriedad.',
       images: [
         {
           src: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1000&q=82',
@@ -681,14 +681,14 @@ export const mockups = [
     optionalSections: {
       offer: {
         eyebrow: 'Que ofrecemos',
-        title: 'Servicios para decisiones tecnicas, legales y operativas',
+        title: 'Servicios para decisiones técnicas, legales y operativas',
         description:
-          'Informacion clara, alcance especializado y contacto directo para iniciar una evaluacion.',
+          'Información clara, alcance especializado y contacto directo para iniciar una evaluación.',
         presentation: 'carousel',
       },
       onlineServices: {
-        eyebrow: 'Servicios en linea',
-        title: 'Consultas iniciales con orientacion clara',
+        eyebrow: 'Servicios en línea',
+        title: 'Consultas iniciales con orientación clara',
         description:
           'Canales pensados para recibir consultas, ordenar documentos y orientar el primer analisis del caso.',
         items: ['Consulta normativa', 'Revision documentaria', 'Orientacion inicial'],
@@ -706,25 +706,25 @@ export const mockups = [
             description: 'Interpretacion normativa, auditorias de cumplimiento y prevencion de riesgos.',
           },
           {
-            role: 'Consultor en capacitacion',
+            role: 'Consultor en capacitación',
             description: 'Capacitaciones para equipos operativos, administrativos y de direccion.',
           },
         ],
       },
     },
     contact: {
-      title: 'Solicita una evaluacion inicial',
+      title: 'Solicita una evaluación inicial',
       description:
-        'Cuentanos el contexto de la consulta y el equipo revisara el mejor punto de partida.',
+        'Cuéntanos el contexto de la consulta y el equipo revisara el mejor punto de partida.',
       channels: ['WhatsApp corporativo', 'Formulario de contacto', 'Correo institucional'],
     },
   },
   {
     slug: 'lavado-de-muebles',
     clientName: 'Lavado de Muebles',
-    industry: 'Limpieza de muebles, colchones y tapiceria',
+    industry: 'Limpieza de muebles, colchones y tapicería',
     summary:
-      'Limpieza de muebles, colchones y tapiceria con reservas por WhatsApp.',
+      'Limpieza de muebles, colchones y tapicería con reservas por WhatsApp.',
     theme: {
       primary: '#0f4c81',
       accent: '#38bdf8',
@@ -734,9 +734,9 @@ export const mockups = [
     },
     hero: {
       eyebrow: 'Limpieza a domicilio',
-      title: 'Limpieza profunda para muebles, colchones, alfombras y tapiceria',
+      title: 'Limpieza profunda para muebles, colchones, alfombras y tapicería',
       description:
-        'Recupera la frescura de tus muebles sin moverlos de casa. Envia una foto, recibe una orientacion y agenda tu servicio por WhatsApp.',
+        'Recupera la frescura de tus muebles sin moverlos de casa. Envía una foto, recibe una orientación y agenda tu servicio por WhatsApp.',
       cta: 'Agendar limpieza',
       secondaryCta: 'Ver servicios',
       image:
@@ -744,20 +744,20 @@ export const mockups = [
     },
     about: {
       eyebrow: 'Limpieza a domicilio',
-      title: 'Muebles mas limpios sin moverlos de casa',
+      title: 'Muebles más limpios sin moverlos de casa',
       description:
-        'Atencion a domicilio, cotizacion por foto y recomendaciones claras antes y despues del servicio.',
+        'Atención a domicilio, cotización por foto y recomendaciones claras antes y después del servicio.',
       stats: [
         { value: '5', label: 'Servicios destacados' },
         { value: '3', label: 'Pasos de reserva' },
-        { value: 'WA', label: 'Agenda rapida' },
+        { value: 'WA', label: 'Agenda rápida' },
       ],
       card: {
         image:
           'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=900&q=82',
         title: 'Cotiza con una foto y agenda por WhatsApp',
         description:
-          'Envia fotos del mueble, indica tu distrito y recibe una orientacion rapida para elegir el servicio adecuado.',
+          'Envía fotos del mueble, indica tu distrito y recibe una orientación rápida para elegir el servicio adecuado.',
         highlights: ['A domicilio', 'Cotizacion por foto', 'Indicaciones de secado'],
       },
     },
@@ -765,14 +765,14 @@ export const mockups = [
       {
         title: 'Lavado de muebles',
         description:
-          'Sofas, seccionales y sillones con aspirado, lavado y extraccion para una limpieza mas profunda.',
+          'Sofás, seccionales y sillones con aspirado, lavado y extracción para una limpieza más profunda.',
         image:
           'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80',
       },
       {
         title: 'Lavado de colchones',
         description:
-          'Limpieza profunda para reducir olores, polvo acumulado y sensacion de humedad.',
+          'Limpieza profunda para reducir olores, polvo acumulado y sensación de humedad.',
         image:
           'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=80',
       },
@@ -793,7 +793,7 @@ export const mockups = [
       {
         title: 'Desinfeccion y olores',
         description:
-          'Ideal para hogares con mascotas, ninos o muebles de alto uso.',
+          'Ideal para hogares con mascotas, niños o muebles de alto uso.',
         image:
           'https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?auto=format&fit=crop&w=900&q=80',
       },
@@ -802,7 +802,7 @@ export const mockups = [
       eyebrow: 'Resultados visibles',
       title: 'Resultados visibles desde la primera imagen',
       description:
-        'Servicio a domicilio, superficies renovadas y una sensacion de limpieza que se entiende desde la primera imagen.',
+        'Servicio a domicilio, superficies renovadas y una sensación de limpieza que se entiende desde la primera imagen.',
       images: [
         {
           src: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=82',
@@ -812,7 +812,7 @@ export const mockups = [
         {
           src: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=82',
           alt: 'Dormitorio limpio con cama tendida',
-          label: 'Colchones',
+          label: 'Colchónes',
         },
         {
           src: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1000&q=82',
@@ -823,10 +823,10 @@ export const mockups = [
     },
     optionalSections: {
       beforeAfter: {
-        eyebrow: 'Antes y despues',
+        eyebrow: 'Antes y después',
         title: 'Resultados que se entienden de un vistazo',
         description:
-          'Los resultados visibles ayudan a decidir mas rapido: manchas tratadas, telas renovadas y espacios mas frescos.',
+          'Los resultados visibles ayudan a decidir más rápido: manchas tratadas, telas renovadas y espacios más frescos.',
         items: [
           {
             title: 'Sofa renovado',
@@ -836,9 +836,9 @@ export const mockups = [
               'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1000&q=82',
           },
           {
-            title: 'Colchon mas fresco',
+            title: 'Colchón más fresco',
             description:
-              'Higiene, reduccion de olores y una sensacion de descanso mas limpio.',
+              'Higiene, reducción de olores y una sensación de descanso más limpio.',
             image:
               'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=82',
           },
@@ -846,14 +846,14 @@ export const mockups = [
       },
       featured: {
         eyebrow: 'Paquetes populares',
-        title: 'Paquetes para cotizar rapido',
+        title: 'Paquetes para cotizar rápido',
         description:
-          'Precios de referencia para orientar la conversacion y confirmar el costo final por WhatsApp.',
+          'Precios de referencia para orientar la conversación y confirmar el costo final por WhatsApp.',
         items: [
           {
             title: 'Pack Sofa',
             price: 'Desde S/ 120',
-            description: 'Limpieza de sofa de 2 cuerpos con aspirado, lavado y extraccion.',
+            description: 'Limpieza de sofa de 2 cuerpos con aspirado, lavado y extracción.',
             cta: 'Agendar pack',
             image:
               'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=900&q=82',
@@ -877,7 +877,7 @@ export const mockups = [
         ],
       },
       process: {
-        eyebrow: 'Como trabajamos',
+        eyebrow: 'Cómo trabajamos',
         title: 'Reserva en pocos pasos',
         description:
           'Antes de agendar, resolvemos lo importante: tipo de mueble, distrito, manchas y disponibilidad.',
@@ -889,7 +889,7 @@ export const mockups = [
       },
       whatsapp: {
         eyebrow: 'Cotiza con foto',
-        title: 'Manda una foto del mueble y recibe una orientacion rapida',
+        title: 'Manda una foto del mueble y recibe una orientación rápida',
         description:
           'No necesitas llenar formularios largos. Una foto, tu distrito y un horario tentativo suelen ser suficientes para empezar.',
         messages: [
@@ -901,9 +901,9 @@ export const mockups = [
       },
       faq: [
         {
-          question: 'Cuanto demora el secado?',
+          question: '¿Cuánto demora el secado?',
           answer:
-            'Depende del material y la ventilacion. Al finalizar, te damos recomendaciones para acelerar el secado.',
+            'Depende del material y la ventilación. Al finalizar, te damos recomendaciones para acelerar el secado.',
         },
         {
           question: 'Tengo que mover el mueble antes del servicio?',
@@ -916,21 +916,21 @@ export const mockups = [
             'Muchas manchas mejoran notablemente. El resultado depende del material, la antiguedad y el tipo de mancha.',
         },
         {
-          question: 'Los productos son seguros para ninos o mascotas?',
+          question: '¿Los productos son seguros para niños o mascotas?',
           answer:
-            'Trabajamos con productos adecuados para tapiceria y dejamos recomendaciones de ventilacion despues del servicio.',
+            'Trabajamos con productos adecuados para tapicería y dejamos recomendaciones de ventilación después del servicio.',
         },
         {
-          question: 'Puedo agendar por WhatsApp?',
+          question: '¿Puedo agendar por WhatsApp?',
           answer:
-            'Si. Puedes enviar fotos, distrito y disponibilidad para recibir una orientacion rapida.',
+            'Sí. Puedes enviar fotos, distrito y disponibilidad para recibir una orientación rápida.',
         },
       ],
     },
     contact: {
       title: 'Agenda tu limpieza con informacion clara',
       description:
-        'Envia fotos del mueble, distrito y horario preferido para coordinar la visita.',
+        'Envía fotos del mueble, distrito y horario preferido para coordinar la visita.',
       channels: ['WhatsApp de reservas', 'Formulario de contacto', 'Zonas de atencion'],
     },
   },

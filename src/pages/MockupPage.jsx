@@ -16,8 +16,13 @@ import { TeamSection } from '../components/sections/TeamSection'
 import { TestimonialsSection } from '../components/sections/TestimonialsSection'
 import { FeaturedProductsSection } from '../components/sections/FeaturedProductsSection'
 import { WhatsAppSection } from '../components/sections/WhatsAppSection'
+import { FloristKafkaPage } from './FloristKafkaPage'
 
 export function MockupPage({ mockup }) {
+  if (mockup.slug === 'floreria-kafka') {
+    return <FloristKafkaPage mockup={mockup} />
+  }
+
   return (
     <MockupShell mockup={mockup}>
       <PromoModal promo={mockup.optionalSections?.promo} slug={mockup.slug} />

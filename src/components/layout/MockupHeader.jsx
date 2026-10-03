@@ -11,7 +11,7 @@ export function MockupHeader({ mockup }) {
             <small>Showroom interno</small>
           </span>
         </a>
-        <nav aria-label="Secciones de la pagina">
+        <nav aria-label="Secciones de la página">
           <a href="#galeria">Galeria</a>
           {mockup.optionalSections?.beforeAfter ? <a href="#resultados">Resultados</a> : null}
           {mockup.optionalSections?.occasions ? <a href="#ocasiones">Ocasiones</a> : null}

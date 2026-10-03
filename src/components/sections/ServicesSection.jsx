@@ -14,7 +14,7 @@ export function ServicesSection({ services, heading }) {
           title={heading?.title ?? 'Servicios claros para elegir sin vueltas'}
           description={
             heading?.description ??
-            'Informacion breve, fotos utiles y llamados a la accion para que el visitante pueda consultar rapido.'
+            'Información breve, fotos útiles y llamados a la acción para que el visitante pueda consultar rápido.'
           }
         />
         <div className={isCarousel ? 'services-carousel' : 'services-grid'}>

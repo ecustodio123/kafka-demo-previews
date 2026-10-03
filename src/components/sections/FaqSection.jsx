@@ -11,7 +11,7 @@ export function FaqSection({ faq }) {
       <Container className="faq-layout">
         <SectionHeading
           eyebrow="Preguntas frecuentes"
-          title="Respuestas que reducen friccion antes del contacto"
+          title="Respuestas que reducen fricción antes del contacto"
         />
         <div className="faq-list">
           {faq.map((item) => (

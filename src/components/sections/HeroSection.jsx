@@ -56,7 +56,7 @@ function FloristHeroSection({ preview }) {
             </Button>
           </div>
 
-          <div className="florist-hero__chips" aria-label="Atajos por ocasion">
+          <div className="florist-hero__chips" aria-label="Atajos por ocasión">
             {hero.quickLinks?.map((item) => (
               <span key={item}>{item}</span>
             ))}
