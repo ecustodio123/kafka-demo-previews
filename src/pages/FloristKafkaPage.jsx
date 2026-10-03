@@ -138,6 +138,24 @@ const steps = [
   },
 ]
 
+const socialLinks = [
+  {
+    label: 'Instagram',
+    href: 'https://www.instagram.com/kafka.tech1/',
+    icon: InstagramIcon,
+  },
+  {
+    label: 'Facebook',
+    href: 'https://www.facebook.com/kafkatech',
+    icon: FacebookIcon,
+  },
+  {
+    label: 'WhatsApp',
+    href: 'https://wa.me/51928415698?text=Hola%2C%20quiero%20consultar%20por%20un%20arreglo%20floral.',
+    icon: WhatsAppIcon,
+  },
+]
+
 export function FloristKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
   const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
@@ -156,14 +174,7 @@ export function FloristKafkaPage({ mockup }) {
         <CareAndWhatsApp />
         <FinalCall />
       </main>
-      <footer className="border-t border-[#eadbd5] bg-white px-4 py-8 text-sm text-[#7a6866]">
-        <div className="mx-auto flex w-[min(1160px,calc(100%-8px))] flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <span>Florería Kafka · Flores frescas, detalles y entregas a domicilio en Lima.</span>
-          <a className="font-semibold text-[#243a31] no-underline" href="#whatsapp">
-            Pedir por WhatsApp
-          </a>
-        </div>
-      </footer>
+      <FloristFooter />
     </div>
   )
 }
@@ -573,6 +584,55 @@ function FinalCall() {
   )
 }
 
+function FloristFooter() {
+  return (
+    <footer className="border-t border-[#eadbd5] bg-white px-4 py-10 text-sm text-[#715f5b] sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-[1160px] gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+        <div>
+          <a className="flex items-center gap-3 no-underline" href="#inicio" aria-label="Florería Kafka">
+            <span className="grid size-11 place-items-center rounded-full bg-[#243a31] text-lg font-black text-white">
+              K
+            </span>
+            <span className="grid leading-tight">
+              <strong className="text-base font-black text-[#243a31]">Florería Kafka</strong>
+              <small className="text-sm font-medium text-[#8a6d68]">
+                Flores frescas, detalles y entregas a domicilio en Lima.
+              </small>
+            </span>
+          </a>
+          <p className="mt-4 max-w-xl leading-7">
+            Escríbenos para consultar disponibilidad, coordinar una dedicatoria o pedir ayuda para elegir el arreglo ideal.
+          </p>
+        </div>
+
+        <div className="grid gap-3 sm:justify-items-end">
+          <span className="text-xs font-black uppercase tracking-[0.12em] text-[#9b5264]">
+            Síguenos y cotiza
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {socialLinks.map((item) => {
+              const Icon = item.icon
+
+              return (
+                <a
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#eadbd5] bg-[#fff8f4] px-4 py-2 font-black text-[#243a31] no-underline transition hover:-translate-y-0.5 hover:border-[#9b5264]/35 hover:bg-white"
+                  href={item.href}
+                  key={item.label}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <Icon aria-hidden="true" className="size-4 text-[#9b5264]" />
+                  {item.label}
+                </a>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </footer>
+  )
+}
+
 function SectionIntro({ dark = false, description, eyebrow, title }) {
   return (
     <div className="">
@@ -594,6 +654,35 @@ function SectionIntro({ dark = false, description, eyebrow, title }) {
         {description}
       </p>
     </div>
+  )
+}
+
+function InstagramIcon({ size = 20, ...props }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      width={size}
+      height={size}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      focusable="false"
+      {...props}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none" />
+    </svg>
+  )
+}
+
+function FacebookIcon({ size = 20, ...props }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" width={size} height={size} focusable="false" {...props}>
+      <path d="M14.2 8.45V6.9c0-.75.5-.93.86-.93h2.18V2.13L14.23 2.1c-3.35 0-4.1 2.5-4.1 4.1v2.25H7.5v3.95h2.63V22h4.07v-9.6h2.93l.39-3.95H14.2Z" />
+    </svg>
   )
 }
 
