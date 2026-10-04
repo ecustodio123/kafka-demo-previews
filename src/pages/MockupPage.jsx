@@ -16,11 +16,21 @@ import { TeamSection } from '../components/sections/TeamSection'
 import { TestimonialsSection } from '../components/sections/TestimonialsSection'
 import { FeaturedProductsSection } from '../components/sections/FeaturedProductsSection'
 import { WhatsAppSection } from '../components/sections/WhatsAppSection'
+import { ConciliationKafkaPage } from './ConciliationKafkaPage'
 import { FloristKafkaPage } from './FloristKafkaPage'
+import { PsychologistKafkaPage } from './PsychologistKafkaPage'
 
 export function MockupPage({ mockup }) {
   if (mockup.slug === 'floreria-kafka') {
     return <FloristKafkaPage mockup={mockup} />
+  }
+
+  if (mockup.slug === 'centro-de-conciliacion-kafka') {
+    return <ConciliationKafkaPage mockup={mockup} />
+  }
+
+  if (mockup.slug === 'psicologa-kafka') {
+    return <PsychologistKafkaPage mockup={mockup} />
   }
 
   return (

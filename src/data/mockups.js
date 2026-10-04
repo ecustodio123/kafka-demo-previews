@@ -1,5 +1,77 @@
 export const mockups = [
   {
+    slug: 'psicologa-kafka',
+    clientName: 'Psicóloga Kafka',
+    industry: 'Psicoterapia online',
+    summary:
+      'Acompañamiento psicológico cálido y profesional para adultos.',
+    theme: {
+      primary: '#4c3f6f',
+      accent: '#c4b5fd',
+      background: '#fbf8ff',
+      surface: '#ffffff',
+      muted: '#7d748a',
+    },
+    hero: {
+      eyebrow: 'Psicoterapia para adultos',
+      title: 'Terapia para volver a escucharte',
+      description:
+        'Un espacio terapéutico visual, cálido y enfocado en ansiedad, autoestima y procesos de cambio.',
+      cta: 'Agendar primera sesión',
+    },
+    about: {
+      eyebrow: 'Sobre mí',
+      title: 'Soy Valeria, y mi trabajo es ayudarte a ponerle nombre a lo que te pesa',
+      description:
+        'Psicoterapia individual para adultos que viven ansiedad, autoexigencia, duelos, estrés o dificultades en sus vínculos.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Agenda tu primera sesión',
+      description:
+        'Escribe por WhatsApp para consultar disponibilidad y modalidad de atención.',
+      channels: ['WhatsApp', 'Sesiones online', 'Atención individual'],
+    },
+  },
+  {
+    slug: 'centro-de-conciliacion-kafka',
+    clientName: 'Centro de Conciliación Kafka',
+    industry: 'Conciliación extrajudicial',
+    summary:
+      'Orientación clara para resolver conflictos mediante conciliación extrajudicial.',
+    theme: {
+      primary: '#17211d',
+      accent: '#b8904c',
+      background: '#f6f3ed',
+      surface: '#ffffff',
+      muted: '#68736d',
+    },
+    hero: {
+      eyebrow: 'Centro de conciliación',
+      title: 'Llega a un acuerdo sin alargar el conflicto',
+      description:
+        'Atención clara para revisar tu caso, ordenar documentos e iniciar una conciliación extrajudicial formal.',
+      cta: 'Consultar mi caso',
+    },
+    about: {
+      eyebrow: 'Conciliación extrajudicial',
+      title: 'Una alternativa ordenada para buscar acuerdos',
+      description:
+        'Te orientamos sobre los casos que pueden conciliarse, los documentos necesarios y el siguiente paso.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Consulta tu caso',
+      description:
+        'Escribe una breve descripción del conflicto para recibir orientación inicial.',
+      channels: ['WhatsApp', 'Atención presencial', 'Orientación virtual'],
+    },
+  },
+  {
     slug: 'floreria-kafka',
     clientName: 'Florería Kafka',
     industry: 'Florería, regalos y eventos',

@@ -5,10 +5,13 @@ import {
   CalendarDays,
   Camera,
   Check,
-  ChevronRight,
   MapPin,
+  Minus,
+  Plus,
   Search,
+  ShoppingBag,
   Sparkles,
+  Trash2,
   Truck,
 } from 'lucide-react'
 
@@ -156,9 +159,44 @@ const socialLinks = [
   },
 ]
 
+const whatsappNumber = '51928415698'
+
+function getPriceNumber(price) {
+  return Number(price.replace(/\D/g, ''))
+}
+
+function formatCartMessage(cartItems) {
+  if (!cartItems.length) {
+    return 'Hola! Quiero ayuda para elegir un arreglo floral. Me pueden orientar con opciones disponibles?'
+  }
+
+  const productList = cartItems
+    .map((item, index) => `${index + 1}. ${item.title} - ${item.price}`)
+    .join('\n')
+
+  return `Hola! Quiero terminar mi pedido con estos arreglos:\n\n${productList}\n\nMe ayudan a confirmar disponibilidad, envío y forma de pago?`
+}
+
 export function FloristKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
   const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const [cartItems, setCartItems] = useState([])
+
+  const toggleCartItem = (item) => {
+    setCartItems((currentItems) => {
+      const itemExists = currentItems.some((cartItem) => cartItem.title === item.title)
+
+      if (itemExists) {
+        return currentItems.filter((cartItem) => cartItem.title !== item.title)
+      }
+
+      return [...currentItems, item]
+    })
+  }
+
+  const removeCartItem = (title) => {
+    setCartItems((currentItems) => currentItems.filter((item) => item.title !== title))
+  }
 
   return (
     <div className="min-h-svh bg-[#fff8f4] text-[#243a31]">
@@ -168,7 +206,12 @@ export function FloristKafkaPage({ mockup }) {
       <main>
         <Hero lift={lift} />
         <TrustBar />
-        <BestSellers lift={lift} />
+        <BestSellers cartItems={cartItems} lift={lift} onToggleCartItem={toggleCartItem} />
+        <OrderBuilder
+          cartItems={cartItems}
+          onClearCart={() => setCartItems([])}
+          onRemoveItem={removeCartItem}
+        />
         <Occasions lift={lift} />
         <HowToOrder />
         <CareAndWhatsApp />
@@ -202,6 +245,7 @@ function FloristHeader() {
         </a>
         <nav className="hidden items-center gap-6 text-sm font-bold text-[#6f5b58] lg:flex" aria-label="Secciones">
           <a className="transition hover:text-[#243a31]" href="#catalogo">Más pedidos</a>
+          <a className="transition hover:text-[#243a31]" href="#pedido-whatsapp">Tu pedido</a>
           <a className="transition hover:text-[#243a31]" href="#ocasiones">Ocasiones</a>
           <a className="transition hover:text-[#243a31]" href="#pedido">Cómo pedir</a>
           <a className="transition hover:text-[#243a31]" href="#whatsapp">WhatsApp</a>
@@ -369,48 +413,196 @@ function TrustBar() {
   )
 }
 
-function BestSellers({ lift }) {
+function BestSellers({ cartItems, lift, onToggleCartItem }) {
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-8" id="catalogo">
       <div className="mx-auto max-w-[1160px]">
         <SectionIntro
           eyebrow="Los más elegidos"
           title="Arreglos listos para enviar hoy o programar con calma."
-          description="Un catálogo breve ayuda a decidir rápido: foto clara, precio visible, descuento y una acción directa para consultar disponibilidad."
+          description="Elige tu favorito, agrégalo a tu pedido y envíanos la selección por WhatsApp para confirmar disponibilidad, dedicatoria y entrega."
         />
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {bestSellers.map((item) => (
-            <motion.article
-              className="group overflow-hidden rounded-[1.75rem] border border-[#eadbd5] bg-[#fff8f4] shadow-[0_22px_70px_rgba(80,40,35,0.08)]"
-              key={item.title}
-              {...lift}
-            >
-              <div className="relative overflow-hidden">
-                <img
-                  className="aspect-[4/4.7] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                />
-                <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-black text-[#9b5264] shadow">
-                  {item.tag}
-                </span>
-              </div>
-              <div className="grid gap-3 p-5">
-                <h3 className="text-xl font-black leading-tight text-[#243a31]">{item.title}</h3>
-                <div className="flex items-center gap-2">
-                  <strong className="text-lg text-[#9b5264]">{item.price}</strong>
-                  {item.oldPrice ? <span className="text-sm text-[#9e8c88] line-through">{item.oldPrice}</span> : null}
+          {bestSellers.map((item) => {
+            const isSelected = cartItems.some((cartItem) => cartItem.title === item.title)
+
+            return (
+              <motion.article
+                className={cn(
+                  'group overflow-hidden rounded-[1.75rem] border bg-[#fff8f4] shadow-[0_22px_70px_rgba(80,40,35,0.08)] transition',
+                  isSelected ? 'border-[#9b5264] ring-4 ring-[#f7d7df]' : 'border-[#eadbd5]',
+                )}
+                key={item.title}
+                {...lift}
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    className="aspect-[4/4.7] w-full object-cover transition duration-500 group-hover:scale-[1.025]"
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                  />
+                  <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-black text-[#9b5264] shadow">
+                    {item.tag}
+                  </span>
+                  {isSelected ? (
+                    <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-[#243a31] text-white shadow-lg">
+                      <Check aria-hidden="true" size={18} />
+                    </span>
+                  ) : null}
                 </div>
-                <a className="inline-flex items-center gap-2 text-sm font-black text-[#243a31] no-underline" href="#whatsapp">
-                  Consultar disponibilidad
-                  <ChevronRight aria-hidden="true" size={16} />
-                </a>
-              </div>
-            </motion.article>
-          ))}
+                <div className="grid gap-3 p-5">
+                  <h3 className="text-xl font-black leading-tight text-[#243a31]">{item.title}</h3>
+                  <div className="flex items-center gap-2">
+                    <strong className="text-lg text-[#9b5264]">{item.price}</strong>
+                    {item.oldPrice ? <span className="text-sm text-[#9e8c88] line-through">{item.oldPrice}</span> : null}
+                  </div>
+                  <button
+                    className={cn(
+                      'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9b5264] focus-visible:ring-offset-2',
+                      isSelected
+                        ? 'bg-[#243a31] text-white hover:bg-[#1b2d25]'
+                        : 'border border-[#eadbd5] bg-white text-[#243a31] hover:border-[#9b5264]/35 hover:bg-[#fff0f4]',
+                    )}
+                    onClick={() => onToggleCartItem(item)}
+                    type="button"
+                  >
+                    {isSelected ? <Minus aria-hidden="true" size={16} /> : <Plus aria-hidden="true" size={16} />}
+                    {isSelected ? 'Quitar del pedido' : 'Agregar al pedido'}
+                  </button>
+                </div>
+              </motion.article>
+            )
+          })}
         </div>
+      </div>
+    </section>
+  )
+}
+
+function OrderBuilder({ cartItems, onClearCart, onRemoveItem }) {
+  const hasItems = cartItems.length > 0
+  const cartTotal = cartItems.reduce((total, item) => total + getPriceNumber(item.price), 0)
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(formatCartMessage(cartItems))}`
+
+  return (
+    <section className="bg-white px-4 pb-20 sm:px-6 lg:px-8" id="pedido-whatsapp">
+      <div className="mx-auto mb-10 hidden max-w-[1160px] items-center gap-4 lg:flex" aria-hidden="true">
+        <span className="h-px flex-1 bg-[#eadbd5]" />
+        <span className="inline-flex items-center gap-2 rounded-full border border-[#eadbd5] bg-[#fff8f4] px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#9b5264]">
+          <ShoppingBag size={14} />
+          Tu pedido
+        </span>
+        <span className="h-px flex-1 bg-[#eadbd5]" />
+      </div>
+      <div className="mx-auto grid max-w-[1160px] gap-6 rounded-[2rem] border border-[#eadbd5] bg-[#fff8f4] p-5 shadow-[0_24px_80px_rgba(80,40,35,0.08)] sm:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:p-10">
+        <div className="content-center">
+          <Badge className="border-[#f1c9d3] bg-white text-[#9b5264]">
+            <ShoppingBag aria-hidden="true" size={14} />
+            Pedido por WhatsApp
+          </Badge>
+          <h2 className="mt-5 text-4xl font-black leading-none text-[#243a31] sm:text-5xl">
+            Arma tu pedido y lo cerramos contigo.
+          </h2>
+          <p className="mt-5 text-base leading-8 text-[#715f5b]">
+            Selecciona los arreglos que te gusten. Al terminar, WhatsApp se abrirá con tu pedido listo
+            para confirmar dedicatoria, distrito, horario de entrega y pago.
+          </p>
+          <div className="mt-7 grid gap-3 text-sm font-bold text-[#4c5b50]">
+            {['Resumen automático del pedido', 'Confirmación de stock y delivery', 'Atención directa sin formularios largos'].map((item) => (
+              <div className="flex items-center gap-3" key={item}>
+                <span className="grid size-7 place-items-center rounded-full bg-[#eaf3df] text-[#243a31]">
+                  <Check aria-hidden="true" size={15} />
+                </span>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Card className="rounded-[1.75rem] border-[#eadbd5] bg-white p-4 shadow-[0_20px_60px_rgba(80,40,35,0.08)] sm:p-5">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#eadbd5] pb-4">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.12em] text-[#9b5264]">
+                Tu selección
+              </span>
+              <h3 className="mt-1 text-2xl font-black text-[#243a31]">
+                {hasItems ? `${cartItems.length} arreglo${cartItems.length > 1 ? 's' : ''}` : 'Aún no hay arreglos'}
+              </h3>
+            </div>
+            {hasItems ? (
+              <button
+                className="inline-flex items-center gap-2 rounded-full border border-[#eadbd5] bg-[#fff8f4] px-4 py-2 text-sm font-black text-[#715f5b] transition hover:bg-white"
+                onClick={onClearCart}
+                type="button"
+              >
+                <Trash2 aria-hidden="true" size={15} />
+                Vaciar
+              </button>
+            ) : null}
+          </div>
+
+          {hasItems ? (
+            <div className="mt-4 grid gap-3">
+              {cartItems.map((item) => (
+                <div
+                  className="grid grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-3 rounded-[1.25rem] border border-[#eadbd5] bg-[#fff8f4] p-2"
+                  key={item.title}
+                >
+                  <img
+                    className="size-[72px] rounded-[1rem] object-cover"
+                    src={item.image}
+                    alt=""
+                    aria-hidden="true"
+                  />
+                  <div className="min-w-0">
+                    <strong className="block truncate text-sm font-black text-[#243a31]">{item.title}</strong>
+                    <span className="mt-1 block text-sm font-black text-[#9b5264]">{item.price}</span>
+                  </div>
+                  <button
+                    aria-label={`Quitar ${item.title} del pedido`}
+                    className="grid size-10 place-items-center rounded-full bg-white text-[#715f5b] transition hover:bg-[#fff0f4] hover:text-[#9b5264]"
+                    onClick={() => onRemoveItem(item.title)}
+                    type="button"
+                  >
+                    <Trash2 aria-hidden="true" size={16} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-4 rounded-[1.5rem] border border-dashed border-[#e2c9c2] bg-[#fff8f4] p-6 text-center">
+              <span className="mx-auto grid size-12 place-items-center rounded-full bg-white text-[#9b5264] shadow-sm">
+                <ShoppingBag aria-hidden="true" size={21} />
+              </span>
+              <p className="mt-4 text-sm font-bold leading-6 text-[#715f5b]">
+                Agrega uno o más arreglos del catálogo para enviar tu pedido con el detalle completo.
+              </p>
+            </div>
+          )}
+
+          <div className="mt-5 rounded-[1.35rem] bg-[#243a31] p-4 text-white">
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-sm font-bold text-white/70">Total referencial</span>
+              <strong className="text-2xl font-black">{hasItems ? `Desde S/ ${cartTotal}` : 'Por definir'}</strong>
+            </div>
+            <p className="mt-2 text-xs leading-5 text-white/60">
+              El monto final puede variar según distrito, extras y disponibilidad del día.
+            </p>
+          </div>
+
+          <Button
+            asChild
+            className="mt-4 w-full rounded-full bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]"
+            size="lg"
+          >
+            <a href={hasItems ? whatsappHref : '#catalogo'} rel={hasItems ? 'noreferrer' : undefined} target={hasItems ? '_blank' : undefined}>
+              <WhatsAppIcon aria-hidden="true" className="size-5" />
+              {hasItems ? 'Terminar pedido por WhatsApp' : 'Elegir arreglos'}
+            </a>
+          </Button>
+        </Card>
       </div>
     </section>
   )
