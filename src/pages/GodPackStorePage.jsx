@@ -118,12 +118,12 @@ const featuredProducts = [
 ]
 
 const singles = [
-  { title: 'Charizard EX', game: 'Pokémon', rarity: 'Ultra Rare', price: 'Desde S/ 18' },
-  { title: 'Blue-Eyes White Dragon', game: 'Yu-Gi-Oh!', rarity: 'Secret Rare', price: 'Desde S/ 35' },
-  { title: 'Monkey D. Luffy', game: 'One Piece', rarity: 'Alt Art', price: 'Desde S/ 20' },
-  { title: 'Pikachu Promo', game: 'Pokémon', rarity: 'Promo', price: 'Desde S/ 40' },
-  { title: 'Staples competitivas', game: 'Yu-Gi-Oh!', rarity: 'Deck ready', price: 'Desde S/ 8' },
-  { title: 'Energías y trainers', game: 'Pokémon', rarity: 'Play set', price: 'Desde S/ 3' },
+  { title: 'Charizard EX', game: 'Pokémon', rarity: 'Ultra Rare', price: 'Desde S/ 18', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6lYFLXAVSlsVcuGsbBACWuzHFmV_n_nFQqXTO4uUNStwMAoiXO0X4I6f&s=10' },
+  { title: 'Blue-Eyes White Dragon', game: 'Yu-Gi-Oh!', rarity: 'Secret Rare', price: 'Desde S/ 35', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCtv6WZOU6IAw7YfLPwy0r33AQ-yVWFn3waOMGlW4HF0K1-gx75XAf6BE&s=10' },
+  { title: 'Monkey D. Luffy', game: 'One Piece', rarity: 'Alt Art', price: 'Desde S/ 20', img: 'https://i.ebayimg.com/images/g/ljgAAOSw2eFi2Ysa/s-l1200.jpg' },
+  { title: 'Pikachu Promo', game: 'Pokémon', rarity: 'Promo', price: 'Desde S/ 40', img: 'https://www.pokemoncenter.com/images/DAMRoot/High/10000/P10387_158-85893_01.jpg' },
+  { title: 'Staples competitivas', game: 'Yu-Gi-Oh!', rarity: 'Deck ready', price: 'Desde S/ 8', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuuOeEoP7ZIDBhnEVXpbs5ShTg70r4fuj2dq5DS0s0Mw&s=10' },
+  { title: 'Energías y trainers', game: 'Pokémon', rarity: 'Play set', price: 'Desde S/ 3', img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHDNpWY3AMciKQQT10MRInp-ScpCVgs-UXqo8f-KoCt6TaggYZwfs6rRw&s=10' },
 ]
 
 const steps = [
@@ -690,7 +690,7 @@ function SinglesSection({ lift }) {
                 index % 3 === 2 && 'bg-[#d18f00]',
               )}>
                 <div className="aspect-[3.5/4.5] w-20 rounded-xl border border-white/34 bg-white/12 p-2 shadow-xl">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI6lYFLXAVSlsVcuGsbBACWuzHFmV_n_nFQqXTO4uUNStwMAoiXO0X4I6f&s=10"></img>
+                <img src={card.img} alt={card.title} />
                   {/* <div className="h-full rounded-lg border border-white/24 bg-white/18 p-2">
                     <Star aria-hidden="true" className="mx-auto mt-2" size={20} />
                     <span className="mt-8 block text-center text-[0.58rem] font-black uppercase tracking-[0.12em]">Rare card</span>
