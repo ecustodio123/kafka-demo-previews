@@ -1,27 +1,23 @@
-import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   ArrowRight,
   BadgeCheck,
-  Box,
   CalendarDays,
   Check,
   ChevronRight,
   Clock3,
-  Gem,
   MapPin,
   MessageCircle,
   Package,
   Search,
   ShieldCheck,
-  ShoppingBag,
   Sparkles,
   Star,
   Store,
   Swords,
-  Trash2,
 } from 'lucide-react'
 
+import { WhatsAppOrderFlow } from '../components/commerce/WhatsAppOrderFlow'
 import { Badge, Button, Card } from '../components/ui/primitives'
 import { cn } from '../lib/utils'
 
@@ -164,38 +160,9 @@ const testimonials = [
   },
 ]
 
-function getProductOrderMessage(cartItems) {
-  if (!cartItems.length) {
-    return 'Hola, quiero consultar productos TCG disponibles en Godpackstore. ¿Me ayudan con stock?'
-  }
-
-  const productList = cartItems
-    .map((item, index) => `${index + 1}. ${item.title} - ${item.game} - ${item.price}`)
-    .join('\n')
-
-  return `Hola, quiero consultar disponibilidad de estos productos TCG:\n\n${productList}\n\n¿Me ayudan a confirmar stock, precio final y modalidad de entrega?`
-}
-
 export function GodPackStorePage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
   const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
-  const [cartItems, setCartItems] = useState([])
-
-  const toggleCartItem = (item) => {
-    setCartItems((currentItems) => {
-      const isSelected = currentItems.some((cartItem) => cartItem.title === item.title)
-
-      if (isSelected) {
-        return currentItems.filter((cartItem) => cartItem.title !== item.title)
-      }
-
-      return [...currentItems, item]
-    })
-  }
-
-  const removeCartItem = (title) => {
-    setCartItems((currentItems) => currentItems.filter((item) => item.title !== title))
-  }
 
   return (
     <main className="min-h-svh bg-[#f5f7fb] text-[#09111f]">
@@ -204,15 +171,88 @@ export function GodPackStorePage({ mockup }) {
       <Hero lift={lift} />
       <TrustStrip />
       <CategoriesSection lift={lift} />
-      <FeaturedProductsSection
-        cartItems={cartItems}
-        lift={lift}
-        onToggleCartItem={toggleCartItem}
-      />
-      <ProductOrderSection
-        cartItems={cartItems}
-        onClearCart={() => setCartItems([])}
-        onRemoveItem={removeCartItem}
+      <WhatsAppOrderFlow
+        checkout={{
+          areaConfirmation: 'Importante: entiendo que el envío aplica solo dentro de Lima.',
+          areaLabel: 'Solo Lima Metropolitana',
+          finalButtonLabel: 'Finalizar pedido por WhatsApp',
+          helperText: 'Antes de abrir WhatsApp te pediremos datos de entrega para armar el mensaje completo.',
+          modalTitle: 'Datos para confirmar tu pedido',
+          modalTitleClassName: 'uppercase text-[#09111f]',
+          noticeIconClassName: 'bg-[#ffcf3f] text-[#111827]',
+          noticeText: 'Si prefieres recojo en tienda, indícalo en la referencia o consulta por WhatsApp.',
+          noticeTitle: 'Envíos solo dentro de Lima',
+          paymentNote: 'El pago y el costo de delivery se confirman directamente por WhatsApp.',
+        }}
+        message={{
+          finalQuestion: '¿Me ayudan a confirmar stock, precio final, delivery y forma de pago?',
+          intro: 'Hola, quiero finalizar mi pedido en Godpackstore.',
+        }}
+        order={{
+          badgeClassName: 'border-[#dfe5f1] bg-white text-[#0b63f6]',
+          benefitIconClassName: 'bg-white text-[#0b63f6]',
+          benefits: ['Lista lista para enviar', 'Confirmación de stock real', 'Recojo en tienda o coordinación de envío'],
+          cardClassName: 'border-[#dfe5f1] bg-white',
+          checkoutButtonLabel: 'Terminar pedido por WhatsApp',
+          className: 'bg-white',
+          clearButtonClassName: 'border-[#dfe5f1] bg-white text-[#64748b] hover:text-[#0b63f6]',
+          description: 'En TCG el stock cambia rápido. Selecciona lo que te interesa y completa tus datos para confirmar edición, idioma, precio y entrega. Los envíos se coordinan solo dentro de Lima.',
+          dividerClassName: 'bg-[#dfe5f1]',
+          emptyButtonLabel: 'Elegir productos',
+          emptyClassName: 'border-[#b8c5d9] bg-[#f8fafc]',
+          emptyIconClassName: 'bg-white text-[#0b63f6]',
+          emptyText: 'Agrega productos para enviar una consulta completa por WhatsApp.',
+          emptyTitle: 'Aún no hay productos',
+          eyebrow: 'Consulta de stock',
+          helperClassName: 'text-[#64748b]',
+          id: 'pedido',
+          itemPlural: 'productos',
+          itemSingular: 'producto',
+          lineItemClassName: 'border-[#dfe5f1] bg-[#f8fafc]',
+          pillClassName: 'border-[#dfe5f1] bg-white text-[#0b63f6]',
+          pillLabel: 'Pedido Godpackstore',
+          priceClassName: 'text-[#d18f00]',
+          removeButtonClassName: 'bg-white text-[#64748b] hover:bg-[#edf4ff] hover:text-[#0b63f6]',
+          selectionLabel: 'Tu selección',
+          selectionLabelClassName: 'text-[#0b63f6]',
+          showTotal: false,
+          summaryDividerClassName: 'border-[#dfe5f1]',
+          title: 'Arma tu pedido y confirma disponibilidad.',
+          titleClassName: 'uppercase text-[#09111f]',
+        }}
+        productSection={{
+          actionClassName: 'border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f]',
+          actionHref: '#pedido',
+          actionLabel: 'Ver pedido',
+          className: 'bg-white',
+          containerClassName: 'max-w-[1180px]',
+          description: 'Agrega productos al pedido y consulta stock por WhatsApp antes de comprar. Ideal para confirmar edición, idioma y precio final.',
+          eyebrow: 'Productos destacados',
+          headingClassName: 'uppercase text-[#09111f]',
+          id: 'productos',
+          imageOverlay: 'absolute inset-0 bg-gradient-to-t from-[#050816]/66 via-transparent to-transparent',
+          priceClassName: 'text-[#d18f00]',
+          productTitleClassName: 'text-[#09111f]',
+          selectedBadgeClassName: 'bg-[#0b63f6]',
+          title: 'Packs, cartas y accesorios que se mueven rápido.',
+        }}
+        products={featuredProducts}
+        theme={{
+          accentText: 'text-[#0b63f6]',
+          border: 'border-[#dfe5f1]',
+          cardBackground: 'bg-white',
+          checkoutButton: 'bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]',
+          focusRing: 'focus-visible:ring-[#0b63f6]',
+          heading: 'text-[#09111f]',
+          muted: 'text-[#64748b]',
+          orderBackground: 'bg-[#f5f7fb]',
+          productButtonIdle: 'border border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f] hover:border-[#0b63f6]/35 hover:bg-white',
+          productButtonSelected: 'bg-[#09111f] text-white hover:bg-[#111827]',
+          productCard: 'border-[#dfe5f1] bg-white shadow-[0_20px_70px_rgba(15,23,42,0.08)]',
+          productCardSelected: 'border-[#0b63f6] ring-4 ring-[#dbeafe]',
+          tag: 'text-[#09111f]',
+        }}
+        whatsappNumber={whatsappNumber}
       />
       <SinglesSection lift={lift} />
       <HowToBuySection />
@@ -468,199 +508,6 @@ function CategoriesSection({ lift }) {
             )
           })}
         </div>
-      </div>
-    </section>
-  )
-}
-
-function FeaturedProductsSection({ cartItems, lift, onToggleCartItem }) {
-  return (
-    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8" id="productos">
-      <div className="mx-auto max-w-[1180px]">
-        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-          <SectionIntro
-            eyebrow="Productos destacados"
-            title="Packs, cartas y accesorios que se mueven rápido."
-            description="Agrega productos al pedido y consulta stock por WhatsApp antes de comprar. Ideal para confirmar edición, idioma y precio final."
-          />
-          <Button asChild variant="secondary" className="w-fit rounded-full border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f]">
-            <a href="#pedido">Ver pedido</a>
-          </Button>
-        </div>
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredProducts.map((item) => {
-            const isSelected = cartItems.some((cartItem) => cartItem.title === item.title)
-
-            return (
-              <motion.article
-                className={cn(
-                  'group overflow-hidden rounded-[1.75rem] border bg-white shadow-[0_20px_70px_rgba(15,23,42,0.08)] transition',
-                  isSelected ? 'border-[#0b63f6] ring-4 ring-[#dbeafe]' : 'border-[#dfe5f1]',
-                )}
-                key={item.title}
-                {...lift}
-              >
-                <div className="relative">
-                  <img
-                    className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/66 via-transparent to-transparent" />
-                  <span
-                    className="absolute left-4 top-4 rounded-full px-3 py-1 text-xs font-black text-[#09111f] shadow"
-                    style={{ backgroundColor: item.accent }}
-                  >
-                    {item.tag}
-                  </span>
-                  {isSelected ? (
-                    <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-[#0b63f6] text-white shadow-lg">
-                      <Check aria-hidden="true" className="block shrink-0" size={18} />
-                    </span>
-                  ) : null}
-                </div>
-                <div className="grid gap-3 p-5">
-                  <span className="text-xs font-black uppercase tracking-[0.12em] text-[#0b63f6]">{item.game}</span>
-                  <h3 className="text-lg font-black leading-tight text-[#09111f]">{item.title}</h3>
-                  <p className="text-sm font-black text-[#d18f00]">{item.price}</p>
-                  <button
-                    className={cn(
-                      'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0b63f6] focus-visible:ring-offset-2',
-                      isSelected
-                        ? 'bg-[#09111f] text-white hover:bg-[#111827]'
-                        : 'border border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f] hover:border-[#0b63f6]/35 hover:bg-white',
-                    )}
-                    onClick={() => onToggleCartItem(item)}
-                    type="button"
-                  >
-                    <ShoppingBag aria-hidden="true" className="block shrink-0" size={16} />
-                    {isSelected ? 'Quitar del pedido' : 'Agregar al pedido'}
-                  </button>
-                </div>
-              </motion.article>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function ProductOrderSection({ cartItems, onClearCart, onRemoveItem }) {
-  const hasItems = cartItems.length > 0
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(getProductOrderMessage(cartItems))}`
-
-  return (
-    <section className="bg-white px-4 pb-20 sm:px-6 lg:px-8" id="pedido">
-      <div className="mx-auto mb-10 hidden max-w-[1180px] items-center gap-4 lg:flex" aria-hidden="true">
-        <span className="h-px flex-1 bg-[#dfe5f1]" />
-        <span className="inline-flex items-center gap-2 rounded-full border border-[#dfe5f1] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#0b63f6]">
-          <ShoppingBag aria-hidden="true" className="block shrink-0" size={14} />
-          Pedido Godpackstore
-        </span>
-        <span className="h-px flex-1 bg-[#dfe5f1]" />
-      </div>
-
-      <div className="mx-auto grid max-w-[1180px] gap-6 rounded-[2rem] border border-[#dfe5f1] bg-[#f5f7fb] p-5 shadow-[0_26px_80px_rgba(15,23,42,0.08)] sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10">
-        <div className="content-center">
-          <Badge className="items-center gap-2 border-[#dfe5f1] bg-white text-[#0b63f6]">
-            <Box aria-hidden="true" className="block shrink-0" size={14} />
-            Consulta de stock
-          </Badge>
-          <h2 className="mt-5 text-4xl font-black uppercase leading-none text-[#09111f] sm:text-5xl">
-            Arma tu pedido y confirma disponibilidad.
-          </h2>
-          <p className="mt-5 text-base leading-8 text-[#64748b]">
-            En TCG el stock cambia rápido. Selecciona lo que te interesa y envía una consulta lista por WhatsApp
-            para confirmar edición, idioma, precio y entrega.
-          </p>
-          <div className="mt-7 grid gap-3 text-sm font-bold text-[#475569]">
-            {['Lista lista para enviar', 'Confirmación de stock real', 'Recojo en tienda o coordinación de envío'].map((item) => (
-              <div className="flex items-center gap-3" key={item}>
-                <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white text-[#0b63f6]">
-                  <Check aria-hidden="true" className="block shrink-0" size={15} />
-                </span>
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <Card className="rounded-[1.75rem] border-[#dfe5f1] bg-white p-4 shadow-[0_20px_60px_rgba(15,23,42,0.08)] sm:p-5">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#dfe5f1] pb-4">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.12em] text-[#0b63f6]">
-                Tu selección
-              </span>
-              <h3 className="mt-1 text-2xl font-black text-[#09111f]">
-                {hasItems ? `${cartItems.length} producto${cartItems.length > 1 ? 's' : ''}` : 'Aún no hay productos'}
-              </h3>
-            </div>
-            {hasItems ? (
-              <button
-                className="inline-flex items-center gap-2 rounded-full border border-[#dfe5f1] bg-white px-4 py-2 text-sm font-black text-[#64748b] transition hover:text-[#0b63f6]"
-                onClick={onClearCart}
-                type="button"
-              >
-                <Trash2 aria-hidden="true" className="block shrink-0" size={15} />
-                Vaciar
-              </button>
-            ) : null}
-          </div>
-
-          {hasItems ? (
-            <div className="mt-4 grid gap-3">
-              {cartItems.map((item) => (
-                <div
-                  className="grid grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-3 rounded-[1.25rem] border border-[#dfe5f1] bg-[#f8fafc] p-2"
-                  key={item.title}
-                >
-                  <img
-                    className="size-[72px] rounded-[1rem] object-cover"
-                    src={item.image}
-                    alt=""
-                    aria-hidden="true"
-                  />
-                  <div className="min-w-0">
-                    <strong className="block truncate text-sm font-black text-[#09111f]">{item.title}</strong>
-                    <span className="mt-1 block text-xs font-black uppercase tracking-[0.1em] text-[#0b63f6]">{item.game}</span>
-                    <span className="mt-1 block text-sm font-black text-[#d18f00]">{item.price}</span>
-                  </div>
-                  <button
-                    aria-label={`Quitar ${item.title} del pedido`}
-                    className="grid size-10 place-items-center rounded-full bg-white text-[#64748b] transition hover:bg-[#edf4ff] hover:text-[#0b63f6]"
-                    onClick={() => onRemoveItem(item.title)}
-                    type="button"
-                  >
-                    <Trash2 aria-hidden="true" className="block shrink-0" size={16} />
-                  </button>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-4 rounded-[1.5rem] border border-dashed border-[#b8c5d9] bg-[#f8fafc] p-6 text-center">
-              <span className="mx-auto grid size-12 place-items-center rounded-full bg-white text-[#0b63f6] shadow-sm">
-                <ShoppingBag aria-hidden="true" className="block shrink-0" size={21} />
-              </span>
-              <p className="mt-4 text-sm font-bold leading-6 text-[#64748b]">
-                Agrega productos para enviar una consulta completa por WhatsApp.
-              </p>
-            </div>
-          )}
-
-          <Button
-            asChild
-            className="mt-4 w-full rounded-full bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]"
-            size="lg"
-          >
-            <a href={hasItems ? whatsappHref : '#productos'} rel={hasItems ? 'noreferrer' : undefined} target={hasItems ? '_blank' : undefined}>
-              <WhatsAppIcon aria-hidden="true" className="block size-5 shrink-0" />
-              {hasItems ? 'Consultar pedido por WhatsApp' : 'Elegir productos'}
-            </a>
-          </Button>
-        </Card>
       </div>
     </section>
   )

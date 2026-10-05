@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   ArrowRight,
@@ -10,9 +9,7 @@ import {
   MapPin,
   MessageCircle,
   Microscope,
-  Minus,
   PawPrint,
-  Plus,
   Quote,
   Scissors,
   ShieldCheck,
@@ -20,10 +17,10 @@ import {
   Siren,
   Stethoscope,
   Syringe,
-  Trash2,
   Truck,
 } from 'lucide-react'
 
+import { WhatsAppOrderFlow } from '../components/commerce/WhatsAppOrderFlow'
 import { Badge, Button, Card } from '../components/ui/primitives'
 import { cn } from '../lib/utils'
 
@@ -182,44 +179,9 @@ const socialLinks = [
   },
 ]
 
-function getPriceNumber(price) {
-  const match = price.match(/[\d.]+/)
-
-  return match ? Number(match[0]) : 0
-}
-
-function formatProductOrderMessage(cartItems) {
-  if (!cartItems.length) {
-    return 'Hola, quiero comprar productos para mi mascota. ¿Me pueden ayudar con las opciones disponibles?'
-  }
-
-  const productList = cartItems
-    .map((item, index) => `${index + 1}. ${item.title} - ${item.price}`)
-    .join('\n')
-
-  return `Hola, quiero confirmar mi pedido para mascota:\n\n${productList}\n\n¿Me ayudan con stock, total, delivery y forma de pago?`
-}
-
 export function VeterinaryKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
   const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
-  const [cartItems, setCartItems] = useState([])
-
-  const toggleCartItem = (item) => {
-    setCartItems((currentItems) => {
-      const itemExists = currentItems.some((cartItem) => cartItem.title === item.title)
-
-      if (itemExists) {
-        return currentItems.filter((cartItem) => cartItem.title !== item.title)
-      }
-
-      return [...currentItems, item]
-    })
-  }
-
-  const removeCartItem = (title) => {
-    setCartItems((currentItems) => currentItems.filter((item) => item.title !== title))
-  }
 
   return (
     <main className="min-h-svh bg-[#f4fbf8] text-[#153a35]">
@@ -230,11 +192,86 @@ export function VeterinaryKafkaPage({ mockup }) {
       <ServicesSection lift={lift} />
       <EmergencySection lift={lift} />
       <TeamSection lift={lift} />
-      <PetShopSection cartItems={cartItems} lift={lift} onToggleCartItem={toggleCartItem} />
-      <ProductOrderSection
-        cartItems={cartItems}
-        onClearCart={() => setCartItems([])}
-        onRemoveItem={removeCartItem}
+      <WhatsAppOrderFlow
+        checkout={{
+          areaConfirmation: 'Importante: entiendo que el envío se coordina dentro de Lima según cobertura disponible.',
+          areaLabel: 'Entrega en Lima',
+          finalButtonLabel: 'Finalizar pedido por WhatsApp',
+          helperText: 'Antes de abrir WhatsApp te pediremos datos de entrega para armar el mensaje completo.',
+          modalTitle: 'Datos para confirmar tu pedido',
+          noticeIconClassName: 'bg-[#008576]',
+          noticeText: 'Si prefieres recojo o consulta presencial, indícalo en la referencia.',
+          noticeTitle: 'Confirmamos delivery o recojo por WhatsApp',
+          paymentNote: 'El monto final se confirma por WhatsApp según stock, presentación, delivery y promociones vigentes.',
+        }}
+        message={{
+          finalQuestion: '¿Me ayudan con stock, total, delivery y forma de pago?',
+          intro: 'Hola, quiero confirmar mi pedido para mascota en Veterinaria Kafka.',
+        }}
+        order={{
+          badgeClassName: 'border-[#d7eee7] bg-[#f4fbf8] text-[#008576]',
+          benefitIconClassName: 'bg-[#e3f7f1] text-[#008576]',
+          benefits: ['Pedido listo para enviar', 'Stock confirmado por WhatsApp', 'Recojo o delivery coordinado'],
+          cardClassName: 'border-[#d7eee7] bg-[#f4fbf8]',
+          checkoutButtonLabel: 'Terminar pedido por WhatsApp',
+          className: 'px-4 pb-20 sm:px-6 lg:px-8',
+          clearButtonClassName: 'border-[#d7eee7] bg-white text-[#5e756f] hover:text-[#008576]',
+          description: 'Selecciona productos del pet shop y envíanos la lista. Antes de abrir WhatsApp completamos tus datos para confirmar disponibilidad, delivery y forma de pago.',
+          dividerClassName: 'bg-[#d7eee7]',
+          emptyButtonLabel: 'Elegir productos',
+          emptyClassName: 'border-[#b9ddd4] bg-white',
+          emptyIconClassName: 'bg-[#e3f7f1] text-[#008576]',
+          emptyText: 'Agrega productos para preparar tu pedido y recibir confirmación por WhatsApp.',
+          emptyTitle: 'Aún no hay productos',
+          eyebrow: 'Pedido por WhatsApp',
+          helperClassName: 'text-[#5e756f]',
+          id: 'pedido-productos',
+          itemPlural: 'productos',
+          itemSingular: 'producto',
+          lineItemClassName: 'border-[#d7eee7] bg-white',
+          pillClassName: 'border-[#d7eee7] bg-white text-[#008576]',
+          pillLabel: 'Tu pedido',
+          priceClassName: 'text-[#ff7b1a]',
+          removeButtonClassName: 'bg-[#f4fbf8] text-[#5e756f] hover:bg-[#e3f7f1] hover:text-[#008576]',
+          selectionLabel: 'Tu selección',
+          selectionLabelClassName: 'text-[#008576]',
+          showTotal: true,
+          summaryDividerClassName: 'border-[#d7eee7]',
+          title: 'Arma tu pedido y lo confirmamos por WhatsApp.',
+          titleClassName: 'text-[#153a35]',
+          totalClassName: 'bg-[#153a35]',
+          totalLabel: 'Total referencial',
+          totalNote: 'El monto final se confirma por WhatsApp según presentación, stock, delivery y promociones vigentes.',
+          totalPrefix: 'Desde S/',
+        }}
+        productSection={{
+          className: 'px-4 py-20 sm:px-6 lg:px-8',
+          description: 'Elige lo que necesitas y envíanos tu pedido por WhatsApp. Confirmamos stock, total y delivery antes de cerrar la compra.',
+          eyebrow: 'Pet shop',
+          id: 'productos',
+          priceClassName: 'text-[#ff7b1a]',
+          productTitleClassName: 'text-[#153a35]',
+          selectedBadgeClassName: 'bg-[#008576]',
+          title: 'Productos útiles para el cuidado diario de tu mascota.',
+        }}
+        products={petProducts}
+        theme={{
+          accentText: 'text-[#008576]',
+          border: 'border-[#d7eee7]',
+          cardBackground: 'bg-[#f4fbf8]',
+          checkoutButton: 'bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]',
+          focusRing: 'focus-visible:ring-[#008576]',
+          heading: 'text-[#153a35]',
+          muted: 'text-[#5e756f]',
+          orderBackground: 'bg-white',
+          productButtonIdle: 'border border-[#d7eee7] bg-[#f4fbf8] text-[#153a35] hover:border-[#008576]/35 hover:bg-white',
+          productButtonSelected: 'bg-[#153a35] text-white hover:bg-[#0d2b27]',
+          productCard: 'border-[#d7eee7] bg-white shadow-[0_20px_70px_rgba(0,79,70,0.08)]',
+          productCardSelected: 'border-[#008576] ring-4 ring-[#bceee2]',
+          tag: 'bg-white text-[#008576]',
+          totalBackground: 'bg-[#153a35]',
+        }}
+        whatsappNumber={whatsappNumber}
       />
       <HowItWorks />
       <TestimonialsSection lift={lift} />
@@ -587,199 +624,6 @@ function TeamSection({ lift }) {
             ))}
           </div>
         </div>
-      </div>
-    </section>
-  )
-}
-
-function PetShopSection({ cartItems, lift, onToggleCartItem }) {
-  return (
-    <section className="px-4 py-20 sm:px-6 lg:px-8" id="productos">
-      <div className="mx-auto max-w-[1160px]">
-        <SectionIntro
-          eyebrow="Pet shop"
-          title="Productos útiles para el cuidado diario de tu mascota."
-          description="Elige lo que necesitas y envíanos tu pedido por WhatsApp. Confirmamos stock, total y delivery antes de cerrar la compra."
-        />
-
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {petProducts.map((item) => {
-            const isSelected = cartItems.some((cartItem) => cartItem.title === item.title)
-
-            return (
-              <motion.article
-                className={cn(
-                  'group overflow-hidden rounded-[1.75rem] border bg-white shadow-[0_20px_70px_rgba(0,79,70,0.08)] transition',
-                  isSelected ? 'border-[#008576] ring-4 ring-[#bceee2]' : 'border-[#d7eee7]',
-                )}
-                key={item.title}
-                {...lift}
-              >
-                <div className="relative">
-                  <img
-                    className="aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]"
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                  <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-black text-[#008576] shadow">
-                    {item.tag}
-                  </span>
-                  {isSelected ? (
-                    <span className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-[#008576] text-white shadow-lg">
-                      <Check aria-hidden="true" className="block shrink-0" size={18} />
-                    </span>
-                  ) : null}
-                </div>
-                <div className="grid gap-3 p-5">
-                  <h3 className="text-lg font-black text-[#153a35]">{item.title}</h3>
-                  <p className="text-sm font-black text-[#ff7b1a]">{item.price}</p>
-                  <button
-                    className={cn(
-                      'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#008576] focus-visible:ring-offset-2',
-                      isSelected
-                        ? 'bg-[#153a35] text-white hover:bg-[#0d2b27]'
-                        : 'border border-[#d7eee7] bg-[#f4fbf8] text-[#153a35] hover:border-[#008576]/35 hover:bg-white',
-                    )}
-                    onClick={() => onToggleCartItem(item)}
-                    type="button"
-                  >
-                    {isSelected ? <Minus aria-hidden="true" className="block shrink-0" size={16} /> : <Plus aria-hidden="true" className="block shrink-0" size={16} />}
-                    {isSelected ? 'Quitar del pedido' : 'Agregar al pedido'}
-                  </button>
-                </div>
-              </motion.article>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function ProductOrderSection({ cartItems, onClearCart, onRemoveItem }) {
-  const hasItems = cartItems.length > 0
-  const cartTotal = cartItems.reduce((total, item) => total + getPriceNumber(item.price), 0)
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(formatProductOrderMessage(cartItems))}`
-
-  return (
-    <section className="px-4 pb-20 sm:px-6 lg:px-8" id="pedido-productos">
-      <div className="mx-auto mb-10 hidden max-w-[1160px] items-center gap-4 lg:flex" aria-hidden="true">
-        <span className="h-px flex-1 bg-[#d7eee7]" />
-        <span className="inline-flex items-center gap-2 rounded-full border border-[#d7eee7] bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#008576]">
-          <ShoppingBag aria-hidden="true" className="block shrink-0" size={14} />
-          Tu pedido
-        </span>
-        <span className="h-px flex-1 bg-[#d7eee7]" />
-      </div>
-
-      <div className="mx-auto grid max-w-[1160px] gap-6 rounded-[2rem] border border-[#d7eee7] bg-white p-5 shadow-[0_26px_80px_rgba(0,79,70,0.08)] sm:p-8 lg:grid-cols-[0.85fr_1.15fr] lg:p-10">
-        <div className="content-center">
-          <Badge className="items-center gap-2 border-[#d7eee7] bg-[#f4fbf8] text-[#008576]">
-            <ShoppingBag aria-hidden="true" className="block shrink-0" size={14} />
-            Pedido por WhatsApp
-          </Badge>
-          <h2 className="mt-5 text-4xl font-black leading-none text-[#153a35] sm:text-5xl">
-            Arma tu pedido y lo confirmamos por WhatsApp.
-          </h2>
-          <p className="mt-5 text-base leading-8 text-[#5e756f]">
-            Selecciona productos del pet shop y envíanos la lista. Te confirmamos disponibilidad, promociones,
-            delivery y forma de pago antes de preparar el pedido.
-          </p>
-          <div className="mt-7 grid gap-3 text-sm font-bold text-[#4f6963]">
-            {['Pedido listo para enviar', 'Stock confirmado por WhatsApp', 'Recojo o delivery coordinado'].map((item) => (
-              <div className="flex items-center gap-3" key={item}>
-                <span className="grid size-7 shrink-0 place-items-center rounded-full bg-[#e3f7f1] text-[#008576]">
-                  <Check aria-hidden="true" className="block shrink-0" size={15} />
-                </span>
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <Card className="rounded-[1.75rem] border-[#d7eee7] bg-[#f4fbf8] p-4 shadow-[0_20px_60px_rgba(0,79,70,0.08)] sm:p-5">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#d7eee7] pb-4">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.12em] text-[#008576]">
-                Tu selección
-              </span>
-              <h3 className="mt-1 text-2xl font-black text-[#153a35]">
-                {hasItems ? `${cartItems.length} producto${cartItems.length > 1 ? 's' : ''}` : 'Aún no hay productos'}
-              </h3>
-            </div>
-            {hasItems ? (
-              <button
-                className="inline-flex items-center gap-2 rounded-full border border-[#d7eee7] bg-white px-4 py-2 text-sm font-black text-[#5e756f] transition hover:text-[#008576]"
-                onClick={onClearCart}
-                type="button"
-              >
-                <Trash2 aria-hidden="true" className="block shrink-0" size={15} />
-                Vaciar
-              </button>
-            ) : null}
-          </div>
-
-          {hasItems ? (
-            <div className="mt-4 grid gap-3">
-              {cartItems.map((item) => (
-                <div
-                  className="grid grid-cols-[72px_minmax(0,1fr)_auto] items-center gap-3 rounded-[1.25rem] border border-[#d7eee7] bg-white p-2"
-                  key={item.title}
-                >
-                  <img
-                    className="size-[72px] rounded-[1rem] object-cover"
-                    src={item.image}
-                    alt=""
-                    aria-hidden="true"
-                  />
-                  <div className="min-w-0">
-                    <strong className="block truncate text-sm font-black text-[#153a35]">{item.title}</strong>
-                    <span className="mt-1 block text-sm font-black text-[#ff7b1a]">{item.price}</span>
-                  </div>
-                  <button
-                    aria-label={`Quitar ${item.title} del pedido`}
-                    className="grid size-10 place-items-center rounded-full bg-[#f4fbf8] text-[#5e756f] transition hover:bg-[#e3f7f1] hover:text-[#008576]"
-                    onClick={() => onRemoveItem(item.title)}
-                    type="button"
-                  >
-                    <Trash2 aria-hidden="true" className="block shrink-0" size={16} />
-                  </button>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-4 rounded-[1.5rem] border border-dashed border-[#b9ddd4] bg-white p-6 text-center">
-              <span className="mx-auto grid size-12 place-items-center rounded-full bg-[#e3f7f1] text-[#008576] shadow-sm">
-                <ShoppingBag aria-hidden="true" className="block shrink-0" size={21} />
-              </span>
-              <p className="mt-4 text-sm font-bold leading-6 text-[#5e756f]">
-                Agrega productos para preparar tu pedido y recibir confirmación por WhatsApp.
-              </p>
-            </div>
-          )}
-
-          <div className="mt-5 rounded-[1.35rem] bg-[#153a35] p-4 text-white">
-            <div className="flex items-center justify-between gap-4">
-              <span className="text-sm font-bold text-white/70">Total referencial</span>
-              <strong className="text-2xl font-black">{hasItems ? `Desde S/ ${cartTotal.toFixed(2)}` : 'Por definir'}</strong>
-            </div>
-            <p className="mt-2 text-xs leading-5 text-white/60">
-              El monto final se confirma por WhatsApp según presentación, stock, delivery y promociones vigentes.
-            </p>
-          </div>
-
-          <Button
-            asChild
-            className="mt-4 w-full rounded-full bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]"
-            size="lg"
-          >
-            <a href={hasItems ? whatsappHref : '#productos'} rel={hasItems ? 'noreferrer' : undefined} target={hasItems ? '_blank' : undefined}>
-              <WhatsAppIcon aria-hidden="true" className="block size-5 shrink-0" />
-              {hasItems ? 'Confirmar pedido por WhatsApp' : 'Elegir productos'}
-            </a>
-          </Button>
-        </Card>
       </div>
     </section>
   )
