@@ -1,3 +1,5 @@
+import { lazy } from 'react'
+
 import { MockupShell } from '../components/layout/MockupShell'
 import { AboutSection } from '../components/sections/AboutSection'
 import { BeforeAfterSection } from '../components/sections/BeforeAfterSection'
@@ -16,31 +18,25 @@ import { TeamSection } from '../components/sections/TeamSection'
 import { TestimonialsSection } from '../components/sections/TestimonialsSection'
 import { FeaturedProductsSection } from '../components/sections/FeaturedProductsSection'
 import { WhatsAppSection } from '../components/sections/WhatsAppSection'
-import { ConciliationKafkaPage } from './ConciliationKafkaPage'
-import { FloristKafkaPage } from './FloristKafkaPage'
-import { GodPackStorePage } from './GodPackStorePage'
-import { PsychologistKafkaPage } from './PsychologistKafkaPage'
-import { VeterinaryKafkaPage } from './VeterinaryKafkaPage'
+
+function lazyPage(load, name) {
+  return lazy(() => load().then((m) => ({ default: m[name] })))
+}
+
+// Mockups con página a medida; cada una se descarga solo cuando se abre su link.
+const customPages = {
+  'god-pack-store': lazyPage(() => import('./GodPackStorePage'), 'GodPackStorePage'),
+  'veterinaria-kafka': lazyPage(() => import('./VeterinaryKafkaPage'), 'VeterinaryKafkaPage'),
+  'floreria-kafka': lazyPage(() => import('./FloristKafkaPage'), 'FloristKafkaPage'),
+  'centro-de-conciliacion-kafka': lazyPage(() => import('./ConciliationKafkaPage'), 'ConciliationKafkaPage'),
+  'psicologa-kafka': lazyPage(() => import('./PsychologistKafkaPage'), 'PsychologistKafkaPage'),
+}
 
 export function MockupPage({ mockup }) {
-  if (mockup.slug === 'god-pack-store') {
-    return <GodPackStorePage mockup={mockup} />
-  }
+  const CustomPage = customPages[mockup.slug]
 
-  if (mockup.slug === 'veterinaria-kafka') {
-    return <VeterinaryKafkaPage mockup={mockup} />
-  }
-
-  if (mockup.slug === 'floreria-kafka') {
-    return <FloristKafkaPage mockup={mockup} />
-  }
-
-  if (mockup.slug === 'centro-de-conciliacion-kafka') {
-    return <ConciliationKafkaPage mockup={mockup} />
-  }
-
-  if (mockup.slug === 'psicologa-kafka') {
-    return <PsychologistKafkaPage mockup={mockup} />
+  if (CustomPage) {
+    return <CustomPage mockup={mockup} />
   }
 
   return (

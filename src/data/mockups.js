@@ -5,6 +5,7 @@ export const mockups = [
     industry: 'Tienda TCG',
     summary:
       'Cartas originales, productos sellados, accesorios y preventas de Pokémon, Yu-Gi-Oh!, One Piece y más.',
+    shareImage: 'https://images.pexels.com/photos/37743086/pexels-photo-37743086.png?auto=compress&cs=tinysrgb&w=1200',
     theme: {
       primary: '#050816',
       accent: '#ffcf3f',
@@ -41,6 +42,7 @@ export const mockups = [
     industry: 'Clínica veterinaria y pet care',
     summary:
       'Consultas, vacunas, baños, urgencias y productos para perros y gatos con atención por WhatsApp.',
+    shareImage: 'https://images.pexels.com/photos/6131566/pexels-photo-6131566.jpeg?auto=compress&cs=tinysrgb&w=1200',
     theme: {
       primary: '#00796b',
       accent: '#ff9f43',
@@ -77,6 +79,7 @@ export const mockups = [
     industry: 'Psicoterapia online',
     summary:
       'Acompañamiento psicológico cálido y profesional para adultos.',
+    shareImage: 'https://images.pexels.com/photos/10041258/pexels-photo-10041258.jpeg?auto=compress&cs=tinysrgb&w=1200',
     theme: {
       primary: '#4c3f6f',
       accent: '#c4b5fd',
@@ -113,6 +116,7 @@ export const mockups = [
     industry: 'Conciliación extrajudicial',
     summary:
       'Orientación clara para resolver conflictos mediante conciliación extrajudicial.',
+    shareImage: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=84',
     theme: {
       primary: '#17211d',
       accent: '#b8904c',
@@ -1082,4 +1086,14 @@ export const mockups = [
 
 export function getMockupBySlug(slug) {
   return mockups.find((mockup) => mockup.slug === slug)
+}
+
+// Datos para el <title> y la vista previa al compartir el link (WhatsApp, redes).
+// Lo usa App en el navegador y el plugin de vite.config.js al generar el HTML estático.
+export function getMockupMeta(mockup) {
+  return {
+    title: `${mockup.clientName} | Vista previa por Kafka Studio`,
+    description: mockup.summary,
+    image: mockup.shareImage || mockup.hero?.image || null,
+  }
 }
