@@ -1,5 +1,77 @@
 export const mockups = [
   {
+    slug: 'god-pack-store',
+    clientName: 'Godpackstore',
+    industry: 'Tienda TCG',
+    summary:
+      'Cartas originales, productos sellados, accesorios y preventas de Pokémon, Yu-Gi-Oh!, One Piece y más.',
+    theme: {
+      primary: '#050816',
+      accent: '#ffcf3f',
+      background: '#f5f7fb',
+      surface: '#ffffff',
+      muted: '#64748b',
+    },
+    hero: {
+      eyebrow: 'Tienda TCG en Lima',
+      title: 'TODO PARA TU PRÓXIMA JUGADA.',
+      description:
+        'Consulta stock de sobres, productos sellados, cartas sueltas, accesorios y preventas por WhatsApp.',
+      cta: 'Ver productos',
+    },
+    about: {
+      eyebrow: 'Trading cards',
+      title: 'Una tienda para jugadores y coleccionistas',
+      description:
+        'Encuentra productos originales, novedades, preventas y accesorios para cuidar tu colección.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Consulta stock',
+      description:
+        'Escribe por WhatsApp para confirmar disponibilidad, precio, edición, idioma y modalidad de entrega.',
+      channels: ['WhatsApp', 'Instagram', 'Facebook', 'Tienda física'],
+    },
+  },
+  {
+    slug: 'veterinaria-kafka',
+    clientName: 'Veterinaria Kafka',
+    industry: 'Clínica veterinaria y pet care',
+    summary:
+      'Consultas, vacunas, baños, urgencias y productos para perros y gatos con atención por WhatsApp.',
+    theme: {
+      primary: '#00796b',
+      accent: '#ff9f43',
+      background: '#f4fbf8',
+      surface: '#ffffff',
+      muted: '#5f746f',
+    },
+    hero: {
+      eyebrow: 'Clínica veterinaria en Lima',
+      title: 'Cuidamos a tu mascota como parte de tu familia',
+      description:
+        'Agenda consultas, vacunas, baños y atención prioritaria para perros y gatos. También puedes pedir productos del pet shop por WhatsApp.',
+      cta: 'Agendar cita',
+    },
+    about: {
+      eyebrow: 'Cuidado veterinario',
+      title: 'Atención cercana para cada etapa de su vida',
+      description:
+        'Te orientamos con claridad desde el primer mensaje para elegir la atención adecuada y cuidar mejor su salud.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Agenda una cita',
+      description:
+        'Escribe por WhatsApp para consultar horarios, servicios disponibles, productos y atención para tu mascota.',
+      channels: ['WhatsApp', 'Consulta veterinaria', 'Pet shop', 'Urgencias'],
+    },
+  },
+  {
     slug: 'psicologa-kafka',
     clientName: 'Psicóloga Kafka',
     industry: 'Psicoterapia online',

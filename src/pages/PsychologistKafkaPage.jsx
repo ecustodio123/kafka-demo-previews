@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import {
   ArrowRight,
@@ -23,33 +22,6 @@ const whatsappNumber = '51928415698'
 const whatsappMessage = encodeURIComponent(
   'Hola, quisiera agendar una primera sesión con Psicóloga Kafka. ¿Me pueden compartir disponibilidad?',
 )
-
-const heroSlides = [
-  {
-    eyebrow: 'Respira',
-    title: 'Baja el ruido mental.',
-    description: 'Para cuando la ansiedad, la presión o el cansancio ya están ocupando demasiado espacio.',
-    image:
-      'https://images.pexels.com/photos/8560221/pexels-photo-8560221.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    alt: 'Persona conversando con su terapeuta en un consultorio cálido',
-  },
-  {
-    eyebrow: 'Entiende',
-    title: 'Ponle nombre a lo que te pesa.',
-    description: 'Un espacio para mirar con calma tus emociones, tus vínculos y la forma en que te hablas.',
-    image:
-      'https://images.pexels.com/photos/9064381/pexels-photo-9064381.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    alt: 'Psicóloga tomando notas durante una sesión de terapia',
-  },
-  {
-    eyebrow: 'Avanza',
-    title: 'Vuelve a elegirte con más claridad.',
-    description: 'Terapia para construir herramientas, límites y decisiones que se sientan más tuyas.',
-    image:
-      'https://images.pexels.com/photos/5699449/pexels-photo-5699449.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    alt: 'Sesión terapéutica en una oficina moderna',
-  },
-]
 
 const focusAreas = [
   {
@@ -251,114 +223,61 @@ function PsychHeader({ mockup }) {
 }
 
 function Hero({ lift }) {
-  const [activeSlide, setActiveSlide] = useState(0)
-  const slide = heroSlides[activeSlide]
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length)
-    }, 5200)
-
-    return () => window.clearInterval(timer)
-  }, [])
-
   return (
-    <section className="relative isolate overflow-hidden px-4 py-6 sm:px-6 lg:px-8 lg:py-8" id="inicio">
-      <div
-        className="absolute inset-x-0 top-0 -z-10 h-[42rem] bg-[radial-gradient(circle_at_15%_10%,rgba(196,181,253,0.34),transparent_34%),radial-gradient(circle_at_85%_10%,rgba(251,207,232,0.28),transparent_32%)]"
-        aria-hidden="true"
-      />
-      <div className="mx-auto max-w-[1160px]">
-        <motion.article
-          className="relative min-h-[690px] overflow-hidden rounded-[2rem] border border-white/70 bg-white shadow-[0_30px_90px_rgba(76,63,111,0.14)] sm:min-h-[660px] lg:min-h-[620px] lg:rounded-[2.35rem]"
-          {...lift}
-        >
-          <img
-            className="absolute inset-0 h-full w-full object-cover object-center transition duration-700"
-            src={slide.image}
-            alt={slide.alt}
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(40,34,56,0.86),rgba(76,63,111,0.42)_44%,rgba(40,34,56,0.04)_78%),linear-gradient(0deg,rgba(40,34,56,0.38),transparent_62%)]" />
-
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between gap-3 p-4 sm:p-6">
-            <Badge className="border-white/30 bg-white/88 text-[#6d55a3]">
-              Psicoterapia para adultos
-            </Badge>
-            <span className="hidden rounded-full border border-white/35 bg-white/88 px-4 py-2 text-sm font-black text-[#282238] shadow-lg backdrop-blur sm:inline-flex">
-              Online · 50 min
+    <section className="relative isolate overflow-hidden bg-[#c8b8e4]" id="inicio">
+      <motion.article
+        className="relative overflow-hidden text-[#282238]"
+        {...lift}
+      >
+        <div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_82%_32%,rgba(255,255,255,0.26),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0))]"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto grid min-h-[560px] w-[min(1240px,calc(100%-32px))] gap-8 py-10 sm:py-14 lg:grid-cols-[1fr_420px] lg:items-center lg:py-20">
+          <div className="relative z-10 max-w-[640px]">
+            <span className="text-xs font-black uppercase tracking-[0.16em] text-[#4c3f6f]/70">
+              Psicoterapia online
             </span>
-          </div>
+            <h1 className="mt-5 font-serif text-[2.65rem] font-semibold italic leading-[1.02] tracking-normal text-white sm:text-6xl lg:text-7xl">
+              Psicología positiva para volver a ti.
+            </h1>
+            <p className="mt-6 max-w-xl text-base font-semibold leading-8 text-white/86 sm:text-lg">
+              Reconoce lo que sientes, ordena lo que pesa y empieza un proceso terapéutico acompañado, sin exigirte tener todo resuelto.
+            </p>
 
-          <div className="absolute inset-x-4 bottom-24 grid gap-5 sm:inset-x-6 sm:bottom-24 lg:left-10 lg:right-auto lg:bottom-10 lg:max-w-[660px]">
-            <div className="text-white">
-              <span className="inline-flex rounded-full border border-white/24 bg-white/16 px-4 py-2 text-xs font-black uppercase tracking-[0.14em] backdrop-blur">
-                {slide.eyebrow}
-              </span>
-              <h1 className="mt-5 text-[2.65rem] font-black leading-[0.9] tracking-normal sm:text-6xl lg:text-7xl">
-                Vuelve a sentir calma.
-              </h1>
-              <p className="mt-5 max-w-lg text-base font-semibold leading-7 text-white/82 sm:text-lg">
-                Terapia online para ansiedad, límites y etapas difíciles.
-              </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" className="rounded-full bg-white text-[#4c3f6f] hover:bg-white/90">
-                  <motion.a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} rel="noreferrer" target="_blank" {...lift}>
-                    Agendar primera sesión
-                    <ArrowRight aria-hidden="true" size={18} />
-                  </motion.a>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="secondary"
-                  className="rounded-full border-white/25 bg-white/14 text-white hover:bg-white/18"
-                >
-                  <motion.a href="#trabajamos" {...lift}>
-                    Ver terapias
-                  </motion.a>
-                </Button>
-              </div>
+            <div className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row">
+              <Button asChild size="lg" className="rounded-md bg-white px-7 text-[#4c3f6f] hover:bg-white/90">
+                <motion.a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} rel="noreferrer" target="_blank" {...lift}>
+                  <MessageCircle aria-hidden="true" size={18} />
+                  Hablemos
+                </motion.a>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="secondary"
+                className="rounded-md border-white/25 bg-white/12 px-7 text-white hover:bg-white/18"
+              >
+                <motion.a href="#trabajamos" {...lift}>
+                  Ver terapias
+                  <ArrowRight aria-hidden="true" size={18} />
+                </motion.a>
+              </Button>
             </div>
           </div>
 
-          <div className="absolute bottom-24 right-6 hidden w-[360px] gap-3 lg:grid">
-            {heroSlides.map((item, index) => (
-              <button
-                className={cn(
-                  'rounded-[1.35rem] border p-4 text-left shadow-xl backdrop-blur transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white',
-                  activeSlide === index
-                    ? 'border-white bg-white text-[#282238]'
-                    : 'border-white/18 bg-white/14 text-white hover:bg-white/20',
-                )}
-                key={item.eyebrow}
-                onClick={() => setActiveSlide(index)}
-                type="button"
-              >
-                <span className={cn('text-xs font-black uppercase tracking-[0.14em]', activeSlide === index ? 'text-[#8b6ad6]' : 'text-white/68')}>
-                  0{index + 1} · {item.eyebrow}
-                </span>
-                <strong className="mt-2 block text-xl font-black leading-tight">{item.title}</strong>
-              </button>
-            ))}
+          <div className="relative z-10 mx-auto grid w-full max-w-[390px] place-items-center lg:justify-self-end">
+            <div className="absolute -inset-6 rounded-full bg-white/10 blur-2xl" aria-hidden="true" />
+            <div className="relative grid size-[280px] overflow-hidden rounded-full border-[10px] border-white/76 bg-white/20 shadow-[0_28px_90px_rgba(76,63,111,0.2)] sm:size-[340px] lg:size-[380px]">
+              <img
+                className="size-full object-cover object-[50%_15%]"
+                src="https://images.pexels.com/photos/10041258/pexels-photo-10041258.jpeg?auto=compress&cs=tinysrgb&w=1400"
+                alt="Retrato profesional de la psicóloga Valeria Mendoza"
+              />
+            </div>
           </div>
-
-          <div className="absolute inset-x-4 bottom-[-1px] grid grid-cols-3 gap-2 rounded-t-[1.35rem] border border-white/20 bg-white/16 p-2 backdrop-blur-md lg:hidden">
-            {heroSlides.map((item, index) => (
-              <button
-                className={cn(
-                  'rounded-[1rem] px-3 py-3 text-center text-xs font-black leading-tight transition',
-                  activeSlide === index ? 'bg-white text-[#4c3f6f]' : 'text-white hover:bg-white/14',
-                )}
-                key={item.eyebrow}
-                onClick={() => setActiveSlide(index)}
-                type="button"
-              >
-                {item.eyebrow}
-              </button>
-            ))}
-          </div>
-        </motion.article>
-      </div>
+        </div>
+      </motion.article>
     </section>
   )
 }
@@ -397,7 +316,7 @@ function FocusSelector({ lift }) {
   return (
     <section className="bg-white px-4 pb-16 pt-12 sm:px-6 lg:px-8 lg:pb-20 lg:pt-14" id="trabajamos">
       <div className="mx-auto max-w-[1160px]">
-        <div className="mx-auto max-w-3xl text-center [&_p]:mx-auto">
+        <div className="mx-auto text-center [&_p]:mx-auto">
           <SectionIntro
             eyebrow="Terapias principales"
             title="Empieza por lo que hoy necesita más calma."
@@ -530,7 +449,7 @@ function TestimonialsSection({ lift }) {
   return (
     <section className="border-y border-[#eadff7] bg-[#fbf8ff] px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1160px]">
-        <div className="mx-auto max-w-3xl text-center [&_p]:mx-auto">
+        <div className="mx-auto text-center [&_p]:mx-auto">
           <SectionIntro
             eyebrow="Historias reales, identidad protegida"
             title="Lo que cambia cuando tienes un espacio para escucharte."
@@ -567,7 +486,7 @@ function FirstSessionSection({ lift }) {
   return (
     <section className="bg-white px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1160px]">
-        <div className="mx-auto max-w-3xl text-center [&_p]:mx-auto">
+        <div className="mx-auto text-center [&_p]:mx-auto">
           <SectionIntro
             eyebrow="Tu primera sesión"
             title="Un primer encuentro claro, tranquilo y sin presión."
@@ -658,7 +577,7 @@ function FirstSessionSection({ lift }) {
 function FloatingWhatsApp({ lift }) {
   return (
     <motion.a
-      className="fixed bottom-5 right-5 z-50 grid size-14 place-items-center rounded-full bg-[#25d366] text-white no-underline shadow-[0_18px_45px_rgba(37,211,102,0.34)] transition hover:bg-[#1fbd59] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4c3f6f] focus-visible:ring-offset-2 sm:bottom-6 sm:right-6"
+      className="fixed bottom-5 left-5 z-50 grid size-14 place-items-center rounded-full bg-[#25d366] text-white no-underline shadow-[0_18px_45px_rgba(37,211,102,0.34)] transition hover:bg-[#1fbd59] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4c3f6f] focus-visible:ring-offset-2 sm:bottom-6 sm:left-6"
       href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
       rel="noreferrer"
       target="_blank"

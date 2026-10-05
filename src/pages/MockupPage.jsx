@@ -18,9 +18,19 @@ import { FeaturedProductsSection } from '../components/sections/FeaturedProducts
 import { WhatsAppSection } from '../components/sections/WhatsAppSection'
 import { ConciliationKafkaPage } from './ConciliationKafkaPage'
 import { FloristKafkaPage } from './FloristKafkaPage'
+import { GodPackStorePage } from './GodPackStorePage'
 import { PsychologistKafkaPage } from './PsychologistKafkaPage'
+import { VeterinaryKafkaPage } from './VeterinaryKafkaPage'
 
 export function MockupPage({ mockup }) {
+  if (mockup.slug === 'god-pack-store') {
+    return <GodPackStorePage mockup={mockup} />
+  }
+
+  if (mockup.slug === 'veterinaria-kafka') {
+    return <VeterinaryKafkaPage mockup={mockup} />
+  }
+
   if (mockup.slug === 'floreria-kafka') {
     return <FloristKafkaPage mockup={mockup} />
   }
