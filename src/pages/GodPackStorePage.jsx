@@ -371,9 +371,9 @@ function Hero({ lift }) {
 
           <Card className="absolute bottom-6 left-5 right-5 rounded-[1.75rem] border-white/25 bg-white/92 p-5 shadow-2xl sm:left-auto sm:right-8 sm:w-[390px]">
             <div className="flex items-start gap-3">
-              <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#0b63f6] text-white">
+              {/* <span className="grid size-12 shrink-0 place-items-center rounded-full bg-[#0b63f6] text-white">
                 <Gem aria-hidden="true" className="block shrink-0" size={22} />
-              </span>
+              </span> */}
               <div>
                 <span className="text-xs font-black uppercase tracking-[0.12em] text-[#0b63f6]">
                   Stock y preventas
@@ -689,7 +689,7 @@ function SinglesSection({ lift }) {
                 index % 3 === 1 && 'bg-[#111827]',
                 index % 3 === 2 && 'bg-[#d18f00]',
               )}>
-                <div className="aspect-[3.5/4.5] w-20 rounded-xl border border-white/34 bg-white/12 p-2 shadow-xl">
+                <div className="w-26 rounded-xl border border-white/34 bg-white/12 p-2 shadow-xl">
                 <img src={card.img} alt={card.title} />
                   {/* <div className="h-full rounded-lg border border-white/24 bg-white/18 p-2">
                     <Star aria-hidden="true" className="mx-auto mt-2" size={20} />
