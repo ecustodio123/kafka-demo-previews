@@ -26,7 +26,8 @@ function lazyPage(load, name) {
 // Mockups con página a medida; cada una se descarga solo cuando se abre su link.
 const customPages = {
   'god-pack-store': lazyPage(() => import('./GodPackStorePage'), 'GodPackStorePage'),
-  'veterinaria-kafka': lazyPage(() => import('./VeterinaryKafkaPage'), 'VeterinaryKafkaPage'),
+  'veterinaria-kafka': lazyPage(() => import('./veterinary/VeterinaryKafkaPage'), 'VeterinaryKafkaPage'),
+  'veterinaria-kafka-2': lazyPage(() => import('./veterinary/VeterinaryKafkaPage2'), 'VeterinaryKafkaPage2'),
   'floreria-kafka': lazyPage(() => import('./FloristKafkaPage'), 'FloristKafkaPage'),
   'centro-de-conciliacion-kafka': lazyPage(() => import('./ConciliationKafkaPage'), 'ConciliationKafkaPage'),
   'psicologa-kafka': lazyPage(() => import('./PsychologistKafkaPage'), 'PsychologistKafkaPage'),

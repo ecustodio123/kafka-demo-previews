@@ -74,6 +74,43 @@ export const mockups = [
     },
   },
   {
+    slug: 'veterinaria-kafka-2',
+    clientName: 'Veterinaria Kafka',
+    industry: 'Clínica veterinaria y pet care',
+    summary:
+      'Plantilla alternativa para veterinarias: reserva rápida por WhatsApp, servicios visibles, urgencias y pet shop.',
+    shareImage: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=84',
+    theme: {
+      primary: '#0d9488',
+      accent: '#ea580c',
+      background: '#f0fdfa',
+      surface: '#ffffff',
+      muted: '#475569',
+    },
+    hero: {
+      eyebrow: 'Clínica veterinaria en Lima',
+      title: 'Que tu mascota esté bien no debería sentirse complicado',
+      description:
+        'Una versión más cálida y comercial para mostrar servicios, pet shop y agenda por WhatsApp con mayor confianza visual.',
+      cta: 'Agendar por WhatsApp',
+    },
+    about: {
+      eyebrow: 'Plantilla 02',
+      title: 'Diseñada para convertir dudas en reservas',
+      description:
+        'Estructura enfocada en confianza, claridad de servicios, urgencias y acción directa por WhatsApp.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Agenda una cita',
+      description:
+        'Escribe por WhatsApp para consultar horarios, servicios disponibles, productos y atención para tu mascota.',
+      channels: ['WhatsApp', 'Consulta veterinaria', 'Pet shop', 'Urgencias'],
+    },
+  },
+  {
     slug: 'psicologa-kafka',
     clientName: 'Psicóloga Kafka',
     industry: 'Psicoterapia online',

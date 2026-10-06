@@ -20,9 +20,9 @@ import {
   Truck,
 } from 'lucide-react'
 
-import { WhatsAppOrderFlow } from '../components/commerce/WhatsAppOrderFlow'
-import { Badge, Button, Card } from '../components/ui/primitives'
-import { cn } from '../lib/utils'
+import { WhatsAppOrderFlow } from '../../components/commerce/WhatsAppOrderFlow'
+import { Badge, Button, Card } from '../../components/ui/primitives'
+import { cn } from '../../lib/utils'
 
 const whatsappNumber = '51928415698'
 const whatsappMessage = encodeURIComponent(
