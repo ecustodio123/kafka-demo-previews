@@ -11,10 +11,10 @@ import {
   Truck,
 } from 'lucide-react'
 
-import { Badge, Button, Card } from '../components/ui/primitives'
-import { WhatsAppOrderFlow } from '../components/commerce/WhatsAppOrderFlow'
-import { PromoModal } from '../components/sections/PromoModal'
-import { cn } from '../lib/utils'
+import { Badge, Button, Card } from '../../components/ui/primitives'
+import { WhatsAppOrderFlow } from '../../components/commerce/WhatsAppOrderFlow'
+import { PromoModal } from '../../components/sections/PromoModal'
+import { cn } from '../../lib/utils'
 
 const trustSignals = [
   { icon: Truck, title: 'Llega hoy', detail: 'Pedidos antes de las 6 p.m.' },

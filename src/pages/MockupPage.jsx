@@ -28,7 +28,8 @@ const customPages = {
   'god-pack-store': lazyPage(() => import('./GodPackStorePage'), 'GodPackStorePage'),
   'veterinaria-kafka': lazyPage(() => import('./veterinary/VeterinaryKafkaPage'), 'VeterinaryKafkaPage'),
   'veterinaria-kafka-2': lazyPage(() => import('./veterinary/VeterinaryKafkaPage2'), 'VeterinaryKafkaPage2'),
-  'floreria-kafka': lazyPage(() => import('./FloristKafkaPage'), 'FloristKafkaPage'),
+  'floreria-kafka': lazyPage(() => import('./florist/FloristKafkaPage'), 'FloristKafkaPage'),
+  'floreria-kafka-2': lazyPage(() => import('./florist/FloristBloomInspiredPage'), 'FloristBloomInspiredPage'),
   'centro-de-conciliacion-kafka': lazyPage(() => import('./ConciliationKafkaPage'), 'ConciliationKafkaPage'),
   'psicologa-kafka': lazyPage(() => import('./PsychologistKafkaPage'), 'PsychologistKafkaPage'),
 }

@@ -507,6 +507,46 @@ export const mockups = [
     },
   },
   {
+    slug: 'floreria-kafka-2',
+    clientName: 'Florería Kafka',
+    industry: 'Florería, regalos y eventos',
+    summary:
+      'Home inspirado en florerías e-commerce: entrega hoy, presupuesto, favoritos, delivery y WhatsApp.',
+    theme: {
+      primary: '#3a1320',
+      accent: '#ec7a83',
+      background: '#fff8f4',
+      surface: '#ffffff',
+      muted: '#735e63',
+    },
+    hero: {
+      variant: 'florist',
+      eyebrow: 'Flores a domicilio en Lima',
+      title: 'Flores frescas para sorprender hoy',
+      description:
+        'Elige por presupuesto, ocasión o tipo de flor. Confirmamos disponibilidad, dedicatoria y delivery por WhatsApp.',
+      cta: 'Enviar flores hoy',
+      secondaryCta: 'Ver más pedidos',
+      image:
+        'https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    },
+    about: {
+      eyebrow: 'Nueva versión',
+      title: 'Home de conversión para florería',
+      description:
+        'Una experiencia de una sola ruta pensada para elegir rápido, confiar y escribir por WhatsApp.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Pide flores sin vueltas',
+      description:
+        'Escríbenos con ocasión, distrito y presupuesto para recomendarte opciones disponibles.',
+      channels: ['WhatsApp de pedidos', 'Delivery Lima', 'Foto de entrega'],
+    },
+  },
+  {
     slug: 'spa-masajes-in-roses',
     clientName: "Spa masajes in rose's",
     industry: 'Spa, masajes y bienestar',
