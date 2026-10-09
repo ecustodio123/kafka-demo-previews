@@ -27,11 +27,11 @@ npm run build
 El proyecto está preparado para instalar el paquete privado desde GitHub Packages:
 
 ```bash
-npm config set //npm.pkg.github.com/:_authToken "tu_token_con_acceso"
+export GITHUB_PACKAGES_TOKEN=tu_token_con_acceso
 npm install @ecustodio123/kafka-commerce@0.1.0
 ```
 
-`.npmrc` configura el registry del scope y el token debe quedar en tu configuración local de npm, nunca versionado. La ruta `/tiendas-prueba` renderiza `CommerceStore` desde `@ecustodio123/kafka-commerce`.
+`.npmrc` configura el registry del scope y lee el token desde `GITHUB_PACKAGES_TOKEN`. En Cloudflare Pages agrega esa variable como Environment Variable para Production y Preview. No escribas el valor real del token en `.npmrc` ni en archivos versionados.
 
 Variables públicas usadas por la tienda:
 
