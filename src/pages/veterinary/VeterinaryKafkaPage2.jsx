@@ -379,7 +379,7 @@ function Emergency({ press }) {
           className="h-full min-h-[360px] w-full object-cover"
           src="https://images.pexels.com/photos/7474550/pexels-photo-7474550.jpeg"
           alt="Veterinaria atendiendo a un perro"
-          loading="lazy"
+          loading="eager" decoding="async"
         />
       </div>
     </section>
@@ -402,7 +402,7 @@ function PetShop({ press }) {
               key={item.title}
               {...press}
             >
-              <img className="aspect-[4/3] w-full object-cover" src={item.image} alt={item.title} loading="lazy" />
+              <img className="aspect-[4/3] w-full object-cover" src={item.image} alt={item.title} loading="eager" decoding="async" />
               <div className="p-5">
                 <span className="rounded-full bg-[#ffedd5] px-3 py-1 text-xs font-black text-[#ea580c]">{item.tag}</span>
                 <h3 className="mt-4 text-2xl font-black text-[#134e4a]">{item.title}</h3>

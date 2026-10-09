@@ -8,6 +8,7 @@ import { NotFoundPage } from './pages/NotFoundPage'
 // no baja el código de la home ni de los demás mockups.
 const HomePage = lazy(() => import('./pages/HomePage').then((m) => ({ default: m.HomePage })))
 const MockupPage = lazy(() => import('./pages/MockupPage').then((m) => ({ default: m.MockupPage })))
+const TiendasPruebaPage = lazy(() => import('./pages/TiendasPruebaPage').then((m) => ({ default: m.TiendasPruebaPage })))
 
 function useDocumentMeta(mockup) {
   useEffect(() => {
@@ -30,6 +31,7 @@ function App() {
 
   let page = <NotFoundPage />
   if (path === '/') page = <HomePage />
+  else if (path === '/tiendas-prueba') page = <TiendasPruebaPage />
   else if (mockup) page = <MockupPage mockup={mockup} />
 
   return (

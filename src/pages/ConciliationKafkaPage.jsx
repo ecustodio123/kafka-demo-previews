@@ -137,7 +137,7 @@ const faq = [
 
 export function ConciliationKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <main className="min-h-svh bg-[#f6f3ed] text-[#17211d]">
@@ -347,7 +347,7 @@ function ProcessSection() {
               className="aspect-[4/3] w-full object-cover lg:aspect-[4/4.25]"
               src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=84"
               alt="Documentos y reunión para iniciar una conciliación"
-              loading="lazy"
+              loading="eager" decoding="async"
             />
             <div className="absolute inset-x-4 bottom-4 rounded-[1.25rem] border border-white/55 bg-white/92 p-4 shadow-xl backdrop-blur">
               <Badge className="border-[#d7c7a7] bg-[#f6f3ed] text-[#8a6428]">
@@ -416,7 +416,7 @@ function DocumentsSection({ lift }) {
             className="aspect-[4/3] w-full rounded-[1.45rem] object-cover"
             src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=84"
             alt="Documentos listos para iniciar una solicitud"
-            loading="lazy"
+            loading="eager" decoding="async"
           />
           <div className="grid gap-3 p-5">
             <Badge variant="dark" className="border-white/15 bg-white/10">
@@ -620,7 +620,7 @@ function ConciliationFooter({ mockup }) {
 
                 return (
                   <a
-                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#ded6c8] bg-[#f6f3ed] px-4 py-2 font-black text-[#17211d] no-underline transition hover:-translate-y-0.5 hover:border-[#8a6428]/40 hover:bg-white"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#ded6c8] bg-[#f6f3ed] px-4 py-2 font-black text-[#17211d] no-underline transition hover:border-[#8a6428]/40 hover:bg-white"
                     href={item.href}
                     key={item.label}
                     rel="noreferrer"

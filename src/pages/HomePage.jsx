@@ -5,16 +5,20 @@ import {
   ChevronRight,
   ExternalLink,
   Globe2,
+  Heart,
   Layers3,
   MessageCircle,
   MousePointerClick,
   SearchCheck,
   ShieldCheck,
+  ShoppingCart,
   Smartphone,
   Sparkles,
+  Store,
 } from 'lucide-react'
 
 import { Badge, Button, Card, CardDescription, CardHeader, CardTitle } from '../components/ui/primitives'
+import { mockups } from '../data/mockups'
 import { cn } from '../lib/utils'
 
 const publishedProjects = [
@@ -51,6 +55,11 @@ const publishedProjects = [
 ]
 
 const capabilities = [
+  {
+    title: 'Tiendas online ligeras',
+    description: 'Catálogo, búsqueda, favoritos, carrito y pedidos por WhatsApp para vender sin una operación pesada.',
+    icon: ShoppingCart,
+  },
   {
     title: 'Landing pages que venden',
     description: 'Estructura, jerarquía, copy y secciones pensadas para que el visitante entienda rápido y tome acción.',
@@ -108,15 +117,51 @@ const signals = [
   'Enfoque frontend: visual, estructura, contacto y publicación',
 ]
 
+const featuredMockupSlugs = [
+  'floreria-kafka',
+  'veterinaria-kafka',
+  'veterinaria-kafka-2',
+  'psicologa-kafka',
+  'centro-de-conciliacion-kafka',
+  'god-pack-store',
+]
+
+const mockupFallbackImages = {
+  'centro-de-conciliacion-kafka':
+    'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=84',
+  'floreria-kafka':
+    'https://images.unsplash.com/photo-1690315478701-33744ce23a61?auto=format&fit=crop&w=1200&q=84',
+  'floreria-kafka-2':
+    'https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=1200&q=84',
+  'god-pack-store':
+    'https://images.pexels.com/photos/37743086/pexels-photo-37743086.png?auto=compress&cs=tinysrgb&w=1200',
+  'psicologa-kafka':
+    'https://images.pexels.com/photos/10041258/pexels-photo-10041258.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  'veterinaria-kafka':
+    'https://images.pexels.com/photos/6131566/pexels-photo-6131566.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  'veterinaria-kafka-2':
+    'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=84',
+}
+
+const featuredMockups = featuredMockupSlugs
+  .map((slug) => mockups.find((mockup) => mockup.slug === slug))
+  .filter(Boolean)
+
+function getMockupImage(mockup) {
+  return mockup.shareImage || mockup.hero?.image || mockupFallbackImages[mockup.slug]
+}
+
 export function HomePage() {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -6 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <main className="min-h-svh bg-[#f7f7f4] text-neutral-950">
       <SiteHeader />
       <HeroSection lift={lift} />
       <ClientWorkSection lift={lift} />
+      <EcommerceSection lift={lift} />
+      <MockupsSection lift={lift} />
       <CapabilitiesSection />
       <ProcessSection />
       <FinalCta lift={lift} />
@@ -141,6 +186,12 @@ function SiteHeader() {
         <nav className="hidden items-center gap-6 text-sm font-semibold text-neutral-600 md:flex" aria-label="Principal">
           <a className="transition hover:text-neutral-950" href="#clientes">
             Clientes
+          </a>
+          <a className="transition hover:text-neutral-950" href="#ecommerce">
+            E-commerce
+          </a>
+          <a className="transition hover:text-neutral-950" href="#mockups">
+            Demos
           </a>
           <a className="transition hover:text-neutral-950" href="#servicios">
             Servicios
@@ -188,7 +239,7 @@ function HeroSection({ lift }) {
               </Button>
               <Button asChild size="lg" variant="secondary" className="rounded-full bg-white/80">
                 <motion.a href="#servicios" {...lift}>
-                  Que podemos construir
+                  Qué podemos construir
                 </motion.a>
               </Button>
             </div>
@@ -213,6 +264,138 @@ function HeroSection({ lift }) {
   )
 }
 
+function EcommerceSection({ lift }) {
+  const commerceFeatures = [
+    'Catálogo por categorías',
+    'Búsqueda y filtros',
+    'Favoritos',
+    'Carrito de compras',
+    'Diseño responsive',
+    'Pedidos por WhatsApp',
+  ]
+
+  return (
+    <section className="bg-neutral-950 px-4 py-20 text-white sm:px-6 lg:px-8" id="ecommerce">
+      <div className="mx-auto grid max-w-[1180px] gap-10 lg:grid-cols-[0.96fr_1.04fr] lg:items-center">
+        <div>
+          <Badge variant="dark" className="border-white/15 bg-white/10">
+            Nuevo servicio
+          </Badge>
+          <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-none sm:text-5xl">
+            Tu negocio merece más que una vitrina digital. Ahora también puedes vender online.
+          </h2>
+          <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
+            Estamos preparando tiendas online con catálogo, favoritos, carrito y pedidos por WhatsApp:
+            una forma práctica de probar ventas digitales sin prometer pasarelas o sistemas pesados.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button asChild size="lg" className="rounded-full bg-white text-neutral-950 hover:bg-neutral-100">
+              <motion.a href="/tiendas-prueba" {...lift}>
+                Probar tienda online
+                <ArrowRight aria-hidden="true" size={18} />
+              </motion.a>
+            </Button>
+            <Button asChild size="lg" variant="secondary" className="rounded-full border-white/20 bg-white/10 text-white hover:bg-white/15">
+              <motion.a href="#mockups" {...lift}>
+                Ver mockups por rubro
+              </motion.a>
+            </Button>
+          </div>
+        </div>
+
+        <motion.div
+          className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-[0_30px_90px_rgba(0,0,0,0.28)]"
+          {...lift}
+        >
+          <div className="rounded-[1.5rem] bg-[#f8fafc] p-4 text-neutral-950">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <span className="grid size-11 place-items-center rounded-2xl bg-neutral-950 text-white">
+                  <Store aria-hidden="true" size={20} />
+                </span>
+                <div>
+                  <strong className="block">Kafka Commerce</strong>
+                  <span className="text-sm text-neutral-500">Tienda reutilizable</span>
+                </div>
+              </div>
+              <Badge className="border-emerald-200 bg-emerald-50 text-emerald-700">WhatsApp checkout</Badge>
+            </div>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {commerceFeatures.map((feature) => (
+                <div className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white p-3 text-sm font-semibold" key={feature}>
+                  <span className="grid size-8 shrink-0 place-items-center rounded-full bg-neutral-950 text-white">
+                    {feature === 'Favoritos' ? <Heart aria-hidden="true" size={15} /> : <BadgeCheck aria-hidden="true" size={15} />}
+                  </span>
+                  {feature}
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
+function MockupsSection({ lift }) {
+  return (
+    <section className="bg-[#f7f7f4] px-4 py-20 sm:px-6 lg:px-8" id="mockups">
+      <div className="mx-auto max-w-[1180px]">
+        <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <SectionIntro
+            eyebrow="Mockups conceptuales"
+            title="Explora lo que podemos crear para tu negocio."
+            description="Estas demos no son proyectos publicados para clientes reales: son plantillas comerciales para visualizar dirección estética, estructura y experiencia antes de cotizar."
+          />
+          <Button asChild variant="secondary" className="w-fit rounded-full">
+            <a href="/tiendas-prueba">
+              Probar e-commerce
+              <ArrowRight aria-hidden="true" size={17} />
+            </a>
+          </Button>
+        </div>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {featuredMockups.map((mockup) => (
+            <motion.a
+              className="group overflow-hidden rounded-3xl border border-neutral-200 bg-white text-inherit no-underline shadow-[0_22px_70px_rgba(15,23,42,0.08)] outline-none transition focus-visible:ring-2 focus-visible:ring-neutral-950"
+              href={`/${mockup.slug}`}
+              key={mockup.slug}
+              {...lift}
+            >
+              <div className="relative overflow-hidden bg-neutral-100">
+                <img
+                  className="aspect-[16/10] w-full object-cover"
+                  src={getMockupImage(mockup)}
+                  alt={`Vista previa conceptual para ${mockup.industry}`}
+                  loading="eager" decoding="async"
+                />
+                <span className="absolute left-4 top-4 rounded-full border border-white/60 bg-white/90 px-3 py-1 text-xs font-bold text-neutral-700 shadow-sm backdrop-blur">
+                  Demo conceptual
+                </span>
+              </div>
+              <div className="grid gap-4 p-6">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-[0.12em] text-neutral-400">
+                    {mockup.industry}
+                  </span>
+                  <h3 className="mt-2 text-2xl font-semibold leading-tight">{mockup.clientName}</h3>
+                  <p className="mt-3 text-sm leading-6 text-neutral-600">{mockup.summary}</p>
+                </div>
+                <span className="inline-flex items-center gap-2 text-sm font-bold text-neutral-950">
+                  Ver demo
+                  <ArrowRight aria-hidden="true" size={16} />
+                </span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function HeroMetric({ label, value }) {
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-4">
@@ -228,8 +411,8 @@ function ClientWorkSection({ lift }) {
       <div className="mx-auto max-w-[1180px]">
         <SectionIntro
           eyebrow="Clientes reales"
-          title="Proyectos publicados que ya estan trabajando online."
-          description="Cada caso tiene una necesidad distinta, pero el mismo criterio: ordenar la oferta, elevar la percepción de valor y fácilitar el siguiente contacto."
+          title="Proyectos publicados que ya están trabajando online."
+          description="Cada caso tiene una necesidad distinta, pero el mismo criterio: ordenar la oferta, elevar la percepción de valor y facilitar el siguiente contacto."
         />
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
@@ -244,7 +427,7 @@ function ClientWorkSection({ lift }) {
             >
               <div className={cn('relative overflow-hidden bg-gradient-to-br p-3', project.accent)}>
                 <img
-                  className="aspect-[16/11] w-full rounded-2xl border border-white/60 object-cover shadow-2xl transition duration-500 group-hover:scale-[1.02]"
+                  className="aspect-[16/11] w-full rounded-2xl border border-white/60 object-cover shadow-2xl"
                   src={project.image}
                   alt={`Captura del sitio ${project.name}`}
                   loading={index === 0 ? 'eager' : 'lazy'}
@@ -278,7 +461,7 @@ function CapabilitiesSection() {
         <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
           <div className="lg:sticky lg:top-28">
             <SectionIntro
-              eyebrow="Que hacemos"
+              eyebrow="Qué hacemos"
               title="Frontend boutique para negocios que necesitan verse mejor ya."
               description="No prometemos sistemas gigantes. Nos enfocamos en lo que más mueve la aguja al inicio: diseño, estructura, responsive, contenido, contacto y publicación."
             />
@@ -297,7 +480,7 @@ function CapabilitiesSection() {
               const Icon = item.icon
 
               return (
-                <Card className="rounded-3xl shadow-none transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]" key={item.title}>
+                <Card className="rounded-3xl shadow-none transition hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)]" key={item.title}>
                   <CardHeader>
                     <span className="grid size-11 place-items-center rounded-2xl bg-neutral-950 text-white">
                       <Icon aria-hidden="true" size={20} />
@@ -348,7 +531,7 @@ function FinalCta({ lift }) {
         <div className="grid gap-8 p-6 sm:p-10 lg:grid-cols-[1.08fr_0.92fr] lg:p-12">
           <div>
             <Badge variant="dark" className="border-white/15 bg-white/10">
-              Proximo proyecto
+              Próximo proyecto
             </Badge>
             <h2 className="mt-5 max-w-2xl text-4xl font-semibold leading-none sm:text-5xl">
               Una web que se vea como el negocio que quieres vender.
@@ -384,7 +567,7 @@ function FinalCta({ lift }) {
               </span>
               <div>
                 <strong className="block">Pensado para celular</strong>
-                <span className="text-sm text-white/60">La primera impresión casi siempre ocurre ahi.</span>
+                <span className="text-sm text-white/60">La primera impresión casi siempre ocurre ahí.</span>
               </div>
             </div>
             <div className="grid gap-3">

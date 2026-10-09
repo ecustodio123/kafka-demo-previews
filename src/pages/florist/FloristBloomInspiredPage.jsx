@@ -191,7 +191,7 @@ const reviews = [
 export function FloristBloomInspiredPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
   const press = prefersReducedMotion ? {} : { whileTap: { scale: 0.98 } }
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -4 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <main
@@ -315,13 +315,13 @@ function ShopByBudget({ lift }) {
             return (
               <a className="group grid w-[96px] shrink-0 justify-items-center gap-3 text-center text-[#2f2729] no-underline" href="#favoritos" key={item.name}>
                 <span className={cn(
-                  'grid size-[96px] place-items-center rounded-full border-[3px] bg-[#fff8f4] p-1 transition group-hover:-translate-y-1',
+                  'grid size-[96px] place-items-center rounded-xl border-[3px] bg-[#fff8f4] transition',
                   Icon ? 'border-[#2a9d72] bg-[#eef8f1]' : 'border-[#efd4d2]',
                 )}>
                   {Icon ? (
                     <Icon aria-hidden="true" className="text-[#209467]" size={31} />
                   ) : (
-                    <img className="size-full rounded-full object-cover" src={item.image} alt={item.name} loading="lazy" />
+                    <img className="size-full rounded-xl object-cover" src={item.image} alt={item.name} loading="eager" decoding="async" />
                   )}
                 </span>
                 <strong className="text-sm font-black leading-tight">{item.name}</strong>
@@ -345,18 +345,18 @@ function ShopByBudget({ lift }) {
         <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {budgets.map((item) => (
             <motion.a
-              className="group grid min-h-[96px] grid-cols-[76px_minmax(0,1fr)_20px] items-center gap-4 rounded-[1rem] bg-[#f8efed] p-3 text-[#2f2729] no-underline transition hover:-translate-y-1 hover:bg-[#fff8f4]"
+              className="group grid min-h-[96px] grid-cols-[76px_minmax(0,1fr)_20px] items-center gap-4 rounded-[1rem] bg-[#f8efed] p-3 text-[#2f2729] no-underline transition hover:bg-[#fff8f4]"
               href={item.href}
               key={item.price}
               {...lift}
             >
-              <img className="size-[76px] rounded-xl object-cover" src={item.image} alt="" loading="lazy" />
+              <img className="size-[76px] rounded-full object-cover" src={item.image} alt="" loading="eager" decoding="async" />
               <span className="min-w-0">
                 <small className="block text-[0.68rem] font-black uppercase tracking-[0.18em] text-[#9f8a8f]">{item.eyebrow}</small>
                 <strong className="mt-0.5 block text-2xl font-black leading-none text-[#7c2d49]">{item.price}</strong>
                 <span className="mt-1 block text-sm font-semibold text-[#6e5b61]">{item.detail}</span>
               </span>
-              <span className="text-xl font-black text-[#b98a96] transition group-hover:translate-x-1">›</span>
+              <span className="text-xl font-black text-[#b98a96] transition">›</span>
             </motion.a>
           ))}
         </div>
@@ -386,7 +386,7 @@ function BestSellers({ lift, press }) {
           {bestSellers.map((item, index) => (
             <motion.article className="group overflow-hidden rounded-[1.75rem] border border-[#eadbd5] bg-white shadow-[0_22px_70px_rgba(58,19,32,0.08)]" key={item.title} {...lift}>
               <div className="relative overflow-hidden">
-                <img className="aspect-[4/4.5] w-full object-cover transition duration-500 group-hover:scale-[1.035]" src={item.image} alt={item.title} loading="lazy" />
+                <img className="aspect-[4/4.5] w-full object-cover" src={item.image} alt={item.title} loading="eager" decoding="async" />
                 <span className="absolute left-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-black text-[#ec7a83] shadow-sm">
                   {String(index + 1).padStart(2, '0')}
                 </span>

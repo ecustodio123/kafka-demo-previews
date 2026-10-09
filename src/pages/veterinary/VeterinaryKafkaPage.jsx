@@ -20,7 +20,7 @@ import {
   Truck,
 } from 'lucide-react'
 
-import { WhatsAppOrderFlow } from '../../components/commerce/WhatsAppOrderFlow'
+import { CommerceRedirectSection } from '../../components/commerce/CommerceRedirectSection'
 import { Badge, Button, Card } from '../../components/ui/primitives'
 import { cn } from '../../lib/utils'
 
@@ -181,7 +181,7 @@ const socialLinks = [
 
 export function VeterinaryKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <main className="min-h-svh bg-[#f4fbf8] text-[#153a35]">
@@ -192,86 +192,28 @@ export function VeterinaryKafkaPage({ mockup }) {
       <ServicesSection lift={lift} />
       <EmergencySection lift={lift} />
       <TeamSection lift={lift} />
-      <WhatsAppOrderFlow
-        checkout={{
-          areaConfirmation: 'Importante: entiendo que el envío se coordina dentro de Lima según cobertura disponible.',
-          areaLabel: 'Entrega en Lima',
-          finalButtonLabel: 'Finalizar pedido por WhatsApp',
-          helperText: 'Antes de abrir WhatsApp te pediremos datos de entrega para armar el mensaje completo.',
-          modalTitle: 'Datos para confirmar tu pedido',
-          noticeIconClassName: 'bg-[#008576]',
-          noticeText: 'Si prefieres recojo o consulta presencial, indícalo en la referencia.',
-          noticeTitle: 'Confirmamos delivery o recojo por WhatsApp',
-          paymentNote: 'El monto final se confirma por WhatsApp según stock, presentación, delivery y promociones vigentes.',
-        }}
-        message={{
-          finalQuestion: '¿Me ayudan con stock, total, delivery y forma de pago?',
-          intro: 'Hola, quiero confirmar mi pedido para mascota en Veterinaria Kafka.',
-        }}
-        order={{
-          badgeClassName: 'border-[#d7eee7] bg-[#f4fbf8] text-[#008576]',
-          benefitIconClassName: 'bg-[#e3f7f1] text-[#008576]',
-          benefits: ['Pedido listo para enviar', 'Stock confirmado por WhatsApp', 'Recojo o delivery coordinado'],
-          cardClassName: 'border-[#d7eee7] bg-[#f4fbf8]',
-          checkoutButtonLabel: 'Terminar pedido por WhatsApp',
-          className: 'px-4 pb-20 sm:px-6 lg:px-8',
-          clearButtonClassName: 'border-[#d7eee7] bg-white text-[#5e756f] hover:text-[#008576]',
-          description: 'Selecciona productos del pet shop y envíanos la lista. Antes de abrir WhatsApp completamos tus datos para confirmar disponibilidad, delivery y forma de pago.',
-          dividerClassName: 'bg-[#d7eee7]',
-          emptyButtonLabel: 'Elegir productos',
-          emptyClassName: 'border-[#b9ddd4] bg-white',
-          emptyIconClassName: 'bg-[#e3f7f1] text-[#008576]',
-          emptyText: 'Agrega productos para preparar tu pedido y recibir confirmación por WhatsApp.',
-          emptyTitle: 'Aún no hay productos',
-          eyebrow: 'Pedido por WhatsApp',
-          helperClassName: 'text-[#5e756f]',
-          id: 'pedido-productos',
-          itemPlural: 'productos',
-          itemSingular: 'producto',
-          lineItemClassName: 'border-[#d7eee7] bg-white',
-          pillClassName: 'border-[#d7eee7] bg-white text-[#008576]',
-          pillLabel: 'Tu pedido',
-          priceClassName: 'text-[#ff7b1a]',
-          removeButtonClassName: 'bg-[#f4fbf8] text-[#5e756f] hover:bg-[#e3f7f1] hover:text-[#008576]',
-          selectionLabel: 'Tu selección',
-          selectionLabelClassName: 'text-[#008576]',
-          showTotal: true,
-          summaryDividerClassName: 'border-[#d7eee7]',
-          title: 'Arma tu pedido y lo confirmamos por WhatsApp.',
-          titleClassName: 'text-[#153a35]',
-          totalClassName: 'bg-[#153a35]',
-          totalLabel: 'Total referencial',
-          totalNote: 'El monto final se confirma por WhatsApp según presentación, stock, delivery y promociones vigentes.',
-          totalPrefix: 'Desde S/',
-        }}
-        productSection={{
-          className: 'px-4 py-20 sm:px-6 lg:px-8',
-          description: 'Elige lo que necesitas y envíanos tu pedido por WhatsApp. Confirmamos stock, total y delivery antes de cerrar la compra.',
-          eyebrow: 'Pet shop',
-          id: 'productos',
-          priceClassName: 'text-[#ff7b1a]',
-          productTitleClassName: 'text-[#153a35]',
-          selectedBadgeClassName: 'bg-[#008576]',
-          title: 'Productos útiles para el cuidado diario de tu mascota.',
-        }}
+      <CommerceRedirectSection
+        className="bg-white"
+        description=""
+        eyebrow="Pet shop online"
+        id="productos"
+        note=""
         products={petProducts}
+        secondaryHref="#reserva"
+        secondaryLabel="Reservar consulta"
+        title="Productos para mascotas conectados a una tienda con carrito."
         theme={{
-          accentText: 'text-[#008576]',
-          border: 'border-[#d7eee7]',
-          cardBackground: 'bg-[#f4fbf8]',
-          checkoutButton: 'bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]',
-          focusRing: 'focus-visible:ring-[#008576]',
+          badge: 'border-[#d7eee7] bg-[#f4fbf8] text-[#008576]',
+          card: 'border-[#d7eee7] bg-[#f4fbf8]',
+          description: 'text-[#5e756f]',
           heading: 'text-[#153a35]',
-          muted: 'text-[#5e756f]',
-          orderBackground: 'bg-white',
-          productButtonIdle: 'border border-[#d7eee7] bg-[#f4fbf8] text-[#153a35] hover:border-[#008576]/35 hover:bg-white',
-          productButtonSelected: 'bg-[#153a35] text-white hover:bg-[#0d2b27]',
-          productCard: 'border-[#d7eee7] bg-white shadow-[0_20px_70px_rgba(0,79,70,0.08)]',
-          productCardSelected: 'border-[#008576] ring-4 ring-[#bceee2]',
-          tag: 'bg-white text-[#008576]',
-          totalBackground: 'bg-[#153a35]',
+          note: 'text-[#5e756f]',
+          price: 'text-[#ff7b1a]',
+          primaryButton: 'bg-[#008576] text-white hover:bg-[#006b5f]',
+          productTitle: 'text-[#153a35]',
+          secondaryButton: 'border-[#d7eee7] bg-[#f4fbf8] text-[#153a35] hover:bg-white',
+          tag: 'bg-white text-[#008576] shadow-sm',
         }}
-        whatsappNumber={whatsappNumber}
       />
       <HowItWorks />
       <TestimonialsSection lift={lift} />
@@ -309,7 +251,7 @@ function VeterinaryHeader({ mockup }) {
           <a className="transition hover:text-[#153a35]" href="#urgencias">Urgencias</a>
           <a className="transition hover:text-[#153a35]" href="#equipo">Veterinarios</a>
           <a className="transition hover:text-[#153a35]" href="#productos">Productos</a>
-          <a className="transition hover:text-[#153a35]" href="#pedido-productos">Pedido</a>
+          <a className="transition hover:text-[#153a35]" href="/tiendas-prueba">Tienda online</a>
           <a className="transition hover:text-[#153a35]" href="#reserva">Agenda</a>
         </nav>
 
@@ -379,7 +321,7 @@ function Hero({ lift }) {
               className="size-full object-cover"
               src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=500&q=84"
               alt="Gato tranquilo durante una atención veterinaria"
-              loading="lazy"
+              loading="eager" decoding="async"
             />
           </div>
           <Card className="absolute bottom-5 left-5 right-5 rounded-[1.75rem] border-white/70 bg-white/92 p-5 shadow-2xl backdrop-blur sm:bottom-8 sm:left-8 sm:right-auto sm:w-[380px]">
@@ -512,7 +454,7 @@ function EmergencySection({ lift }) {
             className="absolute inset-0 h-full w-full object-cover"
             src="https://images.pexels.com/photos/7474550/pexels-photo-7474550.jpeg"
             alt="Veterinaria atendiendo a un perro en consulta"
-            loading="lazy"
+            loading="eager" decoding="async"
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,121,107,0.42),rgba(0,121,107,0.05))]" />
         </div>
@@ -547,7 +489,7 @@ function TeamSection({ lift }) {
               className="absolute inset-0 h-full w-full object-cover object-[50%_18%] opacity-88"
               src={leadVet.image}
               alt={leadVet.name}
-              loading="lazy"
+              loading="eager" decoding="async"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(21,58,53,0.02),rgba(21,58,53,0.86)_78%)]" />
             <div className="absolute left-5 top-5 flex flex-wrap gap-2">
@@ -603,7 +545,7 @@ function TeamSection({ lift }) {
                 className="h-full min-h-[190px] w-full rounded-[1.25rem] object-cover object-[50%_18%] sm:min-h-0"
                 src={person.image}
                 alt={person.name}
-                loading="lazy"
+                loading="eager" decoding="async"
               />
               <div className="content-center py-1">
                 <span className="inline-flex rounded-full bg-[#e3f7f1] px-3 py-1 text-xs font-black text-[#008576]">
@@ -715,7 +657,7 @@ function BookingSection({ lift }) {
             className="h-[520px] w-full rounded-[2rem] object-cover shadow-[0_28px_90px_rgba(0,79,70,0.12)]"
             src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=1200&q=84"
             alt="Perro sentado esperando su cita veterinaria"
-            loading="lazy"
+            loading="eager" decoding="async"
           />
           <span className="absolute bottom-6 left-6 rounded-full bg-white px-4 py-2 text-sm font-black text-[#008576] shadow-xl">
             Atención con cariño

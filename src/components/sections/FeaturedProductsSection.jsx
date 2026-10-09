@@ -17,7 +17,7 @@ export function FeaturedProductsSection({ featured }) {
         <div className="featured-grid">
           {featured.items.map((item) => (
             <article className="featured-card" key={item.title}>
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img src={item.image} alt={item.title} loading="eager" decoding="async" />
               <div className="featured-card__content">
                 <span>{item.price}</span>
                 <h3>{item.title}</h3>

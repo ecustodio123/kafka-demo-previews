@@ -18,7 +18,7 @@ export function ProcessSection({ process }) {
           {process.steps.map((step, index) => (
             <article className="process-item" key={typeof step === 'string' ? step : step.title}>
               {typeof step === 'string' ? null : (
-                <img className="process-item__image" src={step.image} alt={step.title} loading="lazy" />
+                <img className="process-item__image" src={step.image} alt={step.title} loading="eager" decoding="async" />
               )}
               <span>{index + 1}</span>
               <div>

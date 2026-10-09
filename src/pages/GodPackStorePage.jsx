@@ -17,7 +17,7 @@ import {
   Swords,
 } from 'lucide-react'
 
-import { WhatsAppOrderFlow } from '../components/commerce/WhatsAppOrderFlow'
+import { CommerceRedirectSection } from '../components/commerce/CommerceRedirectSection'
 import { Badge, Button, Card } from '../components/ui/primitives'
 import { cn } from '../lib/utils'
 
@@ -162,7 +162,7 @@ const testimonials = [
 
 export function GodPackStorePage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <main className="min-h-svh bg-[#f5f7fb] text-[#09111f]">
@@ -171,88 +171,29 @@ export function GodPackStorePage({ mockup }) {
       <Hero lift={lift} />
       <TrustStrip />
       <CategoriesSection lift={lift} />
-      <WhatsAppOrderFlow
-        checkout={{
-          areaConfirmation: 'Importante: entiendo que el envío aplica solo dentro de Lima.',
-          areaLabel: 'Solo Lima Metropolitana',
-          finalButtonLabel: 'Finalizar pedido por WhatsApp',
-          helperText: 'Antes de abrir WhatsApp te pediremos datos de entrega para armar el mensaje completo.',
-          modalTitle: 'Datos para confirmar tu pedido',
-          modalTitleClassName: 'uppercase text-[#09111f]',
-          noticeIconClassName: 'bg-[#ffcf3f] text-[#111827]',
-          noticeText: 'Si prefieres recojo en tienda, indícalo en la referencia o consulta por WhatsApp.',
-          noticeTitle: 'Envíos solo dentro de Lima',
-          paymentNote: 'El pago y el costo de delivery se confirman directamente por WhatsApp.',
-        }}
-        message={{
-          finalQuestion: '¿Me ayudan a confirmar stock, precio final, delivery y forma de pago?',
-          intro: 'Hola, quiero finalizar mi pedido en Godpackstore.',
-        }}
-        order={{
-          badgeClassName: 'border-[#dfe5f1] bg-white text-[#0b63f6]',
-          benefitIconClassName: 'bg-white text-[#0b63f6]',
-          benefits: ['Lista lista para enviar', 'Confirmación de stock real', 'Recojo en tienda o coordinación de envío'],
-          cardClassName: 'border-[#dfe5f1] bg-white',
-          checkoutButtonLabel: 'Terminar pedido por WhatsApp',
-          className: 'bg-white',
-          clearButtonClassName: 'border-[#dfe5f1] bg-white text-[#64748b] hover:text-[#0b63f6]',
-          description: 'En TCG el stock cambia rápido. Selecciona lo que te interesa y completa tus datos para confirmar edición, idioma, precio y entrega. Los envíos se coordinan solo dentro de Lima.',
-          dividerClassName: 'bg-[#dfe5f1]',
-          emptyButtonLabel: 'Elegir productos',
-          emptyClassName: 'border-[#b8c5d9] bg-[#f8fafc]',
-          emptyIconClassName: 'bg-white text-[#0b63f6]',
-          emptyText: 'Agrega productos para enviar una consulta completa por WhatsApp.',
-          emptyTitle: 'Aún no hay productos',
-          eyebrow: 'Consulta de stock',
-          helperClassName: 'text-[#64748b]',
-          id: 'pedido',
-          itemPlural: 'productos',
-          itemSingular: 'producto',
-          lineItemClassName: 'border-[#dfe5f1] bg-[#f8fafc]',
-          pillClassName: 'border-[#dfe5f1] bg-white text-[#0b63f6]',
-          pillLabel: 'Pedido Godpackstore',
-          priceClassName: 'text-[#d18f00]',
-          removeButtonClassName: 'bg-white text-[#64748b] hover:bg-[#edf4ff] hover:text-[#0b63f6]',
-          selectionLabel: 'Tu selección',
-          selectionLabelClassName: 'text-[#0b63f6]',
-          showTotal: false,
-          summaryDividerClassName: 'border-[#dfe5f1]',
-          title: 'Arma tu pedido y confirma disponibilidad.',
-          titleClassName: 'uppercase text-[#09111f]',
-        }}
-        productSection={{
-          actionClassName: 'border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f]',
-          actionHref: '#pedido',
-          actionLabel: 'Ver pedido',
-          className: 'bg-white',
-          containerClassName: 'max-w-[1180px]',
-          description: 'Agrega productos al pedido y consulta stock por WhatsApp antes de comprar. Ideal para confirmar edición, idioma y precio final.',
-          eyebrow: 'Productos destacados',
-          headingClassName: 'uppercase text-[#09111f]',
-          id: 'productos',
-          imageOverlay: 'absolute inset-0 bg-gradient-to-t from-[#050816]/66 via-transparent to-transparent',
-          priceClassName: 'text-[#d18f00]',
-          productTitleClassName: 'text-[#09111f]',
-          selectedBadgeClassName: 'bg-[#0b63f6]',
-          title: 'Packs, cartas y accesorios que se mueven rápido.',
-        }}
+      <CommerceRedirectSection
+        className="bg-white"
+        containerClassName="max-w-[1180px]"
+        description="Consulta packs, cartas y accesorios desde una tienda con búsqueda, favoritos, carrito y salida por WhatsApp. La landing queda como vitrina de marca y la compra vive en el módulo e-commerce."
+        eyebrow="Productos destacados"
+        id="productos"
+        note="Perfecto para validar stock cambiante sin duplicar carrito dentro de cada demo."
         products={featuredProducts}
+        secondaryHref={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+        secondaryLabel="Consultar stock"
+        title="Explora productos TCG y arma el pedido desde la tienda online."
         theme={{
-          accentText: 'text-[#0b63f6]',
-          border: 'border-[#dfe5f1]',
-          cardBackground: 'bg-white',
-          checkoutButton: 'bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]',
-          focusRing: 'focus-visible:ring-[#0b63f6]',
-          heading: 'text-[#09111f]',
-          muted: 'text-[#64748b]',
-          orderBackground: 'bg-[#f5f7fb]',
-          productButtonIdle: 'border border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f] hover:border-[#0b63f6]/35 hover:bg-white',
-          productButtonSelected: 'bg-[#09111f] text-white hover:bg-[#111827]',
-          productCard: 'border-[#dfe5f1] bg-white shadow-[0_20px_70px_rgba(15,23,42,0.08)]',
-          productCardSelected: 'border-[#0b63f6] ring-4 ring-[#dbeafe]',
-          tag: 'text-[#09111f]',
+          badge: 'border-[#dfe5f1] bg-[#f5f7fb] text-[#0b63f6]',
+          card: 'border-[#dfe5f1] bg-white',
+          description: 'text-[#64748b]',
+          heading: 'uppercase text-[#09111f]',
+          note: 'text-[#64748b]',
+          price: 'text-[#d18f00]',
+          primaryButton: 'bg-[#0b63f6] text-white hover:bg-[#084fc9]',
+          productTitle: 'uppercase text-[#09111f]',
+          secondaryButton: 'border-[#dfe5f1] bg-[#f5f7fb] text-[#09111f] hover:bg-white',
+          tag: 'bg-[#ffcf3f] text-[#09111f]',
         }}
-        whatsappNumber={whatsappNumber}
       />
       <SinglesSection lift={lift} />
       <HowToBuySection />
@@ -295,7 +236,7 @@ function Header({ mockup }) {
           <a className="transition hover:text-[#09111f]" href="#productos">Productos</a>
           <a className="transition hover:text-[#09111f]" href="#singles">Cartas</a>
           <a className="transition hover:text-[#09111f]" href="#tienda">Tienda</a>
-          <a className="transition hover:text-[#09111f]" href="#pedido">Pedido</a>
+          <a className="transition hover:text-[#09111f]" href="/tiendas-prueba">Comprar online</a>
         </nav>
 
         <Button asChild className="rounded-full bg-[#0b63f6] text-white hover:bg-[#084fc9]">
@@ -483,10 +424,10 @@ function CategoriesSection({ lift }) {
               >
                 <div className="relative h-44 overflow-hidden">
                   <img
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.05]"
+                    className="h-full w-full object-cover"
                     src={item.image}
                     alt={item.imageAlt}
-                    loading="lazy"
+                    loading="eager" decoding="async"
                   />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,22,0.08),rgba(5,8,22,0.68))]" />
                   <span className="absolute left-4 top-4 grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-[#0b63f6] shadow-lg">
@@ -735,7 +676,7 @@ function FinalCta({ lift }) {
               className="size-44 rounded-[2rem] border-4 border-[#ffcf3f] bg-[#050816] object-cover shadow-2xl"
               src={logoSrc}
               alt="Godpackstore"
-              loading="lazy"
+              loading="eager" decoding="async"
             />
           </div>
         </div>

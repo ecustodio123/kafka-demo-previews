@@ -12,7 +12,7 @@ import {
 } from 'lucide-react'
 
 import { Badge, Button, Card } from '../../components/ui/primitives'
-import { WhatsAppOrderFlow } from '../../components/commerce/WhatsAppOrderFlow'
+import { CommerceRedirectSection } from '../../components/commerce/CommerceRedirectSection'
 import { PromoModal } from '../../components/sections/PromoModal'
 import { cn } from '../../lib/utils'
 
@@ -156,11 +156,9 @@ const socialLinks = [
   },
 ]
 
-const whatsappNumber = '51928415698'
-
 export function FloristKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <div className="min-h-svh bg-[#fff8f4] text-[#243a31]">
@@ -170,88 +168,27 @@ export function FloristKafkaPage({ mockup }) {
       <main>
         <Hero lift={lift} />
         <TrustBar />
-        <WhatsAppOrderFlow
-          checkout={{
-            areaConfirmation: 'Importante: entiendo que el envío se coordina dentro de Lima según cobertura disponible.',
-            areaLabel: 'Entrega en Lima',
-            finalButtonLabel: 'Finalizar pedido por WhatsApp',
-            helperText: 'Antes de abrir WhatsApp te pediremos datos de entrega para armar el mensaje completo.',
-            modalTitle: 'Datos para confirmar tu pedido',
-            noticeIconClassName: 'bg-[#9b5264]',
-            noticeText: 'Si tienes dedicatoria, horario ideal o algún detalle extra, puedes colocarlo en la referencia.',
-            noticeTitle: 'Coordinamos la entrega por WhatsApp',
-            paymentNote: 'El costo de delivery, dedicatoria y extras se confirman directamente por WhatsApp.',
-          }}
-          message={{
-            finalQuestion: '¿Me ayudan a confirmar disponibilidad, costo de envío, dedicatoria y forma de pago?',
-            intro: 'Hola! Quiero finalizar mi pedido en Florería Kafka.',
-          }}
-          order={{
-            badgeClassName: 'border-[#f1c9d3] bg-white text-[#9b5264]',
-            benefitIconClassName: 'bg-[#eaf3df] text-[#243a31]',
-            benefits: ['Pedido listo para enviar', 'Confirmación de stock y delivery', 'Datos de entrega ordenados'],
-            cardClassName: 'border-[#eadbd5] bg-white',
-            checkoutButtonLabel: 'Terminar pedido por WhatsApp',
-            className: 'bg-white',
-            clearButtonClassName: 'border-[#eadbd5] bg-[#fff8f4] text-[#715f5b] hover:bg-white',
-            description: 'Selecciona los arreglos que te gusten. Antes de abrir WhatsApp completamos tus datos para confirmar dedicatoria, distrito, horario de entrega y pago.',
-            dividerClassName: 'bg-[#eadbd5]',
-            emptyButtonLabel: 'Elegir arreglos',
-            emptyClassName: 'border-[#e2c9c2] bg-[#fff8f4]',
-            emptyIconClassName: 'bg-white text-[#9b5264]',
-            emptyText: 'Agrega uno o más arreglos del catálogo para enviar tu pedido con el detalle completo.',
-            emptyTextClassName: 'text-[#715f5b]',
-            emptyTitle: 'Aún no hay arreglos',
-            eyebrow: 'Pedido por WhatsApp',
-            helperClassName: 'text-[#715f5b]',
-            id: 'pedido-whatsapp',
-            itemPlural: 'arreglos',
-            itemSingular: 'arreglo',
-            lineItemClassName: 'border-[#eadbd5] bg-[#fff8f4]',
-            pillClassName: 'border-[#eadbd5] bg-[#fff8f4] text-[#9b5264]',
-            pillLabel: 'Tu pedido',
-            priceClassName: 'text-[#9b5264]',
-            removeButtonClassName: 'bg-white text-[#715f5b] hover:bg-[#fff0f4] hover:text-[#9b5264]',
-            selectionLabel: 'Tu selección',
-            selectionLabelClassName: 'text-[#9b5264]',
-            showTotal: true,
-            summaryDividerClassName: 'border-[#eadbd5]',
-            title: 'Arma tu pedido y lo cerramos contigo.',
-            titleClassName: 'text-[#243a31]',
-            totalClassName: 'bg-[#243a31]',
-            totalLabel: 'Total referencial',
-            totalNote: 'El monto final puede variar según distrito, extras y disponibilidad del día.',
-            totalPrefix: 'Desde S/',
-          }}
-          productSection={{
-            className: 'bg-white',
-            description: 'Elige tu favorito, agrégalo a tu pedido y envíanos la selección por WhatsApp para confirmar disponibilidad, dedicatoria y entrega.',
-            eyebrow: 'Los más elegidos',
-            id: 'catalogo',
-            imageClassName: 'aspect-[4/4.7]',
-            priceClassName: 'text-lg text-[#9b5264]',
-            productTitleClassName: 'text-xl text-[#243a31]',
-            selectedBadgeClassName: 'bg-[#243a31]',
-            title: 'Arreglos listos para enviar hoy o programar con calma.',
-          }}
+        <CommerceRedirectSection
+          className="bg-white"
+          description="Mira arreglos disponibles, guarda favoritos, arma tu carrito y finaliza la consulta desde la tienda online. Allí puedes probar la experiencia completa de catálogo y pedido."
+          eyebrow="Catálogo floral"
+          note="La tienda abre en una ruta aparte para mantener esta landing ligera y enfocada en vender la propuesta visual."
           products={bestSellers}
+          secondaryHref="#whatsapp"
+          secondaryLabel="Pedir ayuda para elegir"
+          title="Explora los arreglos y completa tu pedido en la tienda online."
           theme={{
-            accentText: 'text-[#9b5264]',
-            border: 'border-[#eadbd5]',
-            cardBackground: 'bg-white',
-            checkoutButton: 'bg-[#25d366] text-[#11351f] hover:bg-[#22c55e]',
-            focusRing: 'focus-visible:ring-[#9b5264]',
+            badge: 'border-[#f1c9d3] bg-[#fff8f4] text-[#9b5264]',
+            card: 'border-[#eadbd5] bg-[#fff8f4]',
+            description: 'text-[#715f5b]',
             heading: 'text-[#243a31]',
-            muted: 'text-[#715f5b]',
-            orderBackground: 'bg-[#fff8f4]',
-            productButtonIdle: 'border border-[#eadbd5] bg-white text-[#243a31] hover:border-[#9b5264]/35 hover:bg-[#fff0f4]',
-            productButtonSelected: 'bg-[#243a31] text-white hover:bg-[#1b2d25]',
-            productCard: 'border-[#eadbd5] bg-[#fff8f4] shadow-[0_22px_70px_rgba(80,40,35,0.08)]',
-            productCardSelected: 'border-[#9b5264] ring-4 ring-[#f7d7df]',
-            tag: 'bg-white text-[#9b5264]',
-            totalBackground: 'bg-[#243a31]',
+            note: 'text-[#8a6d68]',
+            price: 'text-[#9b5264]',
+            primaryButton: 'bg-[#243a31] text-white hover:bg-[#1b2d25]',
+            productTitle: 'text-[#243a31]',
+            secondaryButton: 'border-[#eadbd5] bg-[#fff8f4] text-[#243a31] hover:bg-white',
+            tag: 'bg-white text-[#9b5264] shadow-sm',
           }}
-          whatsappNumber={whatsappNumber}
         />
         <Occasions lift={lift} />
         <HowToOrder />
@@ -286,7 +223,7 @@ function FloristHeader() {
         </a>
         <nav className="hidden items-center gap-6 text-sm font-bold text-[#6f5b58] lg:flex" aria-label="Secciones">
           <a className="transition hover:text-[#243a31]" href="#catalogo">Más pedidos</a>
-          <a className="transition hover:text-[#243a31]" href="#pedido-whatsapp">Tu pedido</a>
+          <a className="transition hover:text-[#243a31]" href="/tiendas-prueba">Tienda online</a>
           <a className="transition hover:text-[#243a31]" href="#ocasiones">Ocasiones</a>
           <a className="transition hover:text-[#243a31]" href="#pedido">Cómo pedir</a>
           <a className="transition hover:text-[#243a31]" href="#whatsapp">WhatsApp</a>
@@ -407,7 +344,7 @@ function Hero({ lift }) {
                 type="button"
               >
                 <img
-                  className="size-[72px] rounded-[1rem] object-cover transition duration-500 group-hover:scale-105"
+                  className="size-[72px] rounded-[1rem] object-cover"
                   src={item.image}
                   alt=""
                   aria-hidden="true"
@@ -471,7 +408,7 @@ function Occasions({ lift }) {
               key={item.title}
               {...lift}
             >
-              <img className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" src={item.image} alt={item.title} loading="lazy" />
+              <img className="absolute inset-0 h-full w-full object-cover" src={item.image} alt={item.title} loading="eager" decoding="async" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.72))]" />
               <div className="absolute inset-x-0 bottom-0 p-5">
                 <h3 className="text-2xl font-black leading-tight">{item.title}</h3>
@@ -653,7 +590,7 @@ function FloristFooter() {
 
               return (
                 <a
-                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#eadbd5] bg-[#fff8f4] px-4 py-2 font-black text-[#243a31] no-underline transition hover:-translate-y-0.5 hover:border-[#9b5264]/35 hover:bg-white"
+                  className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[#eadbd5] bg-[#fff8f4] px-4 py-2 font-black text-[#243a31] no-underline transition hover:border-[#9b5264]/35 hover:bg-white"
                   href={item.href}
                   key={item.label}
                   rel="noreferrer"

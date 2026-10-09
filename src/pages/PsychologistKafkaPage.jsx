@@ -160,7 +160,7 @@ const socialLinks = [
 
 export function PsychologistKafkaPage({ mockup }) {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
 
   return (
     <main className="min-h-svh bg-[#fbf8ff] text-[#282238]">
@@ -369,7 +369,7 @@ function AboutTherapist({ lift }) {
             className="aspect-[4/4.4] w-full rounded-[1.5rem] object-cover"
             src="https://images.pexels.com/photos/10041258/pexels-photo-10041258.jpeg?auto=compress&cs=tinysrgb&w=1200"
             alt="Retrato profesional de la psicóloga Valeria Mendoza"
-            loading="lazy"
+            loading="eager" decoding="async"
           />
           <div className="absolute inset-x-6 bottom-6 rounded-[1.5rem] border border-white/50 bg-white/92 p-5 text-[#282238] shadow-2xl backdrop-blur">
             <span className="text-xs font-black uppercase tracking-[0.14em] text-[#8b6ad6]">
@@ -504,7 +504,7 @@ function FirstSessionSection({ lift }) {
               className="absolute inset-0 h-full w-full object-cover opacity-38"
               src="https://images.pexels.com/photos/7176305/pexels-photo-7176305.jpeg?auto=compress&cs=tinysrgb&w=1200"
               alt="Sesión terapéutica online en un ambiente tranquilo"
-              loading="lazy"
+              loading="eager" decoding="async"
             />
             <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(40,34,56,0.82),rgba(40,34,56,0.34))]" />
             <div className="relative flex flex-1 flex-col justify-between">
@@ -771,7 +771,7 @@ function PsychFooter({ mockup }) {
 
                 return (
                   <a
-                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#e6dcf5] bg-[#fbf8ff] px-4 py-2 font-black text-[#282238] no-underline transition hover:-translate-y-0.5 hover:border-[#8b6ad6]/40 hover:bg-white"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-full border border-[#e6dcf5] bg-[#fbf8ff] px-4 py-2 font-black text-[#282238] no-underline transition hover:border-[#8b6ad6]/40 hover:bg-white"
                     href={item.href}
                     key={item.label}
                     rel="noreferrer"

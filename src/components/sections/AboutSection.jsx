@@ -26,7 +26,7 @@ export function AboutSection({ about }) {
         </div>
         {about.card ? (
           <article className="about-story-card">
-            <img src={about.card.image} alt={about.card.title} loading="lazy" />
+            <img src={about.card.image} alt={about.card.title} loading="eager" decoding="async" />
             <div>
               <h3>{about.card.title}</h3>
               <p>{about.card.description}</p>

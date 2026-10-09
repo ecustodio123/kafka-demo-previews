@@ -21,7 +21,7 @@ export function PhotoCarouselSection({ gallery }) {
         <div className="photo-carousel__track">
           {loopImages.map((image, index) => (
             <figure className="photo-card" key={`${image.src}-${index}`}>
-              <img src={image.src} alt={image.alt} loading="lazy" />
+              <img src={image.src} alt={image.alt} loading="eager" decoding="async" />
               <figcaption>{image.label}</figcaption>
             </figure>
           ))}

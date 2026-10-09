@@ -18,8 +18,8 @@ export function BeforeAfterSection({ beforeAfter }) {
           {beforeAfter.items.map((item) => (
             <article className="before-after-card" key={item.title}>
               <div className="before-after-card__media">
-                <img className="before-after-card__before" src={item.image} alt="" loading="lazy" />
-                <img src={item.image} alt={item.title} loading="lazy" />
+                <img className="before-after-card__before" src={item.image} alt="" loading="eager" decoding="async" />
+                <img src={item.image} alt={item.title} loading="eager" decoding="async" />
                 <span className="before-after-card__tag before">Antes</span>
                 <span className="before-after-card__tag after">Despues</span>
               </div>

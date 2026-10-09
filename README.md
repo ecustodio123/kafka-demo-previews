@@ -1,6 +1,6 @@
 # Kafka Pages
 
-Aplicacion interna de Kafka para crear y compartir mockups simples de sitios web con clientes interesados.
+Aplicación comercial de Kafka Tech para mostrar proyectos reales, mockups por rubro y una demo de tienda online.
 
 ## Comandos
 
@@ -12,11 +12,38 @@ npm run build
 
 ## Rutas
 
-- `/` muestra el showroom interno con los mocks disponibles.
-- `/floreria-paulina` muestra el mockup de Floreria Paulina.
-- `/lex-vial` muestra el mockup corporativo de Lex Vial.
-- `/lavado-de-muebles` muestra el mockup de servicio de lavado.
-- Cualquier slug inexistente muestra una pagina 404 simple.
+- `/` muestra el showroom comercial con proyectos reales, mockups conceptuales y el nuevo servicio e-commerce.
+- `/tiendas-prueba` muestra Kafka Commerce renderizado desde el paquete `@ecustodio123/kafka-commerce`.
+- `/floreria-kafka` muestra el mockup maestro para florerías.
+- `/veterinaria-kafka` muestra la primera plantilla para veterinarias.
+- `/veterinaria-kafka-2` muestra la segunda plantilla para veterinarias.
+- `/psicologa-kafka` muestra el mockup para psicología.
+- `/centro-de-conciliacion-kafka` muestra el mockup para centro de conciliación.
+- `/god-pack-store` muestra el mockup para tienda TCG.
+- Cualquier slug inexistente muestra una página 404 simple.
+
+## Kafka Commerce
+
+El proyecto está preparado para instalar el paquete privado desde GitHub Packages:
+
+```bash
+npm config set //npm.pkg.github.com/:_authToken "tu_token_con_acceso"
+npm install @ecustodio123/kafka-commerce@0.1.0
+```
+
+`.npmrc` configura el registry del scope y el token debe quedar en tu configuración local de npm, nunca versionado. La ruta `/tiendas-prueba` renderiza `CommerceStore` desde `@ecustodio123/kafka-commerce`.
+
+Variables públicas usadas por la tienda:
+
+```bash
+VITE_SUPABASE_URL=
+VITE_SUPABASE_ANON_KEY=
+VITE_STORE_ID=
+VITE_STORE_NAME=Kafka Commerce Demo
+VITE_WHATSAPP_PHONE=51999999999
+```
+
+También se acepta `VITE_SUPABASE_PUBLISHABLE_KEY` como alternativa a `VITE_SUPABASE_ANON_KEY`.
 
 ## Agregar un nuevo cliente
 
@@ -35,7 +62,7 @@ Al compilar (`npm run build`) se genera un `dist/<slug>.html` y un `dist/preview
 
 El sitio se publica en Cloudflare Pages. No hace falta un `_redirects` para el modo SPA: sin `404.html`, Pages envía las rutas desconocidas a `index.html`. No agregues `/* /index.html 200`, porque en Pages esa regla se aplica aunque exista el archivo y taparía los HTML de cada mockup.
 
-Cada demo sale solo de configuracion local. No hay backend, login, CMS ni base de datos.
+Cada demo sale solo de configuración local. No hay backend, login, CMS ni base de datos.
 
 ## Estructura
 

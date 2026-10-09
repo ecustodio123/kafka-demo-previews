@@ -131,7 +131,7 @@ export function WhatsAppOrderFlow({
   whatsappNumber,
 }) {
   const prefersReducedMotion = useReducedMotion()
-  const lift = prefersReducedMotion ? {} : { whileHover: { y: -5 }, whileTap: { scale: 0.99 } }
+  const lift = prefersReducedMotion ? {} : { whileTap: { scale: 0.99 } }
   const resolvedTheme = normalizeTheme(theme)
   const resolvedCheckout = normalizeCheckout(checkout)
   const [cartItems, setCartItems] = useState([])
@@ -253,10 +253,10 @@ function ProductGrid({ cartItems, lift, productSection, products, theme, onToggl
               >
                 <div className="relative overflow-hidden">
                   <img
-                    className={cn('aspect-square w-full object-cover transition duration-500 group-hover:scale-[1.03]', productSection.imageClassName)}
+                    className={cn('aspect-square w-full object-cover', productSection.imageClassName)}
                     src={item.image}
                     alt={item.title}
-                    loading="lazy"
+                    loading="eager" decoding="async"
                   />
                   {productSection.imageOverlay ? <div className={productSection.imageOverlay} /> : null}
                   {item.tag ? (

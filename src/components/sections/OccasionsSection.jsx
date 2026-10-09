@@ -17,7 +17,7 @@ export function OccasionsSection({ occasions }) {
         <div className="occasion-grid">
           {occasions.items.map((item) => (
             <article className="occasion-card" key={item.title}>
-              <img src={item.image} alt={item.title} loading="lazy" />
+              <img src={item.image} alt={item.title} loading="eager" decoding="async" />
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
