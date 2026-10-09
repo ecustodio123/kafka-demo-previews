@@ -9,7 +9,7 @@ const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
 const storeId = import.meta.env.VITE_STORE_ID
 const whatsappPhone = import.meta.env.VITE_WHATSAPP_PHONE
-const storeName = import.meta.env.VITE_STORE_NAME || 'Kafka Commerce Demo'
+const storeName = import.meta.env.VITE_STORE_NAME || 'Kafka Store'
 
 const missingVariables = [
   ['VITE_SUPABASE_URL', supabaseUrl],
@@ -56,13 +56,13 @@ export function TiendasPruebaPage() {
             <ArrowLeft aria-hidden="true" size={17} />
             Volver al showroom
           </a>
-          <Badge className="border-emerald-200 bg-emerald-50 text-emerald-700">
+          {/* <Badge className="border-emerald-200 bg-emerald-50 text-emerald-700">
             Tienda conectada con Kafka Commerce
-          </Badge>
+          </Badge> */}
         </div>
       </header>
 
-      <section className="border-b border-neutral-200 bg-[#111827] px-4 py-14 text-white sm:px-6 lg:px-8">
+      {/* <section className="border-b border-neutral-200 bg-[#111827] px-4 py-14 text-white sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <Badge variant="dark" className="border-white/15 bg-white/10">
@@ -85,9 +85,9 @@ export function TiendasPruebaPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="px-4 py-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1200px]">
           <CommerceStore
             checkout={{
@@ -106,8 +106,8 @@ export function TiendasPruebaPage() {
             storeName={storeName}
             supabase={supabase}
             theme={commerceTheme}
-            title={storeName}
-            description="Explora productos, guarda favoritos, arma tu carrito y finaliza el pedido por WhatsApp."
+            title={"Kafka Store - Tu tienda favorita"}
+            description=""
           />
         </div>
       </section>
