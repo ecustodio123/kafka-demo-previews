@@ -290,7 +290,7 @@ function EcommerceSection({ lift }) {
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="rounded-full bg-white text-neutral-950 hover:bg-neutral-100">
-              <motion.a href="/tiendas-prueba" {...lift}>
+              <motion.a href="/kafka-store" {...lift}>
                 Probar tienda online
                 <ArrowRight aria-hidden="true" size={18} />
               </motion.a>
@@ -349,7 +349,7 @@ function MockupsSection({ lift }) {
             description="Estas demos no son proyectos publicados para clientes reales: son plantillas comerciales para visualizar dirección estética, estructura y experiencia antes de cotizar."
           />
           <Button asChild variant="secondary" className="w-fit rounded-full">
-            <a href="/tiendas-prueba">
+            <a href="/kafka-store">
               Probar e-commerce
               <ArrowRight aria-hidden="true" size={17} />
             </a>

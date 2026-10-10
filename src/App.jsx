@@ -31,7 +31,7 @@ function App() {
 
   let page = <NotFoundPage />
   if (path === '/') page = <HomePage />
-  else if (path === '/tiendas-prueba') page = <TiendasPruebaPage />
+  else if (path === '/kafka-store' || path === '/tiendas-prueba') page = <TiendasPruebaPage />
   else if (mockup) page = <MockupPage mockup={mockup} />
 
   return (

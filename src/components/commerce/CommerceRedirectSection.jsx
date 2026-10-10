@@ -1,4 +1,4 @@
-import { ArrowRight, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 
 import { Badge, Button, Card } from "../ui/primitives";
 import { cn } from "../../lib/utils";
@@ -7,13 +7,9 @@ export function CommerceRedirectSection({
   id = "catalogo",
   eyebrow = "Catálogo online",
   title,
-  description,
   products = [],
   ctaLabel = "Comprar online",
-  ctaHref = "/tiendas-prueba",
-  secondaryLabel,
-  secondaryHref,
-  note,
+  ctaHref = "/kafka-store",
   className,
   containerClassName = "max-w-[1160px]",
   theme = {},

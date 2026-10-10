@@ -251,7 +251,7 @@ function VeterinaryHeader({ mockup }) {
           <a className="transition hover:text-[#153a35]" href="#urgencias">Urgencias</a>
           <a className="transition hover:text-[#153a35]" href="#equipo">Veterinarios</a>
           <a className="transition hover:text-[#153a35]" href="#productos">Productos</a>
-          <a className="transition hover:text-[#153a35]" href="/tiendas-prueba">Tienda online</a>
+          <a className="transition hover:text-[#153a35]" href="/kafka-store">Tienda online</a>
           <a className="transition hover:text-[#153a35]" href="#reserva">Agenda</a>
         </nav>
 

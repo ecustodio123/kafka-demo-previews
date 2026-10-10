@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { CommerceStore } from '@ecustodio123/kafka-commerce'
 import { createClient } from '@supabase/supabase-js'
-import { ArrowLeft, CheckCircle2, Settings } from 'lucide-react'
+import { ArrowLeft, Settings } from 'lucide-react'
 
 import { Badge, Button } from '../components/ui/primitives'
 
@@ -38,10 +38,10 @@ export function TiendasPruebaPage() {
   }, [])
 
   useEffect(() => {
-    document.title = 'Tienda de prueba | Kafka Commerce'
+    document.title = 'Kafka Store | Tiendas online'
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute('content', 'Tienda de prueba de Kafka Commerce con productos, categorías, favoritos, carrito y checkout por WhatsApp.')
+      ?.setAttribute('content', 'Descubre Kafka Store, nuestra solución de tiendas online personalizadas. Explora productos, categorías, ofertas y una experiencia de compra moderna.')
   }, [])
 
   if (!supabase) {
@@ -62,31 +62,6 @@ export function TiendasPruebaPage() {
         </div>
       </header>
 
-      {/* <section className="border-b border-neutral-200 bg-[#111827] px-4 py-14 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-[1200px] gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-          <div>
-            <Badge variant="dark" className="border-white/15 bg-white/10">
-              Demo e-commerce
-            </Badge>
-            <h1 className="mt-5 max-w-4xl text-4xl font-semibold leading-none sm:text-6xl">
-              Tienda de prueba para validar Kafka Commerce.
-            </h1>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-white/70">
-              Esta pantalla usa el paquete publicado, lee productos desde Supabase y permite probar catálogo,
-              categorías, favoritos, carrito y checkout por WhatsApp.
-            </p>
-          </div>
-          <div className="grid gap-3 rounded-3xl border border-white/10 bg-white/[0.06] p-5 text-sm font-semibold text-white/74">
-            {['Productos activos por tienda', 'Carrito persistido por storeId', 'Checkout por WhatsApp'].map((item) => (
-              <div className="flex items-center gap-3" key={item}>
-                <CheckCircle2 aria-hidden="true" className="text-emerald-300" size={18} />
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       <section className="px-4 py-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1200px]">
           <CommerceStore
@@ -106,7 +81,7 @@ export function TiendasPruebaPage() {
             storeName={storeName}
             supabase={supabase}
             theme={commerceTheme}
-            title={"Kafka Store - Tu tienda favorita"}
+            title="Kafka Store"
             description=""
           />
         </div>

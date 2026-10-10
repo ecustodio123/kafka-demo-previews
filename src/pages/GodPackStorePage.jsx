@@ -236,7 +236,7 @@ function Header({ mockup }) {
           <a className="transition hover:text-[#09111f]" href="#productos">Productos</a>
           <a className="transition hover:text-[#09111f]" href="#singles">Cartas</a>
           <a className="transition hover:text-[#09111f]" href="#tienda">Tienda</a>
-          <a className="transition hover:text-[#09111f]" href="/tiendas-prueba">Comprar online</a>
+          <a className="transition hover:text-[#09111f]" href="/kafka-store">Comprar online</a>
         </nav>
 
         <Button asChild className="rounded-full bg-[#0b63f6] text-white hover:bg-[#084fc9]">

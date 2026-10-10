@@ -223,7 +223,7 @@ function FloristHeader() {
         </a>
         <nav className="hidden items-center gap-6 text-sm font-bold text-[#6f5b58] lg:flex" aria-label="Secciones">
           <a className="transition hover:text-[#243a31]" href="#catalogo">Más pedidos</a>
-          <a className="transition hover:text-[#243a31]" href="/tiendas-prueba">Tienda online</a>
+          <a className="transition hover:text-[#243a31]" href="/kafka-store">Tienda online</a>
           <a className="transition hover:text-[#243a31]" href="#ocasiones">Ocasiones</a>
           <a className="transition hover:text-[#243a31]" href="#pedido">Cómo pedir</a>
           <a className="transition hover:text-[#243a31]" href="#whatsapp">WhatsApp</a>
