@@ -7,14 +7,16 @@ import {
   Check,
   MapPin,
   Search,
+  ShoppingBag,
   Sparkles,
   Truck,
 } from "lucide-react";
 
 import { Badge, Button, Card } from "../../components/ui/primitives";
-import { CommerceRedirectSection } from "../../components/commerce/CommerceRedirectSection";
 import { PromoModal } from "../../components/sections/PromoModal";
 import { cn } from "../../lib/utils";
+
+const storeHref = "/floreria-kafka/stores?id=3";
 
 const trustSignals = [
   { icon: Truck, title: "Llega hoy", detail: "Pedidos antes de las 6 p.m." },
@@ -129,6 +131,9 @@ const bestSellers = [
 const heroImage =
   "https://www.floridelux.ro/storage/app/uploads/public/69a/01a/e1c/thumb_123213_1200_0_0_0_auto.jpg";
 
+const storeFeatureImage =
+  "https://images.unsplash.com/photo-1690315478701-33744ce23a61?auto=format&fit=crop&w=1400&q=86";
+
 const steps = [
   {
     icon: Search,
@@ -176,10 +181,7 @@ export function FloristKafkaPage({ mockup }) {
       <FloristHeader />
       <main>
         {/* <Hero lift={lift} /> */}
-        <section
-          className="relative isolate overflow-hidden bg-[#c8a596]"
-          id="inicio"
-        >
+        <section className="relative isolate overflow-hidden bg-[#c8a596]" id="inicio">
           <div
             className="absolute left-[16%] top-8 hidden h-28 w-48 rotate-[24deg] rounded-[50%] border border-white/35 border-b-0 border-r-0 lg:block"
             aria-hidden="true"
@@ -198,9 +200,9 @@ export function FloristKafkaPage({ mockup }) {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 mx-auto min-h-[660px] w-[min(1780px,calc(100%-48px))] py-16 sm:min-h-[690px] lg:min-h-[660px]">
+          <div className="relative z-10 mx-auto min-h-[660px] w-[min(1780px,calc(100%-32px))] py-14 sm:min-h-[690px] sm:w-[min(1780px,calc(100%-48px))] lg:min-h-[660px]">
             <motion.div
-              className="grid min-h-[540px] max-w-[700px] content-center text-white sm:pl-[12%]"
+              className="grid min-h-[540px] max-w-[720px] content-center text-white sm:pl-[8%] xl:pl-[12%]"
               {...lift}
             >
               <p className="text-xs font-black uppercase tracking-[0.34em] text-white">
@@ -213,7 +215,7 @@ export function FloristKafkaPage({ mockup }) {
                 </span>
                 <br />a Lima
               </h1>
-              <div className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-white/18 px-4 py-2 text-sm font-black text-white backdrop-blur">
+              <div className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-white/18 px-4 py-2 text-sm font-black text-white shadow-sm backdrop-blur">
                 <span className="grid size-4 place-items-center rounded-full bg-[#49d493]">
                   <span className="size-1.5 rounded-full bg-white" />
                 </span>
@@ -223,17 +225,18 @@ export function FloristKafkaPage({ mockup }) {
                 <Button
                   asChild
                   size="lg"
-                  className="rounded-full bg-[#8f2e4f] px-8 text-white shadow-none hover:bg-[#782541]"
+                  className="rounded-full bg-white px-8 text-[#243a31] shadow-[0_18px_42px_rgba(36,58,49,0.22)] hover:bg-[#fff8f4]"
                 >
-                    {/* <motion.a href="#favoritos" {...press}>
-                      Enviar flores hoy
-                    </motion.a> */}
+                  <a href={storeHref}>
+                    <ShoppingBag aria-hidden="true" className="size-4" />
+                    Explorar tienda online
+                  </a>
                 </Button>
                 <a
-                  className="inline-flex min-h-12 items-center font-black text-white no-underline underline-offset-8 hover:underline"
-                  href="#presupuesto"
+                  className="inline-flex min-h-12 items-center gap-2 font-black text-white no-underline underline-offset-8 hover:underline"
+                  href="#catalogo"
                 >
-                  Ver todo el catálogo
+                  Ver arreglos destacados
                   <ArrowRight aria-hidden="true" size={17} />
                 </a>
               </div>
@@ -241,29 +244,7 @@ export function FloristKafkaPage({ mockup }) {
           </div>
         </section>
         <TrustBar />
-        <CommerceRedirectSection
-          className="bg-white"
-          description="Mira arreglos disponibles, guarda favoritos, arma tu carrito y finaliza la consulta desde la tienda online. Allí puedes probar la experiencia completa de catálogo y pedido."
-          eyebrow="Catálogo floral"
-          note="La tienda abre en una ruta aparte para mantener esta landing ligera y enfocada en vender la propuesta visual."
-          products={bestSellers}
-          secondaryHref="#whatsapp"
-          secondaryLabel="Pedir ayuda para elegir"
-          title="Explora los arreglos y completa tu pedido en la tienda online."
-          theme={{
-            badge: "border-[#f1c9d3] bg-[#fff8f4] text-[#9b5264]",
-            card: "border-[#eadbd5] bg-[#fff8f4]",
-            description: "text-[#715f5b]",
-            heading: "text-[#243a31]",
-            note: "text-[#8a6d68]",
-            price: "text-[#9b5264]",
-            primaryButton: "bg-[#243a31] text-white hover:bg-[#1b2d25]",
-            productTitle: "text-[#243a31]",
-            secondaryButton:
-              "border-[#eadbd5] bg-[#fff8f4] text-[#243a31] hover:bg-white",
-            tag: "bg-white text-[#9b5264] shadow-sm",
-          }}
-        />
+        <FloristStoreSection lift={lift} />
         <Occasions lift={lift} />
         <HowToOrder />
         <CareAndWhatsApp />
@@ -311,7 +292,7 @@ function FloristHeader() {
           <a className="transition hover:text-[#243a31]" href="#catalogo">
             Más pedidos
           </a>
-          <a className="transition hover:text-[#243a31]" href="/kafka-store">
+          <a className="transition hover:text-[#243a31]" href={storeHref}>
             Tienda online
           </a>
           <a className="transition hover:text-[#243a31]" href="#ocasiones">
@@ -328,7 +309,11 @@ function FloristHeader() {
           asChild
           className="rounded-full bg-[#243a31] text-white hover:bg-[#1b2d25]"
         >
-          <a href="#whatsapp">Pedir ahora</a>
+          <a href={storeHref}>
+            <ShoppingBag aria-hidden="true" className="size-4" />
+            <span className="hidden sm:inline">Tienda online</span>
+            <span className="sm:hidden">Tienda</span>
+          </a>
         </Button>
       </div>
     </header>
@@ -531,6 +516,112 @@ function TrustBar() {
   );
 }
 
+function FloristStoreSection({ lift }) {
+  return (
+    <section className="bg-white px-4 py-20 sm:px-6 lg:px-8" id="catalogo">
+      <div className="mx-auto grid max-w-[1160px] gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <motion.div
+          className="relative min-h-[560px] overflow-hidden rounded-[2rem] border border-[#eadbd5] bg-[#f5eee8] shadow-[0_30px_90px_rgba(80,40,35,0.11)]"
+          {...lift}
+        >
+          <img
+            className="absolute inset-0 h-full w-full object-cover object-[48%_50%]"
+            src={storeFeatureImage}
+            alt="Caja premium de rosas rosadas lista para regalo"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(36,58,49,0.02),rgba(36,58,49,0.58))]" />
+          <div className="absolute left-5 top-5 flex flex-wrap gap-2">
+            <Badge className="border-white/50 bg-white/90 text-[#9b5264]">
+              Catálogo online
+            </Badge>
+            <Badge className="border-[#f6c4cf] bg-[#9b5264] text-white">
+              20% Dcto.
+            </Badge>
+          </div>
+          <div className="absolute inset-x-5 bottom-5 rounded-[1.5rem] border border-white/28 bg-white/88 p-5 text-[#243a31] shadow-[0_24px_70px_rgba(36,58,49,0.18)] backdrop-blur">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-[#9b5264]">
+              Compra guiada
+            </p>
+            <h2 className="mt-2 text-3xl font-black leading-tight">
+              Arreglos listos para elegir por ocasión, precio y estilo.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-[#715f5b]">
+              La tienda reúne los productos disponibles para que puedas revisar
+              opciones con calma y pedirlos por WhatsApp con el detalle ya
+              ordenado.
+            </p>
+          </div>
+        </motion.div>
+
+        <div>
+          <SectionIntro
+            eyebrow="Tienda online"
+            title="Encuentra el arreglo perfecto sin perder tiempo preguntando uno por uno."
+            description="Explora el catálogo, revisa precios, guarda tus favoritos y lleva tu selección a WhatsApp para confirmar disponibilidad, entrega y dedicatoria."
+          />
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-[#243a31] px-8 text-white hover:bg-[#1b2d25]"
+            >
+              <a href={storeHref}>
+                <ShoppingBag aria-hidden="true" className="size-4" />
+                Explorar tienda online
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="rounded-full border-[#eadbd5] bg-[#fff8f4] text-[#243a31] hover:bg-white"
+            >
+              <a href="#whatsapp">
+                <WhatsAppIcon aria-hidden="true" className="size-4" />
+                Ayúdame a elegir
+              </a>
+            </Button>
+          </div>
+
+          <div className="mt-9 grid gap-4 sm:grid-cols-2">
+            {bestSellers.map((item) => (
+              <a
+                className="group grid grid-cols-[96px_minmax(0,1fr)] overflow-hidden rounded-[1.35rem] border border-[#eadbd5] bg-[#fff8f4] text-[#243a31] no-underline shadow-sm transition hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_20px_45px_rgba(80,40,35,0.1)]"
+                href={storeHref}
+                key={item.title}
+              >
+                <img
+                  className="h-full min-h-28 w-24 object-cover"
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="grid gap-2 p-4">
+                  <span className="w-fit rounded-full bg-white px-3 py-1 text-[0.7rem] font-black text-[#9b5264] shadow-sm">
+                    {item.tag}
+                  </span>
+                  <strong className="text-base font-black leading-tight">
+                    {item.title}
+                  </strong>
+                  <span className="flex flex-wrap items-center gap-2 text-sm font-black text-[#9b5264]">
+                    {item.price}
+                    <span className="font-bold text-[#8a6d68] line-through">
+                      {item.oldPrice}
+                    </span>
+                  </span>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Occasions({ lift }) {
   return (
     <section className="px-4 py-20 sm:px-6 lg:px-8" id="ocasiones">
@@ -552,7 +643,7 @@ function Occasions({ lift }) {
                 className="absolute inset-0 h-full w-full object-cover"
                 src={item.image}
                 alt={item.title}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(20,20,20,0.05),rgba(20,20,20,0.72))]" />
@@ -730,8 +821,8 @@ function FinalCall() {
               size="lg"
               className="rounded-full bg-white text-[#243a31] hover:bg-white/90"
             >
-              <a href="#catalogo">
-                Ver arreglos disponibles
+              <a href={storeHref}>
+                Explorar tienda online
                 <ArrowRight aria-hidden="true" size={18} />
               </a>
             </Button>

@@ -25,6 +25,9 @@ function lazyPage(load, name) {
 
 // Mockups con página a medida; cada una se descarga solo cuando se abre su link.
 const customPages = {
+  'accesorios-kafka': lazyPage(() => import('./AccesoriosKafkaPage'), 'AccesoriosKafkaPage'),
+  'beauty-kafka': lazyPage(() => import('./BeautyKafkaPage'), 'BeautyKafkaPage'),
+  'regalos-kafka': lazyPage(() => import('./RegalosKafkaPage'), 'RegalosKafkaPage'),
   'god-pack-store': lazyPage(() => import('./GodPackStorePage'), 'GodPackStorePage'),
   'veterinaria-kafka': lazyPage(() => import('./veterinary/VeterinaryKafkaPage'), 'VeterinaryKafkaPage'),
   'veterinaria-kafka-2': lazyPage(() => import('./veterinary/VeterinaryKafkaPage2'), 'VeterinaryKafkaPage2'),

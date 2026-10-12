@@ -1,5 +1,119 @@
 export const mockups = [
   {
+    slug: 'accesorios-kafka',
+    clientName: 'Accesorios Kafka',
+    industry: 'Moda & Accesorios',
+    summary:
+      'Demo conceptual para boutiques de accesorios con dirección editorial, categorías visuales y tienda online por WhatsApp.',
+    shareImage:
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=84',
+    theme: {
+      primary: '#1b1713',
+      accent: '#b8955f',
+      background: '#f8f1e6',
+      surface: '#fffaf2',
+      muted: '#75695d',
+    },
+    hero: {
+      eyebrow: 'Moda & accesorios',
+      title: 'Los detalles definen tu estilo',
+      description:
+        'Una experiencia de boutique para presentar collares, aretes, bolsos y sets con una tienda online clara.',
+      cta: 'Explorar colección',
+    },
+    about: {
+      eyebrow: 'Demo conceptual',
+      title: 'Una boutique visual para vender accesorios con más intención',
+      description:
+        'Pensada para marcas que necesitan destacar producto, estilo y compra online sin saturar la experiencia.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Explora Accesorios Kafka',
+      description:
+        'Revisa la landing y entra a la tienda online para ver cómo podría funcionar una experiencia de venta para accesorios.',
+      channels: ['Tienda online', 'Categorías', 'WhatsApp'],
+    },
+  },
+  {
+    slug: 'beauty-kafka',
+    clientName: 'Beauty Kafka',
+    industry: 'Belleza & Cosmética',
+    summary:
+      'Demo conceptual para marcas de cosmética, skincare y belleza con catálogo visual, categorías y tienda online por WhatsApp.',
+    shareImage:
+      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=84',
+    theme: {
+      primary: '#241817',
+      accent: '#d9aea8',
+      background: '#fbf3ef',
+      surface: '#ffffff',
+      muted: '#7c6560',
+    },
+    hero: {
+      eyebrow: 'Belleza & Cosmética',
+      title: 'Belleza curada para comprar sin ruido',
+      description:
+        'Una experiencia editorial para mostrar skincare, maquillaje, perfumes y kits de belleza con tienda online conectada a WhatsApp.',
+      cta: 'Explorar tienda online',
+    },
+    about: {
+      eyebrow: 'Demo conceptual',
+      title: 'Una vitrina premium para vender productos beauty',
+      description:
+        'Pensada para marcas que necesitan mostrar textura, color, categorías y productos destacados con una experiencia visual elegante.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Explora Beauty Kafka',
+      description:
+        'Revisa la landing y entra a la tienda online para ver cómo podría funcionar una experiencia de venta beauty.',
+      channels: ['Tienda online', 'Categorías', 'WhatsApp'],
+    },
+  },
+  {
+    slug: 'regalos-kafka',
+    clientName: 'Regalos Kafka',
+    industry: 'Regalos & Detalles Personalizados',
+    summary:
+      'Demo conceptual para tiendas de regalos personalizados, boxes sorpresa y detalles especiales con tienda online por WhatsApp.',
+    shareImage:
+      'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=1200&q=84',
+    theme: {
+      primary: '#6f1d2a',
+      accent: '#df9b85',
+      background: '#fff4ed',
+      surface: '#ffffff',
+      muted: '#8b6a62',
+    },
+    hero: {
+      eyebrow: 'Regalos personalizados',
+      title: 'Los mejores momentos merecen un detalle especial',
+      description:
+        'Una experiencia comercial para vender boxes sorpresa, desayunos, tazas, chocolates y regalos románticos con una tienda online clara.',
+      cta: 'Explorar tienda online',
+    },
+    about: {
+      eyebrow: 'Demo conceptual',
+      title: 'Una vitrina cálida para vender detalles con intención',
+      description:
+        'Pensada para ordenar productos por categoría y momento, mostrar precios de referencia y llevar al visitante hacia la tienda online.',
+    },
+    services: [],
+    gallery: null,
+    optionalSections: {},
+    contact: {
+      title: 'Explora Regalos Kafka',
+      description:
+        'Revisa la landing y entra a la tienda online para ver cómo podría funcionar una experiencia de venta para regalos personalizados.',
+      channels: ['Tienda online', 'Boxes sorpresa', 'WhatsApp'],
+    },
+  },
+  {
     slug: 'god-pack-store',
     clientName: 'Godpackstore',
     industry: 'Tienda TCG',

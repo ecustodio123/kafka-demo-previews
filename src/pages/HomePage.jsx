@@ -118,6 +118,9 @@ const signals = [
 ]
 
 const featuredMockupSlugs = [
+  'accesorios-kafka',
+  'beauty-kafka',
+  'regalos-kafka',
   'floreria-kafka',
   'veterinaria-kafka',
   'veterinaria-kafka-2',
@@ -127,6 +130,12 @@ const featuredMockupSlugs = [
 ]
 
 const mockupFallbackImages = {
+  'accesorios-kafka':
+    'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=84',
+  'beauty-kafka':
+    'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=84',
+  'regalos-kafka':
+    'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=1200&q=84',
   'centro-de-conciliacion-kafka':
     'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=84',
   'floreria-kafka':
