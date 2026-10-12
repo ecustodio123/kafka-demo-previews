@@ -446,7 +446,7 @@ function FinalCta({ lift }) {
             <Badge className="border-white/50 bg-white/45 text-[#7a4543]">
               Beauty Kafka
             </Badge>
-            <h2 className="mt-5 max-w-3xl text-4xl font-black leading-none sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-black leading-none sm:text-5xl">
               Una tienda beauty debe sentirse tan cuidada como los productos que vende.
             </h2>
           </div>
@@ -489,7 +489,7 @@ function BeautyFooter() {
 
 function BeautyIntro({ dark = false, description, eyebrow, title }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge
         className={cn(
           'gap-2',

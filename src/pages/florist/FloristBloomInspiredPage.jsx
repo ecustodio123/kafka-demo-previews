@@ -666,7 +666,7 @@ function FloatingWhatsApp({ press }) {
 
 function SectionHeading({ dark = false, eyebrow, text, title }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge className={cn(dark ? 'border-white/18 bg-white/10 text-white' : 'border-[#f3ccd3] bg-[#fff1f3] text-[#b14f62]')}>
         <BadgePercent aria-hidden="true" size={14} />
         {eyebrow}

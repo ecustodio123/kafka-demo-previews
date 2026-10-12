@@ -200,7 +200,7 @@ function AccesoriosHero({ lift }) {
           <Badge className="border-[#d7c3a7] bg-white/58 text-[#604f3e]">
             Moda & accesorios
           </Badge>
-          <h1 className="mt-6 max-w-3xl font-serif text-[3.6rem] font-semibold leading-[0.86] text-[#1b1713] sm:text-7xl lg:text-[6rem]">
+          <h1 className="mt-6 font-serif text-[3.6rem] font-semibold leading-[0.86] text-[#1b1713] sm:text-7xl lg:text-[6rem]">
             Los detalles definen tu estilo.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-8 text-[#5f5449] sm:text-lg">
@@ -546,7 +546,7 @@ function FinalCta({ lift }) {
             <Badge variant="dark" className="border-white/15 bg-white/10 text-[#f5dcae]">
               Accesorios Kafka
             </Badge>
-            <h2 className="mt-5 max-w-3xl font-serif text-5xl font-semibold leading-none">
+            <h2 className="mt-5 font-serif text-5xl font-semibold leading-none">
               Una boutique online que deja que el producto respire.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
@@ -592,7 +592,7 @@ function AccesoriosFooter() {
 
 function AccesoriosIntro({ dark = false, eyebrow, title, description }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge
         className={cn(
           dark

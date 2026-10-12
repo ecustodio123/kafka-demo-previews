@@ -209,7 +209,7 @@ function RegalosHero({ lift }) {
       />
 
       <div className="mx-auto grid w-[min(1180px,calc(100%-32px))] gap-10 py-12 md:py-16 lg:min-h-[680px] lg:grid-cols-[1fr_0.92fr] lg:items-center">
-        <motion.div className="max-w-3xl" {...lift}>
+        <motion.div className="" {...lift}>
           <Badge className="border-[#efc7bc] bg-white/62 text-[#8c3542]">
             Regalos personalizados
           </Badge>
@@ -511,7 +511,7 @@ function FinalCta({ lift }) {
             <Badge variant="dark" className="border-white/15 bg-white/10">
               Regalos Kafka
             </Badge>
-            <h2 className="mt-5 max-w-3xl text-4xl font-black leading-none sm:text-5xl">
+            <h2 className="mt-5 text-4xl font-black leading-none sm:text-5xl">
               Convierte la duda de “qué le compro” en una experiencia fácil de elegir.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/70">
@@ -564,7 +564,7 @@ function RegalosFooter() {
 
 function RegalosIntro({ dark = false, description, eyebrow, title }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge
         className={cn(
           'gap-2',

@@ -478,7 +478,7 @@ function CheckoutModal({ checkout, checkoutData, isReady, onChange, onClose, the
       aria-modal="true"
       aria-labelledby="checkout-title"
     >
-      <div className="max-h-[92svh] w-full max-w-3xl overflow-y-auto rounded-[2rem] border border-white/20 bg-white shadow-[0_30px_120px_rgba(2,6,23,0.35)]">
+      <div className="max-h-[92svh] w-full overflow-y-auto rounded-[2rem] border border-white/20 bg-white shadow-[0_30px_120px_rgba(2,6,23,0.35)]">
         <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[#dfe5f1] bg-white/95 p-5 backdrop-blur sm:p-6">
           <div>
             <Badge className={cn('border-[#dfe5f1] bg-[#f5f7fb]', theme.accentText)}>
@@ -630,7 +630,7 @@ function CheckoutField({ inputMode, label, maxLength, name, onChange, placeholde
 
 function SectionIntro({ description, eyebrow, headingClassName, mutedClassName, theme, title }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge className={cn('border-neutral-200 bg-white', theme.accentText)}>
         {eyebrow}
       </Badge>

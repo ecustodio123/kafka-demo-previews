@@ -523,7 +523,7 @@ function FloatingWhatsApp({ press }) {
 
 function SectionHeading({ eyebrow, text, title }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge className="border-[3px] border-[#99f6e4] bg-white text-[#0f766e] shadow-none">{eyebrow}</Badge>
       <h2
         className="mt-5 text-4xl leading-[1.02] tracking-[-0.02em] text-[#134e4a] sm:text-5xl"

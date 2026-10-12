@@ -204,7 +204,7 @@ function Hero({ lift }) {
         aria-hidden="true"
       />
       <div className="mx-auto grid max-w-[1160px] gap-8 lg:grid-cols-[1fr_0.88fr] lg:items-center">
-        <div className="max-w-3xl">
+        <div className="">
           <Badge className="border-[#d7c7a7] bg-white/72 text-[#8a6428]">
             Centro de conciliación
           </Badge>

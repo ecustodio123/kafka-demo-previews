@@ -290,7 +290,7 @@ function EcommerceSection({ lift }) {
           <Badge variant="dark" className="border-white/15 bg-white/10">
             Nuevo servicio
           </Badge>
-          <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-none sm:text-5xl">
+          <h2 className="mt-5 text-4xl font-semibold leading-none sm:text-5xl">
             Tu negocio merece más que una vitrina digital. Ahora también puedes vender online.
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-8 text-white/68">
@@ -596,7 +596,7 @@ function FinalCta({ lift }) {
 
 function SectionIntro({ description, eyebrow, title }) {
   return (
-    <div className="max-w-3xl">
+    <div className="">
       <Badge className="gap-2">
         <Sparkles aria-hidden="true" size={14} />
         {eyebrow}
