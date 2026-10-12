@@ -7,16 +7,9 @@ import { Badge, Button } from '../components/ui/primitives'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-const storeId = import.meta.env.VITE_STORE_ID
+const envStoreId = import.meta.env.VITE_STORE_ID
 const whatsappPhone = import.meta.env.VITE_WHATSAPP_PHONE
 const storeName = import.meta.env.VITE_STORE_NAME || 'Kafka Store'
-
-const missingVariables = [
-  ['VITE_SUPABASE_URL', supabaseUrl],
-  ['VITE_SUPABASE_ANON_KEY o VITE_SUPABASE_PUBLISHABLE_KEY', supabaseAnonKey],
-  ['VITE_STORE_ID', storeId],
-  ['VITE_WHATSAPP_PHONE', whatsappPhone],
-].filter(([, value]) => !value)
 
 const commerceTheme = {
   background: '#f7f7f4',
@@ -30,12 +23,53 @@ const commerceTheme = {
   text: '#17211d',
 }
 
+function resolveStoreIdFromUrl() {
+  const path = window.location.pathname.replace(/\/$/, '') || '/'
+
+  if (path === '/kafka-store' || path === '/tiendas-prueba') {
+    return {
+      storeId: envStoreId,
+      missingVariables: [
+        ['VITE_STORE_ID', envStoreId],
+      ].filter(([, value]) => !value),
+    }
+  }
+
+  if (/^\/[^/]+\/stores$/.test(path)) {
+    const id = new URLSearchParams(window.location.search).get('id')
+    const isValidId = id ? /^[1-9]\d*$/.test(id) : false
+
+    return {
+      storeId: isValidId ? id : null,
+      storeError: isValidId
+        ? null
+        : 'No pudimos abrir esta tienda porque el enlace no incluye un ID de tienda válido.',
+      missingVariables: [],
+    }
+  }
+
+  return {
+    storeId: envStoreId,
+    missingVariables: [
+      ['VITE_STORE_ID', envStoreId],
+    ].filter(([, value]) => !value),
+  }
+}
+
 export function TiendasPruebaPage() {
+  const storeResolution = resolveStoreIdFromUrl()
+  const missingVariables = [
+    ['VITE_SUPABASE_URL', supabaseUrl],
+    ['VITE_SUPABASE_ANON_KEY o VITE_SUPABASE_PUBLISHABLE_KEY', supabaseAnonKey],
+    ['VITE_WHATSAPP_PHONE', whatsappPhone],
+    ...storeResolution.missingVariables,
+  ].filter(([, value]) => !value)
+
   const supabase = useMemo(() => {
     if (missingVariables.length > 0) return null
 
     return createClient(supabaseUrl, supabaseAnonKey)
-  }, [])
+  }, [missingVariables.length])
 
   useEffect(() => {
     document.title = 'Kafka Store | Tiendas online'
@@ -43,6 +77,10 @@ export function TiendasPruebaPage() {
       .querySelector('meta[name="description"]')
       ?.setAttribute('content', 'Descubre Kafka Store, nuestra solución de tiendas online personalizadas. Explora productos, categorías, ofertas y una experiencia de compra moderna.')
   }, [])
+
+  if (storeResolution.storeError) {
+    return <InvalidStoreLink message={storeResolution.storeError} />
+  }
 
   if (!supabase) {
     return <MissingCommerceConfig missingVariables={missingVariables.map(([name]) => name)} />
@@ -62,7 +100,7 @@ export function TiendasPruebaPage() {
         </div>
       </header>
 
-      <section className="px-4 py-4 sm:px-6 lg:px-8">
+      <section className="py-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1200px]">
           <CommerceStore
             checkout={{
@@ -77,7 +115,7 @@ export function TiendasPruebaPage() {
             }}
             gap="18px"
             layout="sections"
-            storeId={storeId}
+            storeId={storeResolution.storeId}
             storeName={storeName}
             supabase={supabase}
             theme={commerceTheme}
@@ -85,6 +123,33 @@ export function TiendasPruebaPage() {
             description=""
           />
         </div>
+      </section>
+    </main>
+  )
+}
+
+function InvalidStoreLink({ message }) {
+  return (
+    <main className="grid min-h-svh place-items-center bg-[#f7f7f4] px-4 py-16 text-[#17211d]">
+      <section className="w-full max-w-2xl rounded-[2rem] border border-neutral-200 bg-white p-6 shadow-[0_24px_80px_rgba(15,23,42,0.08)] sm:p-8">
+        <span className="grid size-12 place-items-center rounded-2xl bg-neutral-950 text-white">
+          <Settings aria-hidden="true" size={22} />
+        </span>
+        <Badge className="mt-6 border-rose-200 bg-rose-50 text-rose-800">
+          Enlace no válido
+        </Badge>
+        <h1 className="mt-5 text-4xl font-semibold leading-none">
+          No pudimos abrir esta tienda.
+        </h1>
+        <p className="mt-4 text-base leading-8 text-neutral-600">
+          {message}
+        </p>
+        <Button asChild className="mt-6 rounded-full">
+          <a href="/kafka-store">
+            <ArrowLeft aria-hidden="true" size={17} />
+            Ir a Kafka Store
+          </a>
+        </Button>
       </section>
     </main>
   )

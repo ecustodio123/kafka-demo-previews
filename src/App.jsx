@@ -22,6 +22,7 @@ function useDocumentMeta(mockup) {
 
 function App() {
   const path = window.location.pathname.replace(/\/$/, '') || '/'
+  const isStoreRoute = /^\/[^/]+\/stores$/.test(path)
   const slug = path.startsWith('/previews/')
     ? path.replace('/previews/', '')
     : path.replace('/', '')
@@ -32,6 +33,7 @@ function App() {
   let page = <NotFoundPage />
   if (path === '/') page = <HomePage />
   else if (path === '/kafka-store' || path === '/tiendas-prueba') page = <TiendasPruebaPage />
+  else if (isStoreRoute) page = <TiendasPruebaPage />
   else if (mockup) page = <MockupPage mockup={mockup} />
 
   return (
