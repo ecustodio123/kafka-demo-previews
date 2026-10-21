@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc -p tsconfig.commerce.json",
+    "test": "node --test tests/commerce/*.test.js"
   },
   "dependencies": {
-    "@ecustodio123/kafka-commerce": "0.2.3",
+    "@ecustodio123/kafka-commerce": "0.3.0",
     "@radix-ui/react-slot": "^1.3.3",
     "@supabase/supabase-js": "^2.117.3",
     "@tailwindcss/vite": "^4.3.3",
@@ -28,6 +30,7 @@
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
     "oxlint": "^1.81.0",
+    "typescript": "5.9.3",
     "vite": "^8.3.0"
   }
 }

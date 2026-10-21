@@ -13,7 +13,10 @@ npm run build
 ## Rutas
 
 - `/` muestra el showroom comercial con proyectos reales, mockups conceptuales y el nuevo servicio e-commerce.
-- `/tiendas-prueba` muestra Kafka Commerce renderizado desde el paquete `@ecustodio123/kafka-commerce`.
+- `/kafka-store` y `/tiendas-prueba` muestran la tienda predeterminada (`VITE_STORE_ID`).
+- `/kafka-store/:slug` resuelve el nombre público mediante `stores.slug` y entrega su ID a Kafka Commerce.
+- `/kafka-store/:id` mantiene acceso por ID entero positivo.
+- `/:slug/stores?id=:id` conserva los enlaces de las landings. El ID es obligatorio y nunca usa otra tienda como fallback.
 - `/floreria-kafka` muestra el mockup maestro para florerías.
 - `/veterinaria-kafka` muestra la primera plantilla para veterinarias.
 - `/veterinaria-kafka-2` muestra la segunda plantilla para veterinarias.
@@ -28,7 +31,7 @@ El proyecto está preparado para instalar el paquete privado desde GitHub Packag
 
 ```bash
 export GITHUB_PACKAGES_TOKEN=tu_token_con_acceso
-npm install @ecustodio123/kafka-commerce@0.1.0
+npm ci
 ```
 
 `.npmrc` configura el registry del scope y lee el token desde `GITHUB_PACKAGES_TOKEN`. En Cloudflare Pages agrega esa variable como Environment Variable para Production y Preview. No escribas el valor real del token en `.npmrc` ni en archivos versionados.
@@ -39,11 +42,31 @@ Variables públicas usadas por la tienda:
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 VITE_STORE_ID=
-VITE_STORE_NAME=Kafka Commerce Demo
+VITE_STORE_NAME=Kafka Store
 VITE_WHATSAPP_PHONE=51999999999
+VITE_STORE_WHATSAPP_PHONES={}
 ```
 
 También se acepta `VITE_SUPABASE_PUBLISHABLE_KEY` como alternativa a `VITE_SUPABASE_ANON_KEY`.
+
+Kafka Store consume la API pública de `@ecustodio123/kafka-commerce@0.3.0` y sus estilos, importados una sola vez en `src/main.jsx`. Usa navegación `standalone` y el bucket `product-images`, como la integración de referencia en Veterinaria Cueva, con un tema neutral propio.
+
+El cliente Supabase público es único y no conserva sesiones. La lectura de `stores` solicita únicamente `id,name,slug`, con filtro por ID o slug y las RLS vigentes. El paquete consulta productos y categorías activos por el ID resuelto, y separa carrito y favoritos por tienda. Al cambiar de tienda se desmonta la anterior, incluyendo sus datos, filtros y checkout.
+
+Para habilitar pedidos en varias tiendas, configura `VITE_STORE_WHATSAPP_PHONES` con JSON por ID, por ejemplo `{"3":"51999999999","6":"51888888888"}`. `VITE_WHATSAPP_PHONE` y `VITE_STORE_NAME` solo son valores predeterminados de `VITE_STORE_ID`; no se reutilizan para otros clientes. Si falta un teléfono válido, el catálogo sigue disponible y el paquete deshabilita el checkout. Los teléfonos son configuración pública, no credenciales.
+
+**Antes de publicar:** la clave pública debe poder leer las filas necesarias de `stores` para resolver slugs. Si una fila no es visible, se muestra un error sin recurrir a `VITE_STORE_ID`. Los enlaces por ID pueden seguir mostrando su catálogo aunque su metadata no sea visible. No se modifican SQL, RLS ni infraestructura desde esta integración.
+
+Validaciones de la integración:
+
+```bash
+npm run typecheck
+npm test
+npm run lint
+npm run build
+```
+
+El typecheck está acotado a `src/lib/commerce` y comprueba las props contra los tipos públicos del paquete. Los tests verifican rutas, resolución pública, aislamiento, configuración de checkout y consultas del paquete sin escribir en Supabase ni enviar mensajes.
 
 ## Agregar un nuevo cliente
 
@@ -62,7 +85,7 @@ Al compilar (`npm run build`) se genera un `dist/<slug>.html` y un `dist/preview
 
 El sitio se publica en Cloudflare Pages. No hace falta un `_redirects` para el modo SPA: sin `404.html`, Pages envía las rutas desconocidas a `index.html`. No agregues `/* /index.html 200`, porque en Pages esa regla se aplica aunque exista el archivo y taparía los HTML de cada mockup.
 
-Cada demo sale solo de configuración local. No hay backend, login, CMS ni base de datos.
+Las landings salen de configuración local; el catálogo de Kafka Commerce se lee desde Supabase usando la configuración pública del proyecto.
 
 ## Estructura
 

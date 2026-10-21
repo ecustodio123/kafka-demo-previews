@@ -1,75 +1,40 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import { CommerceStore } from '@ecustodio123/kafka-commerce'
-import { createClient } from '@supabase/supabase-js'
 import { ArrowLeft, Settings } from 'lucide-react'
 
 import { Badge, Button } from '../components/ui/primitives'
+import { commerceSupabase, missingCommerceConfig } from '../lib/commerce/supabase.js'
+import { loadPublicStore, resolveStoreRoute } from '../lib/commerce/storefront.js'
+import { getStoreProps } from '../lib/commerce/storeProps.js'
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY
-const envStoreId = import.meta.env.VITE_STORE_ID
-const whatsappPhone = import.meta.env.VITE_WHATSAPP_PHONE
-const storeName = import.meta.env.VITE_STORE_NAME || 'Kafka Store'
-
-const commerceTheme = {
-  background: '#f7f7f4',
-  border: '#dfe5e1',
-  fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
-  mutedText: '#647067',
-  primary: '#111827',
-  primaryText: '#ffffff',
-  radius: '18px',
-  surface: '#ffffff',
-  text: '#17211d',
-}
-
-function resolveStoreIdFromUrl() {
-  const path = window.location.pathname.replace(/\/$/, '') || '/'
-
-  if (path === '/kafka-store' || path === '/tiendas-prueba') {
-    return {
-      storeId: envStoreId,
-      missingVariables: [
-        ['VITE_STORE_ID', envStoreId],
-      ].filter(([, value]) => !value),
-    }
-  }
-
-  if (/^\/[^/]+\/stores$/.test(path)) {
-    const id = new URLSearchParams(window.location.search).get('id')
-    const isValidId = id ? /^[1-9]\d*$/.test(id) : false
-
-    return {
-      storeId: isValidId ? id : null,
-      storeError: isValidId
-        ? null
-        : 'No pudimos abrir esta tienda porque el enlace no incluye un ID de tienda válido.',
-      missingVariables: [],
-    }
-  }
-
-  return {
-    storeId: envStoreId,
-    missingVariables: [
-      ['VITE_STORE_ID', envStoreId],
-    ].filter(([, value]) => !value),
-  }
+const storefrontConfig = {
+  defaultStoreId: import.meta.env.VITE_STORE_ID,
+  defaultStoreName: import.meta.env.VITE_STORE_NAME,
+  defaultPhone: import.meta.env.VITE_WHATSAPP_PHONE,
+  storePhones: import.meta.env.VITE_STORE_WHATSAPP_PHONES,
 }
 
 export function TiendasPruebaPage() {
-  const storeResolution = resolveStoreIdFromUrl()
-  const missingVariables = [
-    ['VITE_SUPABASE_URL', supabaseUrl],
-    ['VITE_SUPABASE_ANON_KEY o VITE_SUPABASE_PUBLISHABLE_KEY', supabaseAnonKey],
-    ['VITE_WHATSAPP_PHONE', whatsappPhone],
-    ...storeResolution.missingVariables,
-  ].filter(([, value]) => !value)
+  const [resolution, setResolution] = useState({ loading: true, props: null, error: null })
 
-  const supabase = useMemo(() => {
-    if (missingVariables.length > 0) return null
+  useEffect(() => {
+    if (!commerceSupabase) return
+    const controller = new AbortController()
 
-    return createClient(supabaseUrl, supabaseAnonKey)
-  }, [missingVariables.length])
+    async function loadStore() {
+      try {
+        const route = resolveStoreRoute(window.location.pathname, window.location.search, storefrontConfig.defaultStoreId)
+        const store = await loadPublicStore(commerceSupabase, route, controller.signal)
+        const props = getStoreProps(commerceSupabase, store, storefrontConfig)
+        if (!controller.signal.aborted) setResolution({ loading: false, props, error: null })
+      } catch (error) {
+        if (!controller.signal.aborted) setResolution({ loading: false, props: null, error: error.message })
+      }
+    }
+
+    loadStore()
+    return () => controller.abort()
+  }, [])
 
   useEffect(() => {
     document.title = 'Kafka Store | Tiendas online'
@@ -78,13 +43,11 @@ export function TiendasPruebaPage() {
       ?.setAttribute('content', 'Descubre Kafka Store, nuestra solución de tiendas online personalizadas. Explora productos, categorías, ofertas y una experiencia de compra moderna.')
   }, [])
 
-  if (storeResolution.storeError) {
-    return <InvalidStoreLink message={storeResolution.storeError} />
+  if (!commerceSupabase) {
+    return <MissingCommerceConfig missingVariables={missingCommerceConfig} />
   }
 
-  if (!supabase) {
-    return <MissingCommerceConfig missingVariables={missingVariables.map(([name]) => name)} />
-  }
+  if (resolution.error) return <InvalidStoreLink message={resolution.error} />
 
   return (
     <main className="min-h-svh bg-[#f7f7f4] text-[#17211d]">
@@ -94,34 +57,23 @@ export function TiendasPruebaPage() {
             <ArrowLeft aria-hidden="true" size={17} />
             Volver al showroom
           </a>
-          {/* <Badge className="border-emerald-200 bg-emerald-50 text-emerald-700">
-            Tienda conectada con Kafka Commerce
-          </Badge> */}
         </div>
       </header>
 
       <section className="py-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[1200px]">
-          <CommerceStore
-            checkout={{
-              phone: whatsappPhone,
-              type: 'whatsapp',
-            }}
-            columns={3}
-            features={{
-              cart: true,
-              filters: true,
-              search: true,
-            }}
-            gap="18px"
-            layout="sections"
-            storeId={storeResolution.storeId}
-            storeName={storeName}
-            supabase={supabase}
-            theme={commerceTheme}
-            title="Kafka Store"
-            description=""
-          />
+          {resolution.loading ? (
+            <p className="px-4 py-16 text-center text-neutral-600" role="status">Cargando tienda…</p>
+          ) : (
+            <>
+              {!resolution.props.checkout && (
+                <p className="mb-4 rounded-lg border border-neutral-200 bg-white p-4 text-sm text-neutral-600" role="status">
+                  Puedes explorar el catálogo y guardar tu selección. Los pedidos por WhatsApp aún no están habilitados para esta tienda.
+                </p>
+              )}
+              <CommerceStore key={resolution.props.storeId} {...resolution.props} />
+            </>
+          )}
         </div>
       </section>
     </main>
